@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<script>
+			function validateAlphaNumChars()
+			{
+				var code = event.keyCode;				
+				alert( event.keyCode);
+				if(!(( code> 96 && code<123) || (code> 64 && code<91) || (code> 43 && code<58)|| 
+					code==40 || code==41 || code==92 || code==32 || code==35 || code==95 || code==38 || code==39)) return false;				
+			}		
+		</script>
+	</head>
+	<body onload="window.menubar.visible=false;" >
+		<input type="text" id="xxx" onkeypress="return validateAlphaNumChars()">
+	</body>
+</html>

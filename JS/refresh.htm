@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+			<script>
+var x;
+     document.onkeydown = function ()
+    {
+      document.body.innerHTML += event.keyCode.toString() + "&nbsp;&nbsp;";
+	event.keyCode=0;
+	
+	return false;    
+    };
+    function f()
+    {
+     if(x)
+	{
+	 window.moveBy(2,2);
+	 x=false;
+	 }
+	 else
+	 {
+		window.moveBy(-2,-2);
+	 x=true;
+	 }
+	 setTimeout("f()",50);
+    }
+    </script>
+	</head>
+
+	<body onload="f()">
+		
+	</body>
+</html>

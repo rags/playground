@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+    //excel.StartEdit = excel_EndEdit;
+    function excel_EndEdit(evt)
+    {
+      alert(evt.EditData);      
+    }
+    function X()
+    {
+      excel.EndEdit=excel_EndEdit;
+    }
+    
+    </script>
+    <script language="vbscript">    
+sub excel_StartEdit(evt)
+  if(evt.Range.Row>5 and evt.Range.Row<8 and evt.Range.Column>0 and evt.Range.Column<5) then
+    evt.ReturnValue = False
+  end if  
+end sub
+'sub excel_EndEdit(evt)
+'  evt.ReturnValue = False
+'  msgbox  evt.EditData
+'end sub
+    </script>
+  </head>
+  <body onload=X()>
+    <OBJECT id="excel" height="100%" width="100%" classid="clsid:0002E510-0000-0000-C000-000000000046" VIEWASTEXT>
+      <PARAM NAME="HTMLURL" VALUE="">
+      <PARAM NAME="HTMLData" VALUE="<html xmlns:x=&quot;urn:schemas-microsoft-com:office:excel&quot;&#13;&#10;xmlns=&quot;http://www.w3.org/TR/REC-html40&quot;>&#13;&#10;&#13;&#10;<head>&#13;&#10;<style type=&quot;text/css&quot;>&#13;&#10;<!--tr&#13;&#10;	{mso-height-source:auto;}&#13;&#10;td&#13;&#10;	{white-space:nowrap;}&#13;&#10;.wc0934F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:verdana;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:8pt;&#13;&#10;	font-weight:auto;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:white;&#13;&#10;	mso-color-source:auto;&#13;&#10;	text-align:general;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:none;&#13;&#10;	border-left:none;&#13;&#10;	border-right:none;&#13;&#10;	border-bottom:none;&#13;&#10;	mso-protection:locked;}&#13;&#10;.wc06F0F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:Arial;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:15pt;&#13;&#10;	font-weight:700;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:black;&#13;&#10;	color:red;&#13;&#10;	text-align:center;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:none;&#13;&#10;	border-left:none;&#13;&#10;	border-right:none;&#13;&#10;	border-bottom:none;&#13;&#10;	mso-protection:locked;}&#13;&#10;.wc8DF0F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:Arial;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:15pt;&#13;&#10;	font-weight:700;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:black;&#13;&#10;	color:red;&#13;&#10;	text-align:center;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:none;&#13;&#10;	border-left:none;&#13;&#10;	border-right:none;&#13;&#10;	border-bottom:none;&#13;&#10;	mso-protection:locked;}&#13;&#10;.wc0501F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:Arial;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:15pt;&#13;&#10;	font-weight:700;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:black;&#13;&#10;	color:red;&#13;&#10;	text-align:center;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:none;&#13;&#10;	border-left:none;&#13;&#10;	border-right:none;&#13;&#10;	border-bottom:none;&#13;&#10;	mso-protection:locked;}&#13;&#10;.wcC111F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:verdana;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:8pt;&#13;&#10;	font-weight:auto;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:white;&#13;&#10;	mso-color-source:auto;&#13;&#10;	text-align:general;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:solid .5pt silver;&#13;&#10;	border-left:solid .5pt silver;&#13;&#10;	border-right:solid .5pt silver;&#13;&#10;	border-bottom:solid .5pt silver;&#13;&#10;	mso-protection:locked;}&#13;&#10;.wcCE11F74&#13;&#10;	{white-space:nowrap;&#13;&#10;	font-family:verdana;&#13;&#10;	mso-number-format:General;&#13;&#10;	font-size:8pt;&#13;&#10;	font-weight:700;&#13;&#10;	font-style:auto;&#13;&#10;	text-decoration:auto;&#13;&#10;	background:#4E86D9;&#13;&#10;	color:white;&#13;&#10;	text-align:general;&#13;&#10;	vertical-align:bottom;&#13;&#10;	border-top:solid .5pt silver;&#13;&#10;	border-left:solid .5pt silver;&#13;&#10;	border-right:solid .5pt silver;&#13;&#10;	border-bottom:solid .5pt silver;&#13;&#10;	mso-protection:locked;}&#13;&#10;-->&#13;&#10;</style>&#13;&#10;</head>&#13;&#10;&#13;&#10;<body>&#13;&#10;<!--[if gte mso 9]><xml>&#13;&#10; <x:ExcelWorkbook>&#13;&#10;  <x:ExcelWorksheets>&#13;&#10;   <x:ExcelWorksheet>&#13;&#10;    <x:OWCVersion>9.0.0.3821</x:OWCVersion>&#13;&#10;    <x:Label Style='border-top:solid .5pt silver;border-left:solid .5pt silver;&#13;&#10;     border-right:solid .5pt silver;border-bottom:solid .5pt silver'>&#13;&#10;     <x:Caption>Microsoft Office Spreadsheet</x:Caption>&#13;&#10;    </x:Label>&#13;&#10;    <x:Name>Sheet1</x:Name>&#13;&#10;    <x:WorksheetOptions>&#13;&#10;     <x:Selected/>&#13;&#10;     <x:Height>15875</x:Height>&#13;&#10;     <x:Width>26379</x:Width>&#13;&#10;     <x:DoNotDisplayTitleBar/>&#13;&#10;     <x:DoNotDisplayToolBar/>&#13;&#10;     <x:ViewableRange>1:65536</x:ViewableRange>&#13;&#10;     <x:Selection>A1</x:Selection>&#13;&#10;     <x:TopRowVisible>0</x:TopRowVisible>&#13;&#10;     <x:LeftColumnVisible>0</x:LeftColumnVisible>&#13;&#10;     <x:ProtectContents>False</x:ProtectContents>&#13;&#10;     <x:DefaultRowHeight>210</x:DefaultRowHeight>&#13;&#10;     <x:StandardWidth>2340</x:StandardWidth>&#13;&#10;    </x:WorksheetOptions>&#13;&#10;   </x:ExcelWorksheet>&#13;&#10;  </x:ExcelWorksheets>&#13;&#10;  <x:MaxHeight>80%</x:MaxHeight>&#13;&#10;  <x:MaxWidth>80%</x:MaxWidth>&#13;&#10; </x:ExcelWorkbook>&#13;&#10;</xml><![endif]-->&#13;&#10;&#13;&#10;<table class=wc0934F74 x:str>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <col class=wc0934F74 width=&quot;100%&quot;>&#13;&#10; <tr style='mso-xlrowspan:1'>&#13;&#10; </tr>&#13;&#10; <tr height=&quot;27&quot; style='mso-height-alt:405'>&#13;&#10;  <td class=wc06F0F74 colspan=&quot;10&quot;>&nbsp;versio test</td>&#13;&#10; </tr>&#13;&#10; <tr style='mso-xlrowspan:3'>&#13;&#10; </tr>&#13;&#10; <tr height=&quot;14&quot;>&#13;&#10;  <td class=wcC111F74></td>&#13;&#10;  <td class=wcCE11F74>Episodes</td>&#13;&#10;  <td class=wcCE11F74>Payment</td>&#13;&#10;  <td class=wcCE11F74>Payment per Episode</td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10; </tr>&#13;&#10; <tr height=&quot;14&quot;>&#13;&#10;  <td class=wcCE11F74>All Primary Diagnosis</td>&#13;&#10;  <td class=wcC111F74 x:num=&quot;6201&quot;></td>&#13;&#10;  <td class=wcC111F74 x:num=&quot;1884439.86&quot;></td>&#13;&#10;  <td class=wcC111F74 x:num=&quot;303.89&quot;></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10;  <td class=wc0934F74></td>&#13;&#10; </tr>&#13;&#10;</table>&#13;&#10;&#13;&#10;</body>&#13;&#10;&#13;&#10;</html>&#13;&#10;">
+      <PARAM NAME="DataType" VALUE="HTMLDATA">
+      <PARAM NAME="AutoFit" VALUE="-1">
+      <PARAM NAME="DisplayColHeaders" VALUE="-1">
+      <PARAM NAME="DisplayGridlines" VALUE="-1">
+      <PARAM NAME="DisplayHorizontalScrollBar" VALUE="-1">
+      <PARAM NAME="DisplayRowHeaders" VALUE="-1">
+      <PARAM NAME="DisplayTitleBar" VALUE="0">
+      <PARAM NAME="DisplayToolbar" VALUE="0">
+      <PARAM NAME="DisplayVerticalScrollBar" VALUE="-1">
+      <PARAM NAME="EnableAutoCalculate" VALUE="-1">
+      <PARAM NAME="EnableEvents" VALUE="-1">
+      <PARAM NAME="MoveAfterReturn" VALUE="-1">
+      <PARAM NAME="MoveAfterReturnDirection" VALUE="0">
+      <PARAM NAME="RightToLeft" VALUE="0">
+      <PARAM NAME="ViewableRange" VALUE="1:65536">
+    </OBJECT>
+  </body>
+</html>

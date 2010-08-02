@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<script>
+			function showTT()
+			{
+				msg="<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,2,0' width=457 height=362>" +
+						"<param name=movie value='file:///C:\Documents and Settings\Administrator\Desktop\atmosphere.swf' />" +
+						"<param name=quality value=high />"  +
+						"<param name=SCALE value=exactfit />" +
+						"<embed src='file:///C:\Documents and Settings\Administrator\Desktop\atmosphere.swf' quality=high pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'></embed>" +
+						"</object>";	
+						doPopUp(msg,457,362);
+			}
+			var imgWidth,imgHeight;
+			function showGif()
+			{
+				var url = "file:///D:/rags/mails/ATT00033.gif";				
+				msg= "<img src='" + url + "'>"
+				//document.write(msg)
+				getImageDimensions(url);
+				doPopUp(msg,imgWidth,imgHeight);
+				return false;
+			}
+			function getImageDimensions(url)
+			{
+				var htmlBody = document.body;
+				var dynaImg = document.createElement("<img src='" + url + "'>");
+				htmlBody.appendChild(dynaImg);
+				imgWidth=dynaImg.width ;
+				imgHeight=dynaImg.height;
+				htmlBody.removeChild(dynaImg);			    
+			}
+			function doPopUp(msg,width,height)
+			{
+				var oPopup = window.createPopup();
+				var oPopBody = oPopup.document.body;
+				//oPopBody.style.backgroundColor = backColor;
+				//oPopBody.style.color =  fontColor;
+				//oPopBody.style.font="bold 14px Arial";     
+				//oPopBody.style.border = "solid black 1px";     
+				//oPopup.show(screen.availHeight/2 - height/2, screen.availWidth/2 - width/2, width, height, document.body);
+				oPopup.show(event.clientX, event.clientY, width, height, document.body);
+				oPopBody.innerHTML = "<div align=center vlaign=middle height="+height+">" +msg+"</div>";    	     
+				return oPopup;
+			}
+		</script>
+	</head>
+	<body oncontextmenu="return showTT()" bgcolor="red">
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+<body>
+<script>
+htmlEncode();
+function htmlEncode()
+{
+  var str = new String('&<HTml x="y">&</html>\' \'&nbsp;&gt;]]>');
+  /*str =  str.replace(/&/g,"&amp;");
+  str =  str.replace(/"/g,"&quot;");
+  str =  str.replace(new RegExp("<","g"),"&lt;");
+  str =  str.replace(new RegExp(">","g"),"&gt;");*/
+  str =  str.replace(/]]>/g,"]]&gt;");
+  alert(str);
+  
+}
+</script>
+
+
+</body>
+</html>

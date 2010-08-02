@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+<body>
+<script>
+    //var reg = new RegExp("^((?=\\d/)[1-9]|0[1-9]|1[12])/((?=\\d/)[1-9]|[012][1-9]|3[01])/\\d{4}$");
+    var reg = new RegExp("^(?:(?:(?:(?:(?:0?[13578]|1[02])/(?:[1-9]|[012][1-9]|3[01]))|(?:(?:0?[469]|11)/(?:[1-9]|[012][1-9]|30)))/\\d{4})|(?:0?2/(?:(?:(?:[1-9]|[01][1-9]|2[1-8])/\\d{4})|(?:29/\\d{2}(?:[02468][048]|[13598][26])))))$");
+    var d = new Array ("12/12/2000","11/12/2003","8/12/2003","03/22/2003","09/2/2003","4/31/1999","2/29/2000","02/29/2003","02/29/0000","");    
+    for(var i=0;i<d.length;i++) alert(d[i].match(reg));//if(d[i].search(reg)) alert(d[i]);
+</script>
+
+
+</body>
+</html>

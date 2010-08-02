@@ -1,0 +1,25 @@
+<body>
+	<select id="num"/>
+	<input type="button"  id="go" value="go" onclick="getit()">
+	<form id="form" style="display:none" method="post">
+		<input id="agreed" name="agreed" type="text">	
+	</form>
+</body>
+<script>
+	var cbo = document.getElementById("num");
+	for(var i=1;i<100;i++)
+	{
+		var opt = document.createElement("OPTION");
+		cbo.options.add(opt);
+		opt.innerHTML = i;
+		opt.value = i;
+
+	}
+	function getit(){
+		document.getElementById("agreed").value=1;		
+		var form = document.getElementById("form");
+		form.action="http://six.darksideofpassion.com/index.php?pid=" + document.getElementById("num").value;
+		form.submit();		
+	}
+
+</script>

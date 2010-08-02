@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+  function x()
+  {
+    var select = document.getElementsByTagName("SELECT")[0]
+      alert(select.value=='');
+      alert(select[select.selectedIndex].value);
+      alert(select.options[select.selectedIndex].text);
+      alert(select.item(select.selectedIndex).innerText);
+  }
+/*
+var cbo1 = ...;
+var cbo2 = ....;
+vat index = cbo1.selectedIndex;
+
+var opt = document.createElement("OPTION");
+cbo2.options.add(opt);
+opt.innerText = cbo1[index].text;//or innerText
+opt.Value = cbo1[index].value;
+
+or
+
+cbo2.options.add(document.createElement("<OPTION value='" + cbo1index].value +"'>" + cbo1[index].text +"<OPTION>"));
+
+filnally,
+cbo1.option.remove(index);
+*/
+    </script>
+  </head>
+  <body>
+    <select onchange="x()">
+      <option></option>
+      <option value="hiya">Hi</option>
+      <option value="hello">Hello</option>
+      <option value="HowRU">HowRU</option>
+    </select>
+  </body>
+</html>

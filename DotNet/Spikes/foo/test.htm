@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>MDX Web demo</title>
+</head>
+<form name="connectInfo" action="MDXQuery.asp" method="get">
+Server: <input type="TEXT" name="server" value="localhost" size=20><br>
+Database: <input type="TEXT" name="database" value="Foodmart" size=20><br>
+Cube: <input type="TEXT" name="cube" value="Sales" size=20><br>
+<p>
+Column Dimension: <input type="TEXT" name="column dimension" value="Measures" size=40><br>
+Columns: <input type="TEXT" name="columns" value="measures.members" size=40><br>
+Row Dimension: <input type="TEXT" name="row dimension" value="Store" size=40><br>
+Rows: <input type="TEXT" name="rows" value="[Store].[(All)].members" size=40><br>
+Where: <input type="TEXT" name="where" value="" size=40><br>
+<p>
+<input type=submit value="Send">
+</form>
+<body>
+
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+﻿
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The account name is invalid or does not exist, or the password is invalid for the account name specified
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The trust relationship between this workstation and the primary domain failed
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The trust relationship between this workstation and the primary domain failed
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The trust relationship between this workstation and the primary domain failed
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service has been marked for deletion
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+An exception occurred during the uninstallation of the System.Configuration.Install.AssemblyInstaller installer.
+System.ArgumentException: The savedState dictionary contains inconsistent data and might have been corrupted.
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\documents and settings\raghunandanr\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service already exists
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service has been marked for deletion
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service has been marked for deletion
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service has been marked for deletion
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+An exception occurred during the Install phase.
+System.ComponentModel.Win32Exception: The specified service has been marked for deletion
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.exe assembly's progress.
+The file is located at c:\docume~1\raghun~1\desktop\temp\dotnet\remote\server.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.

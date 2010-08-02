@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+  </head>
+  <script src="script2.js"></script>
+  <script src="script1.js" ></script>  
+  <script>
+    /*x("maga");
+    x(10);
+    x(10,20);
+     y("hi");
+     y(); 
+    */
+    x(null==undefined,10);
+    pass();
+    function pass()
+    {
+      var param = 10;
+      alert("before: " +param);
+      passByRef(param);
+      alert("after: " +param);
+     }
+    function passByRef(param)
+    {      
+      param  = 20;
+      alert("In: " + param);
+    }
+    function x()
+    {      
+      alert("hi");
+    }    
+    function x(x)
+    {
+      alert("1 param");
+      alert(x)
+    }
+    function x(x,y)
+    {
+      alert(x+" " +y);
+    }
+  </script>
+  <body onload="">
+  </body>
+</html>

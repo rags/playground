@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+        <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+        <script>
+            function showTip()
+            {   
+                var _event = window.event || arguments.callee.caller.arguments[0];
+                var toolTip = document.getElementById("tt");
+                toolTip.innerText = "tool tip";        
+                var top = _event.clientY;
+                var left = _event.clientX;
+                var ttWidth = getInt(toolTip.style.width);
+                var ttHeight = getInt(toolTip.style.height);
+                var bodyWidth = getInt(document.body.clientWidth);
+                var bodyHeight = getInt(document.body.clientHeight);                
+                if(top + ttHeight > bodyHeight  )
+                {
+                    top =  bodyHeight - ttHeight - 2;                
+                }
+                if(left  + ttWidth > bodyWidth)
+                {
+                    left = bodyWidth - ttWidth - 2;
+                }                
+                top += getInt(document.body.scrollTop);
+                left += getInt(document.body.scrollLeft);                
+                toolTip.style.top = top;
+                toolTip.style.left = left;
+                toolTip.style.display="block";        
+            }
+            //function to get interger part of measurements like width,height,top,left
+            //12px,34pt or just 100 
+            function getInt(str)
+            {  
+                if(str && str.constructor && str.constructor == String)
+                {
+                    return parseInt(str.match(new RegExp("^\\d+"))[0]);                
+                }
+                return str; 
+            }
+            function hideTip()
+            {
+                document.getElementById("tt").style.display="none";
+            }
+        </script>
+    </head>
+    
+    <body>
+        <a href="#" onmouseover="showTip()" onmouseout="hideTip()">link1</a> 
+        <a  onmouseover="showTip()"  onmouseout="hideTip()" style="position:absolute;top:10;left:1000" href="#">link1</a>
+        <a  onmouseover="showTip()"  onmouseout="hideTip()"style="position:absolute;left:10;top:1000" href="#">link1</a>
+        <div style="position:absolute;border: 1px black;background-color:lightyellow;color:black;display:none;width:150;height:20" id="tt" nowrap>ok ok ok</div>
+    </body>
+</html>

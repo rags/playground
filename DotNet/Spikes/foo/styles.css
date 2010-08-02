@@ -1,0 +1,89 @@
+.axisXCell {
+	color:#FFFFFF; 
+	background-color:#0000C0; 
+	font-variant:small-caps; 
+	text-align:center;
+	cursor:hand
+}
+
+.axisYCell {
+	color:#FFFFFF; 
+	background-color:#0000C0; 
+	font-variant:small-caps; 
+	text-align:left;
+	cursor:hand
+}
+
+.dataCell {
+	color:#000000;
+	background-color:#FFFFC0; 
+	text-align:right;
+}
+
+.dataCell0 {
+	color:#000000;
+	background-color:#FFFF90; 
+	text-align:right;
+	border: outset 2px;
+}
+
+.dataCell1 {
+	color:#000000;
+	background-color:#FFFFB0; 
+	text-align:right;
+	border: outset 1px;
+}
+
+.dataCell2 {
+	color:#000000;
+	background-color:#FFFFD0; 
+	text-align:right;
+}
+
+.dataCell3 {
+	color:#000000;
+	background-color:#FFFFF0; 
+	text-align:right;
+}
+
+.Dimension {
+	position:absolute; 
+	color:blue; 
+	left:30; 
+	top:30;
+	cursor:hand;
+}
+
+.DimensionSlice {
+	position:absolute; 
+	color:blue; 
+	left:200; 
+	top:30;
+	cursor:hand;
+}
+
+body {
+	background-color:#FFFFFF;
+}
+
+.invisibleForm {
+	visibility:hidden;
+	position:absolute;
+	top:700;	
+}
+
+.resultTable {
+	position:absolute;
+	border-collapse:collapse;
+	left:30;
+	top:300;
+}
+
+
+.Member {
+	font-family:Arial;
+	font-size:10pt;
+	color:blue; 
+	cursor:default;
+	border-style:none;
+}

@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelControl", "ExcelControl.csproj", "{170194EC-8E9F-4147-A9CC-150CEA3A5C88}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{ACFD4F6C-15D4-451B-9331-6F0024380A96}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{170194EC-8E9F-4147-A9CC-150CEA3A5C88}.Debug.ActiveCfg = Debug|.NET
+		{170194EC-8E9F-4147-A9CC-150CEA3A5C88}.Debug.Build.0 = Debug|.NET
+		{170194EC-8E9F-4147-A9CC-150CEA3A5C88}.Release.ActiveCfg = Release|.NET
+		{170194EC-8E9F-4147-A9CC-150CEA3A5C88}.Release.Build.0 = Release|.NET
+		{ACFD4F6C-15D4-451B-9331-6F0024380A96}.Debug.ActiveCfg = Debug|.NET
+		{ACFD4F6C-15D4-451B-9331-6F0024380A96}.Debug.Build.0 = Debug|.NET
+		{ACFD4F6C-15D4-451B-9331-6F0024380A96}.Release.ActiveCfg = Release|.NET
+		{ACFD4F6C-15D4-451B-9331-6F0024380A96}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

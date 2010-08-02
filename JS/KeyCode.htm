@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</head>
+	<body onkeydown="return false" onkeypress="return false" onkeyup="return false">
+		<script>
+	document.onkeyup=x;
+	document.onkeydown=y;
+	var boolAltKey=false;
+	function x()
+	{	
+		if(window.event.keyCode==9 && boolAltKey)
+		{  
+			boolAltKey=false;
+			window.focus();	
+		}	   
+		 if(window.event.keyCode==18)  boolAltKey=true;
+	}
+	function y()
+	{			
+		if(window.event.keyCode==18)  boolAltKey=true;
+	}
+		</script>
+	</body>
+</html>

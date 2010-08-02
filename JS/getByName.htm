@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		
+	</head>
+	<body>	
+	<form>
+	<input type="checkbox" NAME="rags" ID="Hidden2" >
+	<input type="checkbox" name="rags" ID="Hidden1">
+	<P>
+<SPAN ID="oSpan" UNSELECTABLE="on" >This text cannot be selected.
+<P>
+<TEXTAREA WRAP="PHYSICAL" ROWS="5" STYLE="font-weight: bold;" ID="oTextarea" NAME="oTextarea">
+This text can be selected and overwritten.
+</TEXTAREA>
+</P>
+This text closes the SPAN and cannot be selected either.
+</SPAN>
+</P>
+
+	</form> 
+	<xml id="xxx" ></xml> 
+	
+	</body> 
+	<script>
+		alert(document.getElementsByName("rags").length);		
+		var allele = document.all;		
+		for(var i=0;i<allele.length;i++) 
+      allele[i].unselectable="on";
+      //xxx.async=false;
+      xxx.src="file:///D:\Temp\XMLFormat.xml"
+      x();
+      function x()
+      {
+       //alert(xxx.readyState);
+       if(xxx.readyState=="complete") alert(xxx.xml);
+       else setTimeout("x();",1000);
+      }
+	</script>
+</html>

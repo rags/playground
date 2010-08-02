@@ -1,0 +1,28 @@
+<script>
+function Y(le) {
+    alert(-1  + " " + le);
+    return function (f) {
+        alert(0 + " " + f(f));
+        return f(f);
+    }(function (f) {
+        return le(function (x) {
+            alert(1 + " " + f); 
+            return f(f)(x);
+        });
+    });
+}
+
+var factorial = Y(function (fac) {
+    return function (n) {
+        alert(2 + " " + fac);
+        return n <= 2 ? n : n * fac(n - 1);
+    };
+});
+
+/*var sqrt = Y(function (sqrt){
+    return function(x){ return 0.000000000001>x-sqrt(?x:sqrt(x);}              
+});*/
+
+alert(factorial(5));
+
+</script>

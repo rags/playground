@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+    function dragged(ele)
+    {
+      if(event.button==0) 
+      ele.style.backgroundColor=(ele.style.backgroundColor=="red")?"":"red";      
+      event.cancelBubble=true;
+      event.returnValue=false;
+      return false;
+    }    
+      
+    </script>
+  </head>
+  <body>
+  <table>
+  <tr><td onmouseleave="return dragged(this);">1</td><td onmouseleave="return dragged(this);">3</td><td onmouseleave="return dragged(this);">5</td><td onmouseleave="return dragged(this);">7</td><td onmouseleave="return dragged(this);">9</td><td onmouseleave="return dragged(this);">a</td><td onmouseleave="return dragged(this);">c</td><td onmouseleave="return dragged(this);">e</td></tr>
+  <tr><td onmouseleave="return dragged(this);">2</td><td onmouseleave="return dragged(this);">4</td><td onmouseleave="return dragged(this);">6</td><td onmouseleave="return dragged(this);">8</td><td onmouseleave="return dragged(this);">0</td><td onmouseleave="return dragged(this);">b</td><td onmouseleave="return dragged(this);">d</td><td onmouseleave="return dragged(this);">f</td></tr>
+  </table>
+  </body>
+</html>

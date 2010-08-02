@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="XML Transformer">
+</Property><Property Name="Solution File" Value="D:\Data\rags\RND\DotNet\XML Transformer\XML Transformer.sln">
+</Property><Property Name="User Options File" Value="D:\Data\rags\RND\DotNet\XML Transformer\XML Transformer.suo">
+</Property><Property Name="Date" Value="Monday, June 18, 2007">
+</Property><Property Name="Time" Value="17:35 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="XML Transformer.sln" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\XML Transformer.sln">
+</Event><Event ErrorLevel="0" Project="" Source="XML Transformer.suo" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\XML Transformer.suo">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="XML Transformer.csproj" Description="Project file successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\XML Transformer.csproj">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="XML Transformer.csproj.user" Description="Project user file successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\XML Transformer.csproj.user">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="AssemblyInfo.cs" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="frmXMLTransformer.cs" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\frmXMLTransformer.cs">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="App.ico" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="frmXMLTransformer.resx" Description="File successfully backed up as D:\Data\rags\RND\DotNet\XML Transformer\Backup\frmXMLTransformer.resx">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="XML Transformer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="XML Transformer" Source="XML Transformer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="XML Transformer.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="XML Transformer.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="XML Transformer" Source="XML Transformer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

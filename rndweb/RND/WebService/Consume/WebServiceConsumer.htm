@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+  <HEAD>
+    <META NAME="GENERATOR" Content="Microsoft Visual Studio 7.0">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <TITLE></TITLE>
+    <style type="text/css">
+    .button { background-color: #dcdcdc; font-family: Verdana; font-size: 1em; border-top: #cccccc 1px solid; border-bottom: #666666 1px solid; border-left: #cccccc 1px solid; border-right: #666666 1px solid; }
+		.frmheader { color: #000000; background: #dcdcdc; font-family: Verdana; font-size: .7em; font-weight: normal; border-bottom: 1px solid #dcdcdc; padding-top: 2px; padding-bottom: 2px; }
+		.frmtext { font-family: Verdana; font-size: .7em; margin-top: 8px; margin-bottom: 0px; margin-left: 32px; }
+		.frmInput { font-family: Verdana; font-size: 1em; }
+    </style>
+    <script>
+    var callID;
+      function callService()
+      {
+        //callID = ws.NewService.callService("HelloWord"/*,param1,param2...*/); //use this if onresult is defined
+        if(txtImageText.value=="") 
+        {
+          alert("Enter text for the image");
+          return;
+        }        
+        callID=document.getElementById("ws").NewService.callService(processResult,"RenderText",cboFontStyle.value,cboFontSize.value,cboFontFamily.value,txtImageText.value,cboBackgroundColor.value,cboForegroundColor.value);
+      }
+      function eventHandler()
+      {
+        var result = event.result;
+        if(result.id==callID) processResult(result);
+      }
+      function processResult(result)
+      {
+        if(result.error)
+        {         
+            alert("error");
+            return;
+        }
+       img.src=result.value;
+      }
+      function loadComboes(result)
+      {
+        if(result.error)
+        {
+            // Pull the error information from the event.result.errorDetail properties
+            /*var xfaultcode   = event.result.errorDetail.code;
+            var xfaultstring = event.result.errorDetail.string;
+            var xfaultsoap   = event.result.errorDetail.raw;		
+            alert(xfaultcode + "\n" + xfaultstring + "\n" + xfaultsoap);*/
+            alert("error");
+            return;
+        }
+        var vals = result.value;        
+        var cbo;
+        switch(result.id)
+        {
+          case styleCallID:                      
+            cbo=cboFontStyle;
+            break;
+          case sizeCallID:
+            cbo=cboFontSize;
+            break;
+          case fontCallID:
+            cbo=cboFontFamily;
+            break;
+          case colorCallID:
+            cbo=cboBackgroundColor;
+            break;
+        }        
+        for(var i=0;i<vals.length;i++)
+        {
+        var opt = document.createElement("<option></option>")
+        cbo.options.add(opt);        
+        opt.value=opt.innerText=vals[i];
+        }
+        
+        if(result.id==colorCallID)
+        {
+        cbo=cboForegroundColor;
+         for(var i=0;i<vals.length;i++)
+        {
+        var opt = document.createElement("<option></option>")
+        cbo.options.add(opt);        
+        opt.value=opt.innerText=vals[i];
+        }
+        }
+        
+      }
+      var styleCallID,sizeCallID,fontCallID,colorCallID;
+      function init()
+      {
+        var service = document.getElementById("ws");
+        service.useService("../Web References/com.teachatechie/TextToImage.wsdl","NewService");
+        styleCallID=service.NewService.callService(loadComboes,"LoadFontStyles");
+        sizeCallID=service.NewService.callService(loadComboes,"LoadFontSizes");
+        fontCallID=service.NewService.callService(loadComboes,"LoadFontFamily");
+        colorCallID=service.NewService.callService(loadComboes,"LoadColors");           
+      }
+      
+    
+
+    </script>
+  </HEAD>
+  <BODY onload="init()">
+    <div id="ws" style="behavior:url('webservice.htc')" onresult="eventHandler()"></div>
+    <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none" style="BORDER-COLLAPSE: collapse" ID="Table1">
+      <tr>
+        <td class="frmHeader" background="#dcdcdc" style="BORDER-RIGHT: white 2px solid">Parameter</td>
+        <td class="frmHeader" background="#dcdcdc">Value</td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">FontStyle:</td>
+        <td><SELECT class="frmInput" ID="cboFontStyle"></SELECT></td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">FontSize:</td>
+        <td><SELECT ID="cboFontSize" class="frmInput"></SELECT></td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">FontFamily:</td>
+        <td><SELECT ID="cboFontFamily" class="frmInput"></SELECT></td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">ImageText:</td>
+        <td><input type="text" id="txtImageText" class="frmInput"></td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">BackgroundColor:</td>
+        <td><SELECT ID="cboBackgroundColor" class="frmInput"></SELECT></td>
+      </tr>
+      <tr>
+        <td class="frmText" style="FONT-WEIGHT: normal; COLOR: #000000">ForegroundColor:</td>
+        <td><SELECT ID="cboForegroundColor" class="frmInput" class="button"></SELECT></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="right">
+          <Button ID="btnGetImage" onclick="callService()">Get Image</Button></td>
+      </tr>
+    </table>
+    <br>
+    <img ID="img" align="absmiddle" alt="Enter details and click Get Image">
+  </BODY>
+</HTML>

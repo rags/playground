@@ -1,0 +1,32 @@
+<project name="PostScheme">
+  <loadtasks assembly="/usr/lib/NAnt/NAnt.VSNetTasks.dll" />
+
+  <target name="antlr">
+     <exec program="java" commandline="-cp  lib/antlr-3.2.jar org.antlr.Tool -fo PostScheme/Lexer PostScheme/Lexer/PostSchemeLexer.g"  />
+    <exec program="java" commandline="-cp  lib/antlr-3.2.jar org.antlr.Tool -fo PostScheme/Parser -lib PostScheme/Lexer PostScheme/Parser/PostSchemeParser.g"  />
+  </target>
+
+  <target name="compile">
+    <csc target="library" output="PostScheme.dll">
+      <sources>
+	<include name="PostScheme/**/*.cs" />
+      </sources>
+      <references>
+	 <include name="lib/antlr-runtime/Antlr3.Runtime.dll" />
+      </references>
+    </csc>
+    <!-- <csc target="library" output="PostScheme.dll"> -->
+    <!--   <sources> -->
+    <!-- 	<include name="PostScheme/**/*.cs" /> -->
+    <!--   </sources> -->
+      
+    <!-- </csc> -->
+  </target>
+  
+  <target name="test">
+    <nunit2>
+      <formatter type="Plain" />
+      <test assemblyname="Test/bin/Debug/Test.dll" />
+    </nunit2>
+  </target>
+</project>

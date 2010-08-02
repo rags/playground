@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>Popup Example</TITLE>
+
+<SCRIPT LANGUAGE="JScript">
+var oPopup = window.createPopup();
+function ButtonClick()
+{
+    var oPopBody = oPopup.document.body;
+    oPopup.document.write("<head><title>Assessment Management System</title></head><BUTTON accesskey=\"o\" id=\"oo\" onclick=alert(0); ><u>o</u>k</BUTTON><font color=red>hell!!!!!</font>" );
+    oPopBody.style.backgroundColor = "lightyellow";
+    oPopBody.style.border = "solid black 1px";
+    //oPopBody.innerHTML = "<head><title>Assessment Management System</title></head><font color=red>"+ "hi"+"</font>";"Click outside <B>popup</B> to close." ;
+ 
+    oPopup.show(200, 200, 380, 50, document.body);
+    
+}
+function pop()
+{
+     var warnContent ="about:<head><title>Assessment Management System</title></head><body bgcolor=lightyellow>"+ "<b>OOPS!</b> time up"+"</body>\<SCRIPT\>setTimeout('self.close();'," + (2000) + ");\</SCRIPT\>"
+     var features = "dialogWidth:" + 300 + "px; dialogHeight:" + 20 + "px; dialogTop: px; dialogLeft: px; center:yes; help:no; status:no; resizable:no;";
+      window.showModalDialog(warnContent, 0, features);
+      return;
+}
+
+
+</SCRIPT>
+</HEAD>
+
+<BODY  >
+<BUTTON onclick="ButtonClick()" ID="Button1">Click Me!</BUTTON>
+<BUTTON accesskey="m" onclick="pop();" >Click Me also!</BUTTON>
+style='background-color: lightyellow'
+</BODY>
+</HTML>

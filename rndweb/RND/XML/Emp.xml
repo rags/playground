@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="yes" ?>
+<CompanyDS>
+  <xs:schema id="CompanyDS" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="CompanyDS" msdata:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="Employee" msdata:DisplayExpression="DepartmentID">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EmployeeID" type="xs:int" />
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+                <xs:element name="DepartmentID" type="xs:int" minOccurs="0" />                
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Department" msdata:DisplayExpression="DepartmentID">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DepartmentID" type="xs:int" />
+                <xs:element name="Name" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Employee" />
+        <xs:field xpath="EmployeeID" />
+      </xs:unique>
+      <xs:unique name="Department_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Department" />
+        <xs:field xpath="DepartmentID" />
+      </xs:unique>
+      <xs:keyref name="DeptEmp" refer="Department_Constraint1">
+        <xs:selector xpath=".//Employee" />
+        <xs:field xpath="DepartmentID" />
+      </xs:keyref>
+    </xs:element>
+  </xs:schema>
+  <Employee>
+    <EmployeeID>1</EmployeeID>
+    <Name>rags</Name>
+    <DepartmentID>10</DepartmentID>
+  </Employee>
+  <Employee>
+    <EmployeeID>2</EmployeeID>
+    <Name>rags1</Name>
+    <DepartmentID>10</DepartmentID>
+  </Employee>
+  <Employee>
+    <EmployeeID>3</EmployeeID>
+    <Name>rags3</Name>
+    <DepartmentID>10</DepartmentID>
+  </Employee>
+  <Employee>
+    <EmployeeID>5</EmployeeID>
+    <Name>rags5</Name>
+    <DepartmentID>11</DepartmentID>
+  </Employee>
+  <Employee>
+    <EmployeeID>4</EmployeeID>
+    <Name>rags4</Name>
+    <DepartmentID>11</DepartmentID>
+  </Employee>
+  <Department>
+    <DepartmentID>10</DepartmentID>
+    <Name>dept1</Name>
+  </Department>
+  <Department>
+    <DepartmentID>11</DepartmentID>
+    <Name>dept2</Name>
+  </Department>
+  <Department>
+    <DepartmentID>12</DepartmentID>
+    <Name>dept3</Name>
+  </Department>
+  <Department>
+    <DepartmentID>13</DepartmentID>
+    <Name>dept4</Name>
+  </Department>
+  <Employee>
+    <EmployeeID>6</EmployeeID>
+    <Name>rags5</Name>
+    <DepartmentID>13</DepartmentID>
+  </Employee>
+  <Employee>
+    <EmployeeID>7</EmployeeID>
+    <Name>rags6</Name>
+    <DepartmentID>13</DepartmentID>
+  </Employee>
+</CompanyDS>

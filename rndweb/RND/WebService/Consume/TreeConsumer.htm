@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+  <HEAD>
+    <META NAME="GENERATOR" Content="Microsoft Visual Studio 7.0">
+    <meta name="vs_defaultClientScript" content="JavaScript">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <TITLE></TITLE>
+    <script>
+    //globals
+    var lastCallID,lastContextNode,cube="PsiMedicaDemoCube";
+    var xslDoc,boolXslLoaded=false;
+    var imgFolder="../../images/tree";
+    function handleDivClickEvent(senderNode)
+    {      
+      if(senderNode.open=="true") collapse(senderNode);
+      else  expand(senderNode);        
+      event.cancelBubble=true;
+    }
+    function expand(entity)
+    {
+      if(entity.opened=="true")
+      {
+        expandOpened(entity);
+        return;
+      }      
+      getChildNodes(entity);
+    }
+    function expandOpened(entity)
+    {      
+      entity.childNodes(0).all["image"].src = entity.imageOpen;        
+      for(i=0; i < entity.childNodes.length; i++) 
+                if(entity.childNodes(i).tagName == "DIV")       entity.childNodes(i).style.display = "block";      
+	    entity.open = "true";
+      entity.opened="true";       
+    }
+    function collapse(entity)
+    {      
+      entity.childNodes(0).all["image"].src = entity.image;        
+      for(i=0; i < entity.childNodes.length; i++) 
+                if(entity.childNodes(i).tagName == "DIV")       entity.childNodes(i).style.display = "none";      
+	    entity.open = "false";        
+    }    
+    function getChildNodes(entity)
+    {
+      var treeService = document.getElementById("treeHolder").Tree;
+      lastContextNode=entity;
+      switch(entity.type)
+      {
+        case "root":
+          lastCallID = treeService.callService(renderChildNodes,"GetDimensions",cube);           
+          return;
+        case "dimension":        
+          lastCallID = treeService.callService(renderChildNodes,"GetLevels",cube,entity.name); 
+          return;
+        case "level":        
+          lastCallID = treeService.callService(renderChildNodes,"GetMembers",cube,entity.dimension.substring(1,entity.dimension.length-1),entity.name); 
+          return;
+        case "member":  
+          lastCallID = treeService.callService(renderChildNodes,"GetChildren",cube,entity.id); 
+          return;
+      }
+    }    
+    /*
+    function renderDims(result)
+    {
+      if(result.id!=lastCallID) return;
+      if(result.error)
+      {         
+          alert("error");
+          return;
+      }            
+      
+      var xmlDoc = new ActiveXObject("msxml2.domdocument");
+      xmlDoc.loadXML(result.value);
+      
+      var xslt = new ActiveXObject("msxml2.xsltemplate");
+      xslt.stylesheet = xslDoc;
+      
+      var xslProc = xslt.createProcessor();
+      xslProc.addParameter("checkBoxRequired","0");      
+      
+      xslProc.input=xmlDoc;
+      xslProc.transform();
+      lastContextNode.innerHTML += xslProc.output;                  
+      render(lastContextNode);
+      lastContextNode.opened="true";      
+      expandOpened(lastContextNode);
+    }
+    */
+    function renderChildNodes(result)
+    {
+      if(!boolXslLoaded) return;
+      if(result.id!=lastCallID) return;
+      if(result.error)
+      {         
+          alert("error");
+          return;
+      }
+      var xmlDoc = new ActiveXObject("msxml2.domdocument");
+      xmlDoc.loadXML(result.value);
+      //var docFrag = document.createDocumentFragment();
+      lastContextNode.innerHTML += xmlDoc.transformNode(xslDoc);
+      //lastContextNode.appendChild(docFrag);
+      
+      render(lastContextNode);
+      lastContextNode.opened="true";
+      if(lastContextNode.type=="level") document.getElementById("chk_"+lastContextNode.id).disabled=false;
+      expandOpened(lastContextNode);
+    }
+    function render(entity)//to put transline.gif/line.gif
+    {                
+      for(i=0; i < entity.childNodes.length; i++) 
+      {
+        if(entity.childNodes(i).tagName == "DIV") 
+		    {
+		      var curChild = entity.childNodes(i);		      
+		      imageTD = curChild.all("image" + curChild.id);
+		      insertLines(imageTD,curChild.parentNode)
+		    }
+	    }
+    }
+    
+    function insertLines(imageTD,parent)
+    {
+      if(parent==null || parent.type=="root") return;
+      insertLines(imageTD,parent.parentNode);
+      if(parent.tagName!="DIV") return;
+      var imgURL = imgFolder + ((parent.nextSibling) ? "/line.gif" : "/transline.gif");
+      var image = document.createElement("<img src='"  +  imgURL  +  "' border='0'  height='100%' width='16'>" );
+       imageTD.appendChild(image);
+    }
+    function init()
+    {       
+        var service = document.getElementById("treeHolder");
+        service.useService("../cwsTree.asmx?wsdl","Tree");        
+        xslDoc = new ActiveXObject("msxml2.freethreadeddomdocument");
+        xslDoc.async=true;
+        xslDoc.ondataavailable=function() {boolXslLoaded=xslDoc.xml!="" && xslDoc.parseError.errorCode==0;};        
+        xslDoc.load("../../XSL/WSTree.xsl");        
+    }
+    function handleTDMouseOverEvent(senderTD)
+    {
+    changeColor(senderTD,1);
+    }
+      
+    function handleTDClickEvent(senderTD)
+    {
+    changeColor(senderTD,2);
+    }
+    function handleCheckEvent(senderChk)
+    {
+    event.cancelBubble=true;
+    var entity = document.getElementById(senderChk.id.substring(4));
+    var inputArr = entity.getElementsByTagName("input");
+    var checked = senderChk.checked;
+    for(var i=0;i<inputArr.length;i++)    
+      //if(inputArr[i].type=="checkbox") 
+      inputArr[i].checked=checked;    
+    }
+    
+    var docFilter;
+    function initFilterXML()
+    {
+      docFilter = new ActiveXObject("msxml2.domdocument");
+      docFilter.loadXML("<MDXState/>");      
+    }
+    
+    function addFilterXML(member,caption,dimension)
+    {      
+      //var nodeMDXState = docFilter.documentElement;
+      var nodeMember = docFilter.createElement("Member");
+      nodeMember.setAttribute("id",member);
+      nodeMember.setAttribute("name",caption);      
+      var nodeDimension;      
+      //check if the node already exists
+      if(!(nodeDimension=GetFilterNode(dimension)))
+      {        
+        nodeDimension = docFilter.createElement("Filter");        
+        nodeDimension.setAttribute("dimension",dimension);
+        docFilter.documentElement.appendChild(nodeDimension);        
+      }      
+      nodeDimension.appendChild(nodeMember); 
+      //frmCubeBrowser.filterXML.value=docFilter.xml;
+      //alert(docFilter.xml)     
+    }
+    
+    function GetFilterNode(dimension)
+    {
+      return docFilter.selectSingleNode("MDXState/Filter[@dimension=\""+dimension+"\"]")
+    }
+    
+    function getFilterXML()
+    {
+      initFilterXML();
+      var inputArr = document.getElementsByTagName("input");
+      for(var i=0;i<inputArr.length;i++)       
+        if(inputArr[i].type=="checkbox" && inputArr[i].checked)
+        {          
+          var node = document.getElementById(inputArr[i].id.substring(4));
+          if(node.type!="level") addFilterXML(node.id,node.name,node.dimension)
+        }
+      alert(docFilter.xml);
+      
+    }
+ var prevMouseOverTD;//store object
+ var prevMouseClickTDID;//store id to get obj dynamically
+ var mouseOverColor = "#d2eeff";       //"#ffcc99";
+ var mouseClickColor  = "#d1e6fb";    //"#ffffcc";  
+ function changeColor(td,val)
+ {
+   switch(val)
+    {
+      case 1:  
+                     td.style.background = mouseOverColor;
+                     try
+                     {
+                            if(prevMouseOverTD.id==prevMouseClickTDID) prevMouseOverTD.style.background=mouseClickColor;
+                            if(td!=prevMouseOverTD && prevMouseOverTD.style.background!=mouseClickColor) 
+                            prevMouseOverTD.style.background = "none";
+                     }catch(e){}
+                    prevMouseOverTD=td;
+                    break;
+      case 2: 
+                    td.style.background=mouseClickColor;
+                    try
+                    {
+                      if(prevMouseClickTDID!=td.id) 
+                      document.getElementById(prevMouseClickTDID).style.background="none";
+                    }catch(e){}
+                     prevMouseClickTDID=td.id;
+                    break;
+    }
+}
+    </script>
+  </HEAD>
+  <BODY onload="init()">
+    <button onclick="getFilterXML()" ID="Button1">Ok</button>
+    <div onclick="javascript:handleDivClickEvent(this)" id="treeHolder" style="behavior:url('webservice.htc');PADDING-LEFT: 0px;CURSOR: hand" opened="fasle" open="false" image="../../images/tree/plusstart.gif" imageOpen="../../images/tree/minusstart.gif" type="root">
+      <table border="0" cellspacing="0" cellpadding="0" ID="Table1">
+        <TBODY>
+          <tr nowrap>
+            <td valign="center">
+              <table border="0" cellspacing="0" cellpadding="0" height="100%" ID="Table2">
+                <tr nowrap>
+                  <td id="imagetreeHolder" valign="center" align="right"></td>
+                  <td valign="center" align="right">
+                    <img border="0" id="image" width="19" height="21" style="DISPLAY: block" SRC="../../images/tree/plusstart.gif">
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td align="left" id="tdtreeHolder" valign="center" nowrap height="19" onMouseOver="handleTDMouseOverEvent(this);" onClick="handleTDClickEvent(this);" STYLE="PADDING-LEFT: 1px;FONT-SIZE: 12px;FONT-FAMILY: arial;font-weight:bold">
+              Dimensions and Measures
+            </td>
+          </tr>
+        </TBODY>
+      </table>
+    </div>
+  </BODY>
+</HTML>

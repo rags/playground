@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+        <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    </head>
+    <script>
+        function fn1()
+        {
+            if(arguments)
+            alert(arguments[0] + " "  +arguments.length + " " + arguments.callee + " " + arguments.caller);
+            else alert();
+            fn1.caller();
+        }
+        function fn2(ptrFn)
+        {
+            if(ptrFn)
+            {
+            ptrFn(34);
+            ptrFn();
+            }
+            else alert("ok");
+        }
+        var x = fn1;
+        fn2(x);
+    </script>
+    <body>
+    </body>
+</html>

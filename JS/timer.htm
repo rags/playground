@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script language="javascript">
+    var totalTime = 1;
+    var buzzerTime =1;
+    var startTime;
+    var minsRemaining;
+    var hrsRemaining;
+    var secsRemaining;
+    function init()
+    {
+      //alert("WEgterh");
+     /*
+      startTime=StartTime = new Date();
+      hrsRemaining = Math.floor(totalTime/60);
+	    minsRemaining = Math.floor(totalTime%60);
+	    secsRemaining = 0;
+	    
+	    Text1.value = ((hrsRemaining>9)? hrsRemaining : ("0" + hrsRemaining) )+ ":" +
+	                              ( (minsRemaining>9)? minsRemaining: ("0" + minsRemaining) )+":" + 
+	                               ((secsRemaining>9)? secsRemaining: ("0" + secsRemaining) ) ;
+	                               
+      setTimeout("doBuzzer()",1000);
+      */
+
+  var warnContent ="about:Time up\<SCRIPT\>setTimeout('self.close();'," + 3000 + ");\</SCRIPT\>"
+   alert(warnContent);
+  var features = "dialogWidth:" + 100 + "px; dialogHeight:" + 100 + "px; dialogTop: px; dialogLeft: px; center:yes; help:no; status:no; resizable:no;";
+   var d = window.showModalDialog(warnContent, 0, features);
+   alert("done");
+
+    }
+    function doBuzzer()
+    {
+      secsRemaining--;
+      if(secsRemaining<0)
+      {
+        secsRemaining = 59;
+        minsRemaining -= 1;
+      }
+      if(minsRemaining<0)
+      {
+        minsRemaining=59;
+        hrsRemaining -=1;
+      }
+      if(hrsRemaining<0)
+      {
+        alert("timeup");
+        return;
+      }
+      Text1.value = ((hrsRemaining>9)? hrsRemaining : ("0" + hrsRemaining) )+ ":" +
+	                              ( (minsRemaining>9)? minsRemaining: ("0" + minsRemaining) )+":" + 
+	                               ((secsRemaining>9)? secsRemaining: ("0" + secsRemaining) ) ;	                             
+      setTimeout("doBuzzer()",1000);
+    }
+    </script>
+  </head>
+  <body onload="init();">
+    <INPUT id="Text1" type="text" name="Text1" value="00:00:00">
+  </body>
+</html>

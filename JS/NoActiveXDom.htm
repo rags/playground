@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+
+<body>
+
+<div></div>
+</body>
+<script>
+//ondatasetcomplete="alert('compltet\n' + xxx.xml)" src = "file:///D:\Temp\XMLFormat.xml" ondataavailable="alert('avail\n' + xxx.xml)" ondatasetchanged="alert('changed\n' + xxx.xml)"
+
+document.body.appendChild(document.createElement("<xml id=\"__DYNA__XMLISLAND__\" ></xml>"))
+setTimeout("change()",10);
+__DYNA__XMLISLAND__.ondatasetcomplete = f;    
+function change()
+{
+  __DYNA__XMLISLAND__.src = "http://localhost/AMS/AMSWS/CWSStylesheet.asmx/getChildNodes?parentID=1";      
+ }
+  function x()
+  {
+    alert(__DYNA__XMLISLAND__.src);
+    alert(__DYNA__XMLISLAND__.xml);  
+  }
+  function f(x)
+  {
+    alert(__DYNA__XMLISLAND__.xml) ;
+    return;
+  }
+</script>
+</html>

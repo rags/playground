@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+    function BuildSearchString(str)
+	{
+		// Replace the effing magic characters in the search string.
+		str = str.replace(/\./g,"\\.");
+		str = str.replace(/\[/g,"\\[");
+		str = str.replace(/\]/g,"\\]");
+		str = str.replace(/\{/g,"\\{");
+		str = str.replace(/\}/g,"\\}");
+		str = str.replace(/\(/g,"\\(");
+		str = str.replace(/\)/g,"\\)");
+		str = str.replace(/\$/g,"\\$");
+		str = str.replace(/\*/g,"\\*");
+		str = str.replace(/\|/g,"\\|");
+		str = str.replace(/\+/g,"\\+");
+		str = str.replace(/\?/g,"\\?");
+		return(str)
+	}
+</script>
+    
+    <script>    
+		var x = new String("with  member [Calendar Time].[Aggregate Member: CY-1998,CY-1999,CY-2000,CY-2001] as 'Aggregate({[Calendar Time].[All Calendar Time].[CY-1998],[Calendar Time].[All Calendar Time].[CY-1999],[Calendar Time].[All Calendar Time].[CY-2000],[Calendar Time].[All Calendar Time].[CY-2001]})' member [Age Range].[Aggregate Member: 00-12 months,01] as 'Aggregate(EXCEPT([Age Range].Members,{[Age Range].[All Age Range].[Standard Age Ranges].[00-12 months],[Age Range].[All Age Range].[Standard Age Ranges].[01]}))' member [Gender].[Aggregate Member: UNKNOWN] as 'Aggregate(EXCEPT([Gender].Members,{[Gender].[All Gender].[UNKNOWN]}))'");
+		//var dimension = "[Calendar Time]";
+		var dimension = "[Age Range]";																																					 //"([\\s\\S](?!\\smember\\s+\\[))*\\]\\}\\)\\'"		
+		//var dimension = "[Gender]";
+		alert(x.match(new RegExp("(\\s)+member(\\s)+" +BuildSearchString(dimension + ".[")+"[^\\]]+\\]\\s+as\\s+'aggregate\\(([\\s\\S](?!\\smember\\s+\\[))*\\)'","ig"),""))
+		/*
+		var dimension = "[Calendar Time]";
+		alert(x=x.replace(new RegExp("(\\s)+member(\\s)+" +BuildSearchString(dimension)+"([\\s\\S](?!\\smember\\s+\\[))*\\]\\}\\)\\'","ig"),""));
+		dimension = "[Age Range]";
+		alert(x=x.replace(new RegExp("(\\s)+member(\\s)+" +BuildSearchString(dimension)+"([\\s\\S](?!\\smember\\s+\\[))*\\]\\}\\)\\'","ig"),""));
+		if(x.match(new RegExp("^(\\s)*with(\\s)+select(\\s)+","ig"),"")) alert(x.replace(new RegExp("^(\\s)*with(\\s)+","ig"),""));
+		alert("finally:\n" + x);
+		*/
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

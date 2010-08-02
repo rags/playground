@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://teachatechie.com/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://teachatechie.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://teachatechie.com/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="LoadSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSettingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadColors">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadColorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadColorsResult" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadFontFamily">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFontFamilyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFontFamilyResult" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFontStyles">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFontStylesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFontStylesResult" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFontSizes">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFontSizesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFontSizesResult" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenderText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FontStyle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FontSize" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FontFamily" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImageText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BackgroundColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ForegroundColor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenderTextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RenderTextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="s0:ArrayOfString" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </types>
+  <message name="LoadSettingsSoapIn">
+    <part name="parameters" element="s0:LoadSettings" />
+  </message>
+  <message name="LoadSettingsSoapOut">
+    <part name="parameters" element="s0:LoadSettingsResponse" />
+  </message>
+  <message name="LoadColorsSoapIn">
+    <part name="parameters" element="s0:LoadColors" />
+  </message>
+  <message name="LoadColorsSoapOut">
+    <part name="parameters" element="s0:LoadColorsResponse" />
+  </message>
+  <message name="LoadFontFamilySoapIn">
+    <part name="parameters" element="s0:LoadFontFamily" />
+  </message>
+  <message name="LoadFontFamilySoapOut">
+    <part name="parameters" element="s0:LoadFontFamilyResponse" />
+  </message>
+  <message name="LoadFontStylesSoapIn">
+    <part name="parameters" element="s0:LoadFontStyles" />
+  </message>
+  <message name="LoadFontStylesSoapOut">
+    <part name="parameters" element="s0:LoadFontStylesResponse" />
+  </message>
+  <message name="LoadFontSizesSoapIn">
+    <part name="parameters" element="s0:LoadFontSizes" />
+  </message>
+  <message name="LoadFontSizesSoapOut">
+    <part name="parameters" element="s0:LoadFontSizesResponse" />
+  </message>
+  <message name="RenderTextSoapIn">
+    <part name="parameters" element="s0:RenderText" />
+  </message>
+  <message name="RenderTextSoapOut">
+    <part name="parameters" element="s0:RenderTextResponse" />
+  </message>
+  <message name="LoadSettingsHttpGetIn" />
+  <message name="LoadSettingsHttpGetOut">
+    <part name="Body" element="s0:DataSet" />
+  </message>
+  <message name="LoadColorsHttpGetIn" />
+  <message name="LoadColorsHttpGetOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontFamilyHttpGetIn" />
+  <message name="LoadFontFamilyHttpGetOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontStylesHttpGetIn" />
+  <message name="LoadFontStylesHttpGetOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontSizesHttpGetIn" />
+  <message name="LoadFontSizesHttpGetOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="RenderTextHttpGetIn">
+    <part name="FontStyle" type="s:string" />
+    <part name="FontSize" type="s:string" />
+    <part name="FontFamily" type="s:string" />
+    <part name="ImageText" type="s:string" />
+    <part name="BackgroundColor" type="s:string" />
+    <part name="ForegroundColor" type="s:string" />
+  </message>
+  <message name="RenderTextHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="LoadSettingsHttpPostIn" />
+  <message name="LoadSettingsHttpPostOut">
+    <part name="Body" element="s0:DataSet" />
+  </message>
+  <message name="LoadColorsHttpPostIn" />
+  <message name="LoadColorsHttpPostOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontFamilyHttpPostIn" />
+  <message name="LoadFontFamilyHttpPostOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontStylesHttpPostIn" />
+  <message name="LoadFontStylesHttpPostOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="LoadFontSizesHttpPostIn" />
+  <message name="LoadFontSizesHttpPostOut">
+    <part name="Body" element="s0:ArrayOfString" />
+  </message>
+  <message name="RenderTextHttpPostIn">
+    <part name="FontStyle" type="s:string" />
+    <part name="FontSize" type="s:string" />
+    <part name="FontFamily" type="s:string" />
+    <part name="ImageText" type="s:string" />
+    <part name="BackgroundColor" type="s:string" />
+    <part name="ForegroundColor" type="s:string" />
+  </message>
+  <message name="RenderTextHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <portType name="TextToImageSoap">
+    <operation name="LoadSettings">
+      <documentation>Returns a DataSet containing all of the settings that can be used</documentation>
+      <input message="s0:LoadSettingsSoapIn" />
+      <output message="s0:LoadSettingsSoapOut" />
+    </operation>
+    <operation name="LoadColors">
+      <documentation>Returns an string array of colors that can be used</documentation>
+      <input message="s0:LoadColorsSoapIn" />
+      <output message="s0:LoadColorsSoapOut" />
+    </operation>
+    <operation name="LoadFontFamily">
+      <documentation>Returns an string array of fonts that can be used</documentation>
+      <input message="s0:LoadFontFamilySoapIn" />
+      <output message="s0:LoadFontFamilySoapOut" />
+    </operation>
+    <operation name="LoadFontStyles">
+      <documentation>Returns an string array of font styles that can be used</documentation>
+      <input message="s0:LoadFontStylesSoapIn" />
+      <output message="s0:LoadFontStylesSoapOut" />
+    </operation>
+    <operation name="LoadFontSizes">
+      <documentation>Returns an string array of font sizes that can be used</documentation>
+      <input message="s0:LoadFontSizesSoapIn" />
+      <output message="s0:LoadFontSizesSoapOut" />
+    </operation>
+    <operation name="RenderText">
+      <documentation>&lt;font color='#FF0000'&gt;&lt;b&gt;This is the main function.&lt;/b&gt;&lt;/font&gt;&lt;br&gt;This returns an string containing the URL of the image that has been rendered. The image URL is cached for 10 minutes.</documentation>
+      <input message="s0:RenderTextSoapIn" />
+      <output message="s0:RenderTextSoapOut" />
+    </operation>
+  </portType>
+  <portType name="TextToImageHttpGet">
+    <operation name="LoadSettings">
+      <documentation>Returns a DataSet containing all of the settings that can be used</documentation>
+      <input message="s0:LoadSettingsHttpGetIn" />
+      <output message="s0:LoadSettingsHttpGetOut" />
+    </operation>
+    <operation name="LoadColors">
+      <documentation>Returns an string array of colors that can be used</documentation>
+      <input message="s0:LoadColorsHttpGetIn" />
+      <output message="s0:LoadColorsHttpGetOut" />
+    </operation>
+    <operation name="LoadFontFamily">
+      <documentation>Returns an string array of fonts that can be used</documentation>
+      <input message="s0:LoadFontFamilyHttpGetIn" />
+      <output message="s0:LoadFontFamilyHttpGetOut" />
+    </operation>
+    <operation name="LoadFontStyles">
+      <documentation>Returns an string array of font styles that can be used</documentation>
+      <input message="s0:LoadFontStylesHttpGetIn" />
+      <output message="s0:LoadFontStylesHttpGetOut" />
+    </operation>
+    <operation name="LoadFontSizes">
+      <documentation>Returns an string array of font sizes that can be used</documentation>
+      <input message="s0:LoadFontSizesHttpGetIn" />
+      <output message="s0:LoadFontSizesHttpGetOut" />
+    </operation>
+    <operation name="RenderText">
+      <documentation>&lt;font color='#FF0000'&gt;&lt;b&gt;This is the main function.&lt;/b&gt;&lt;/font&gt;&lt;br&gt;This returns an string containing the URL of the image that has been rendered. The image URL is cached for 10 minutes.</documentation>
+      <input message="s0:RenderTextHttpGetIn" />
+      <output message="s0:RenderTextHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="TextToImageHttpPost">
+    <operation name="LoadSettings">
+      <documentation>Returns a DataSet containing all of the settings that can be used</documentation>
+      <input message="s0:LoadSettingsHttpPostIn" />
+      <output message="s0:LoadSettingsHttpPostOut" />
+    </operation>
+    <operation name="LoadColors">
+      <documentation>Returns an string array of colors that can be used</documentation>
+      <input message="s0:LoadColorsHttpPostIn" />
+      <output message="s0:LoadColorsHttpPostOut" />
+    </operation>
+    <operation name="LoadFontFamily">
+      <documentation>Returns an string array of fonts that can be used</documentation>
+      <input message="s0:LoadFontFamilyHttpPostIn" />
+      <output message="s0:LoadFontFamilyHttpPostOut" />
+    </operation>
+    <operation name="LoadFontStyles">
+      <documentation>Returns an string array of font styles that can be used</documentation>
+      <input message="s0:LoadFontStylesHttpPostIn" />
+      <output message="s0:LoadFontStylesHttpPostOut" />
+    </operation>
+    <operation name="LoadFontSizes">
+      <documentation>Returns an string array of font sizes that can be used</documentation>
+      <input message="s0:LoadFontSizesHttpPostIn" />
+      <output message="s0:LoadFontSizesHttpPostOut" />
+    </operation>
+    <operation name="RenderText">
+      <documentation>&lt;font color='#FF0000'&gt;&lt;b&gt;This is the main function.&lt;/b&gt;&lt;/font&gt;&lt;br&gt;This returns an string containing the URL of the image that has been rendered. The image URL is cached for 10 minutes.</documentation>
+      <input message="s0:RenderTextHttpPostIn" />
+      <output message="s0:RenderTextHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="TextToImageSoap" type="s0:TextToImageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="LoadSettings">
+      <soap:operation soapAction="http://teachatechie.com/LoadSettings" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LoadColors">
+      <soap:operation soapAction="http://teachatechie.com/LoadColors" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LoadFontFamily">
+      <soap:operation soapAction="http://teachatechie.com/LoadFontFamily" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LoadFontStyles">
+      <soap:operation soapAction="http://teachatechie.com/LoadFontStyles" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LoadFontSizes">
+      <soap:operation soapAction="http://teachatechie.com/LoadFontSizes" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="RenderText">
+      <soap:operation soapAction="http://teachatechie.com/RenderText" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="TextToImageHttpGet" type="s0:TextToImageHttpGet">
+    <http:binding verb="GET" />
+    <operation name="LoadSettings">
+      <http:operation location="/LoadSettings" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadColors">
+      <http:operation location="/LoadColors" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontFamily">
+      <http:operation location="/LoadFontFamily" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontStyles">
+      <http:operation location="/LoadFontStyles" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontSizes">
+      <http:operation location="/LoadFontSizes" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="RenderText">
+      <http:operation location="/RenderText" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="TextToImageHttpPost" type="s0:TextToImageHttpPost">
+    <http:binding verb="POST" />
+    <operation name="LoadSettings">
+      <http:operation location="/LoadSettings" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadColors">
+      <http:operation location="/LoadColors" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontFamily">
+      <http:operation location="/LoadFontFamily" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontStyles">
+      <http:operation location="/LoadFontStyles" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="LoadFontSizes">
+      <http:operation location="/LoadFontSizes" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="RenderText">
+      <http:operation location="/RenderText" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TextToImage">
+    <documentation>&lt;table border='0'&gt;&lt;tr&gt;&lt;td valign='top'&gt;&lt;img src='http://teachatechie.com/GJTTWebServices/images/logo.gif' border='0'&gt;&lt;/td&gt;&lt;td valign='top' align='center'&gt;&lt;font size='4'&gt;Glenn Johnson Technical Training&lt;br&gt;Here is the &lt;i&gt;&lt;FONT size='4' color='red'&gt;Text to Image&lt;/FONT&gt;&lt;/i&gt; Web Service.  &lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan='2' align='center'&gt;Be sure to visit &lt;a href='http://gjtt.com'&gt;GJTT.com&lt;/a&gt; for additional .NET support.  Feel free to &lt;a href='mailto:glenn@GJTT.com?subject=Text to Image Web Service'&gt;email me.&lt;/a&gt; if any questions.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;center&gt;&lt;IMG SRC='http://service.bfast.com/bfast/serve?bfmid=2181&amp;sourceid=38146648&amp;bfpid=0471430234&amp;bfmtype=book' BORDER='0' WIDTH='1' HEIGHT='1' NOSAVE &gt;&lt;A HREF='http://service.bfast.com/bfast/click?bfmid=2181&amp;sourceid=38146648&amp;bfpid=0471430234&amp;bfmtype=book' TARGET='_top'&gt;&lt;IMG SRC='http://images.barnesandnoble.com/images/5790000/5798734.gif' BORDER='0' ALIGN='center' ALT='Asp.Net in 60 Minutes a Day'  &gt;&lt;/a&gt;&lt;br&gt;&lt;A HREF='http://service.bfast.com/bfast/click?bfmid=2181&amp;sourceid=38146648&amp;bfpid=0471430234&amp;bfmtype=book' TARGET='_top'&gt;Author of Asp.Net in 60 Minutes a Day&lt;br&gt;&lt;/A&gt;&lt;/center&gt;</documentation>
+    <port name="TextToImageSoap" binding="s0:TextToImageSoap">
+      <soap:address location="http://teachatechie.com/GJTTVBWebServices/TextToImage.asmx" />
+    </port>
+    <port name="TextToImageHttpGet" binding="s0:TextToImageHttpGet">
+      <http:address location="http://teachatechie.com/GJTTVBWebServices/TextToImage.asmx" />
+    </port>
+    <port name="TextToImageHttpPost" binding="s0:TextToImageHttpPost">
+      <http:address location="http://teachatechie.com/GJTTVBWebServices/TextToImage.asmx" />
+    </port>
+  </service>
+</definitions>

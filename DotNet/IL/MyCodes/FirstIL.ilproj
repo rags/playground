@@ -1,0 +1,10 @@
+ILIDEProj
+<?xml version="1.0" encoding="utf-8"?>
+<ILProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Output>E:\Rags\RND\DotNet\IL\MyCodes</Output>
+  <ProjectType>Exe</ProjectType>
+  <Debug>false</Debug>
+  <Resources />
+  <KeyType>None</KeyType>
+  <Key />
+</ILProject>

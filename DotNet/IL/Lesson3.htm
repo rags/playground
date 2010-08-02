@@ -1,0 +1,183 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="keywords" CONTENT="C-Sharp, C#,.Net,dotnet,programming,computing,consulting, MSIL,tutorial,training,XML, Aleksey Nudelman,MSIL">
+<meta name="description" CONTENT "Tutorials on C#,.Net and XML.">
+<LINK REL=StyleSheet HREF="../default.css" type="text/css">
+
+
+<title>Lesson3</title>
+</head>
+
+<body>
+
+<p><a href="Lesson2.htm"><img border="0" src="../images/PreviousArrow.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="TOC.htm"><img border="0" src="../images/TOCIcon.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="Lesson4.htm"><img border="0" src="../images/NextArrow.gif" width="26" height="26"></a></p>
+
+<p><img border="0" src="../images/blueline.gif" width="550" height="8"></p>
+
+
+
+<h1>Lesson 3. Hacker's introduction to MSIL Part2.</h1>
+
+
+<p>&nbsp;</p>
+
+<p>Let's recall garbage collection rules that we have learned in Lesson2</p>
+<ol>
+  <li>No data or local variables can be left on the stack when program terminates.</li>
+  <li>add adds data and the variable on top of the stack. The data is popped
+    from the stack,
+    and the result is stored inside the variable, which remains on the stack.</li>
+  <li>Function calls such as Console::WriteLine(...) print and pop a variable
+    from the stack. They cannot print data directly.</li>
+  <li>Garbage collection of variables which are not stored on the stack is
+    automatic.</li>
+</ol>
+<p>&nbsp;</p>
+<p>Before we look at a much more interesting example of OO programming, let's
+learn how to pass parameters to a function. The simplest example.</p>
+<p class="sample">
+<font class="ekeyword">.assembly </font>hello{}<br>
+
+<font class="ekeyword">.class </font>Test{<br>
+&nbsp;&nbsp;&nbsp; <font class="ekeyword">.method private static void </font> hello(<font class="ekeyword">int32</font>) il managed<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> ldarg.0</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">call       void</font> [mscorlib]System.Console::WriteLine(<font class="ekeyword">int32</font>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> ret</font><br>
+&nbsp;&nbsp;&nbsp; }&nbsp;<br>
+&nbsp;&nbsp;&nbsp; <font class="ekeyword">.method public static void </font> Main() il managed<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> .entrypoint</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ldc.i4</font>.3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> call       void </font>Test::hello(<font class="ekeyword">int32</font>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ret</font><br>
+&nbsp;&nbsp;&nbsp; }&nbsp;<br>
+}</p>
+<p>Note the use of keyword ldarg.0 to load an integer argument of void hello(int).
+This argument is then&nbsp; stored on the stack and is later&nbsp; passed to
+WriteLine.</p>
+<p>Let's look at a more interesting C# example involving the creation of a class.</p>
+<p class="sample"><font class="ekeyword">using </font>System;<br>
+
+<font class="ekeyword">class </font>mInt<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+<font class="ekeyword"> public int </font>x=3;<br>
+}<br>
+<font class="ekeyword">class</font> Test{<br>
+&nbsp;&nbsp;&nbsp; 
+<font class="ekeyword">public static void </font>Main(){<br>
+&nbsp;&nbsp;&nbsp;
+ mInt mint=<font class="ekeyword">new </font>mInt();<br>
+&nbsp;&nbsp;&nbsp; 
+Console.WriteLine(mint.x);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}</p>
+<p>This program translates into the following MSIL code:</p>
+<p class="sample"><font class="ekeyword">.assembly </font>hello{}<br>
+<font class="ekeyword">.class </font>mInt {<br>
+&nbsp;&nbsp;&nbsp;<font class="ekeyword"> .field public int32 </font>x<br>
+&nbsp;&nbsp;&nbsp;<font class="ekeyword"> .method public instance void  .ctor()</font> il managed<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ldarg.0</font> //null argument needs to be passed to the constructor or
+//InvalidProgramExecution exception is thrown<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ldc.i4</font>.3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> stfld int32 </font> mInt::x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ret</font><br>
+&nbsp;&nbsp;&nbsp; }&nbsp;<br>
+}<br>
+<font class="ekeyword">.class </font>Test&nbsp;<br>
+{<br>
+&nbsp;&nbsp;&nbsp; <font class="ekeyword">.method static public void </font>main(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">.entrypoint</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">newobj     instance void </font> mInt::.ctor() //create a new instance of mInt on the heap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">ldfld      int32</font> mInt::x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font class="ekeyword">call       void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">int32</font>)<br>
+&nbsp;&nbsp;&nbsp;<font class="ekeyword"> ret</font><br>
+&nbsp;&nbsp;&nbsp; }&nbsp;<br>
+}</p>
+<p>&nbsp;.method public instance void .ctor() il managed declares a constructor
+of class mInt. As we&nbsp;have learned in our first OO class, the compiler is
+providing a default constructor if we have not written one yourself. When
+programming MSIL, we are doing some of the compiler work. So, welcome to .ctor()
+notation! .ctor() is responsible for explicit initialization of all data members
+of class mInt. The declaration of int x is done with .field keyword. The .ctor()
+is loading data into mInt fields with with a call stfld.&nbsp; A class can have
+multiple constructors with different parameter list. All constructors are
+designated with .ctor keyword.&nbsp; newobj is MSIL's equivalent of new. Usually
+constructors return void. The syntax of MSIL seem to allow non void
+constructors. Let's first look at a simpler problem of returning by value in MSIL.</p>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="50%">ldfld<font color="#800080"> field</font></td>
+    <td width="50%">Push on the stack <font color="#800080">field </font>of an
+      object</td>
+  </tr>
+  <tr>
+    <td width="50%">newobj ctor</td>
+    <td width="50%">Create a new instance of the object,&nbsp; initialize its
+      fields to 0 or null and&nbsp; push it on the stack </td>
+  </tr>
+  <tr>
+    <td width="50%">stfld field</td>
+    <td width="50%">Replace the value of a&nbsp; field of an object</td>
+  </tr>
+  <tr>
+    <td width="50%">ldarg</td>
+    <td width="50%">Load first argument of the method into the stack</td>
+  </tr>
+</table>
+<p>The program below shows how to return a value. The value is simply left on
+the stack in a local variable of mtest(). When mtest() is called, the local
+variable of mtest() is transferred to a local variable of Main, which in turn is
+pushed on stack of Main. </p>
+
+<p class="sample"><font class="ekeyword">.assembly </font>hello{}<br>
+<font class="ekeyword">.class </font>Test{<br>
+<font class="ekeyword">.method private  static int32 </font> mtest() il managed<br>
+{<br>
+<br>
+<font class="ekeyword">.locals </font>(<font class="ekeyword">int32</font> V_0)&nbsp;<br>
+<font class="ekeyword">ldc.i4</font>.3<br>
+<font class="ekeyword">stloc.0</font><br>
+<font class="ekeyword">ldloc.0 </font>//push variable on stack<br>
+<font class="ekeyword">ret</font><br>
+}&nbsp;<br>
+<br>
+<font class="ekeyword">.method public  static void </font> Main() il managed<br>
+{<br>
+<font class="ekeyword">.entrypoint</font><br>
+<font class="ekeyword">call       int32 </font>Test::mtest()<br>
+<font class="ekeyword">call       void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">int32</font>)<br>
+<font class="ekeyword">ret</font><br>
+}&nbsp;<br>
+} </p>
+
+<p>Exercises</p>
+<p>&nbsp;&nbsp;&nbsp; 1. Which identifiers are not allowed in C#: $Test, ?hi, @weird,_down. ?</p>
+<p>&nbsp;&nbsp;&nbsp; 2. Find a mistake in this page.</p>
+<p>&nbsp;&nbsp;&nbsp; 3. Write a really cool program and send it to <a href="mailto:aleksey@csharpcomputing.com">me</a>.
+Do not forget to put a lot of comments.</p>
+<p><br>
+
+<a href="../copyright.htm">Copyright</a>© 2003 C# COMPUTING</p>
+
+<p><img border="0" src="../images/blueline.gif" width="550" height="8"></p>
+
+<p><a href="Lesson2.htm"><img border="0" src="../images/PreviousArrow.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="TOC.htm"><img border="0" src="../images/TOCIcon.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="Lesson4.htm"><img border="0" src="../images/NextArrow.gif" width="26" height="26"></a></p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

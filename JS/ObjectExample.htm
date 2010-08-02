@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+<body>
+<script>
+  function Employee(id,name)
+  {
+    this.id = id;
+    this.name=name;    
+  }
+  Employee.prototype.occupation = "Watch man";
+  Employee.prototype.getName= function (){return this.name;}
+  Employee.prototype.getID= function (){return this.id;}
+  Employee.prototype.setName= function (name){this.name = name;}
+  Employee.prototype.setID = function (id){this.id= id;}
+  Employee.prototype.getOcc= function (){return this.occupation;}
+  Employee.prototype.setOcc= function (occupation){this.occupation = occupation;}
+</script>
+<!--Inherit Employee as Manager-->
+<script>
+  function Manager(id,name,Salary)
+  {
+    this.base = Employee; //can use anything instead of "base"
+    this.salary=Salary;
+    this.base(id,name)        
+    // this.base.setOcc("Manager"); //error
+  }
+  Manager.prototype=new Employee; //(500,"xxx"); -- can be done
+  //this.base.setOcc("Manager"); //still error
+  Manager.prototype.getSal= function (){return this.salary;}
+  Manager.prototype.setSal= function (sal){this.salary= sal;}
+
+</script>
+<!--test Employee-->
+<script>
+  var emp = new Manager(12,"Rags",5000);
+  alert("Employee name: " + emp.getName() + "\nEmployee id: " + emp.getID()  + "\nOccupation: " + emp.getOcc() + "\nSalary: " + emp.getSal() );
+  emp.setName("Raghunandan R.");
+  emp.setID(30);
+  emp.setOcc("Cooli");
+  emp.setSal(2000)
+  alert("Employee name: " + emp.getName() + "\nEmployee id: " + emp.getID()  + "\nOccupation: " + emp.getOcc() + "\nSalary: " + emp.getSal() );
+</script>
+<!-- test employee-->
+<!--
+<script> 
+  var emp = new Employee(12,"Rags");
+  alert("Employee name: " + emp.getName() + "\nEmployee id: " + emp.getID()  + "\nOccupation: " + emp.getOcc() + "\ntoString() = " + emp.toString() );
+  emp.setName("Raghunandan R.");
+  emp.setID(30);
+  emp.setOcc("Cooli");
+  Employee.prototype.toString = function (){ return "A employee";}
+  alert("Employee name: " + emp.getName() + "\nEmployee id: " + emp.getID()  + "\nOccupation: " + emp.getOcc()+ "\ntoString() = " + emp.toString() );
+</script>
+-->
+
+</body>
+</html>

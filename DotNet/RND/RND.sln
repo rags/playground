@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RND", "RND.csproj", "{E0AC0E81-99EC-4030-8D26-268A1437E5E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOMEthing", "..\SOMEthing\SOMEthing.csproj", "{D2572A13-B3C0-4D87-8869-AE4E0DA92F2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E0AC0E81-99EC-4030-8D26-268A1437E5E2}.Debug.ActiveCfg = Debug|.NET
+		{E0AC0E81-99EC-4030-8D26-268A1437E5E2}.Debug.Build.0 = Debug|.NET
+		{E0AC0E81-99EC-4030-8D26-268A1437E5E2}.Release.ActiveCfg = Release|.NET
+		{E0AC0E81-99EC-4030-8D26-268A1437E5E2}.Release.Build.0 = Release|.NET
+		{D2572A13-B3C0-4D87-8869-AE4E0DA92F2D}.Debug.ActiveCfg = Debug|.NET
+		{D2572A13-B3C0-4D87-8869-AE4E0DA92F2D}.Debug.Build.0 = Debug|.NET
+		{D2572A13-B3C0-4D87-8869-AE4E0DA92F2D}.Release.ActiveCfg = Release|.NET
+		{D2572A13-B3C0-4D87-8869-AE4E0DA92F2D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

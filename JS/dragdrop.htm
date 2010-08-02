@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+</head>
+<script>
+    var curEmail="";
+    function  dragStart(ele)
+    {
+        document.getElementById("dragger").innerText = curEmail = ele.innerText;
+        showDrag();
+    }
+    function drop()
+    {
+        event.cancelBubble=true;            
+        if(event.srcElement.id=="xxx" && curEmail!="") 
+            event.srcElement.value=curEmail;
+        curEmail="";
+        document.getElementById("dragger").style.display = "none";        
+    }
+        
+   function showDrag()
+   {      
+        if(curEmail!="")
+        {           
+            document.getElementById("dragger").innerText = curEmail;        
+            document.getElementById("dragger").style.pixelLeft = document.body.scrollLeft + event.clientX + 1;
+		    document.getElementById("dragger").style.pixelTop = document.body.scrollTop + event.clientY + 1;
+		    event.returnValue= false;
+		    document.getElementById("dragger").style.display ="block";
+        }
+   }  
+</script>
+<body onmouseup="drop()" onselectstart="if(event.srcElement.type=='textarea' || event.srcElement.type=='text') return true;return false;" onmouseover="showDrag()">
+<table>
+<tr>
+<td background=red  onmousedown="dragStart(this)">rags_@msn.com
+</td>
+<td background=blue onmousedown="dragStart(this)">_rags@indiatimes.com
+</td>
+<td background=red  onmousedown="dragStart(this)" >r.raghunandanr@gmail.com
+</td>
+</tr>
+</table>
+<input id="xxx" type="text" onmouseover="this.style.background='red'" onmouseout="this.style.background=''"  style="POSITION: absolute;left:500">
+<div style="BORDER: 1px inset; POSITION: absolute; HEIGHT: 20px; BACKGROUND-COLOR: transparent;display:none;z-index:150" id="dragger">ok ok </div>
+</body>
+</html>

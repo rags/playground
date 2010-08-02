@@ -1,0 +1,1 @@
+data Employee = Emp Int String Double deriving (Show)

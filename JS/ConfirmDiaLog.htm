@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<script>
+			var oPopup;
+			function confirmDialog(msg,trueBtnTxt,falseBtnTxt)
+			{
+				var fontColor  = "black",
+					   backColor = "lightyellow";
+				oPopup = window.createPopup();
+				var oPopBody = oPopup.document.body;
+				oPopBody.style.backgroundColor = backColor;
+				oPopBody.style.color =  fontColor;
+				oPopBody.style.font="bold 14px Arial";     
+				oPopBody.style.border = "solid black 1px";
+				var width = 380,height =100;
+				oPopup.show(screen.availHeight/2 - height/2, screen.availWidth/2 - width/2, width, height, document.body);
+				//var html = " ";
+				var inputParts = new Array("<input type="," id="," value="," onclick="," style="," />");
+				var html= inputParts[0] + "hidden" + inputParts[1] +"response" + inputParts[5];				 
+				html += inputParts[0] + "button" + inputParts[1] +"btnTrue" + inputParts[2] + (trueBtnTxt || "Yes")+ inputParts[3] + "'parent.xxx()'"+inputParts[4]  +"'color: lightyellow;background-color: black;border: none;'" +inputParts[5] + "&nbsp;&nbsp;" ;
+				html += inputParts[0] + "button" + inputParts[4]  +"'color: lightyellow;background-color: black;border: none;'" + inputParts[1] +"btnFalse" + inputParts[2] + (falseBtnTxt || "   No  ") + inputParts[3] + "'parent.oPopup.hide()'" +inputParts[5];				 	 				
+				oPopBody.innerHTML = "<div align=center vlaign=middle height=100>" +msg+ "<br><br>"+html+"</div>";    								
+			}
+			function xxx()
+			{alert(12);}
+		</script>
+	</head>
+	<body>
+	<input type="text" id="txt"><br>
+	<input type="button" id="btn" value="confirm" onclick="confirmDialog('All questions are not answered.<br>Do you want to submit the test for evaluation?')">
+	</body>
+</html>

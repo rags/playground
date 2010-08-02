@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetHoro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zodiac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHoroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHoroResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </types>
+  <message name="GetHoroSoapIn">
+    <part name="parameters" element="s0:GetHoro" />
+  </message>
+  <message name="GetHoroSoapOut">
+    <part name="parameters" element="s0:GetHoroResponse" />
+  </message>
+  <message name="GetHoroHttpGetIn">
+    <part name="zodiac" type="s:string" />
+  </message>
+  <message name="GetHoroHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="GetHoroHttpPostIn">
+    <part name="zodiac" type="s:string" />
+  </message>
+  <message name="GetHoroHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <portType name="DailyHoroSoap">
+    <operation name="GetHoro">
+      <input message="s0:GetHoroSoapIn" />
+      <output message="s0:GetHoroSoapOut" />
+    </operation>
+  </portType>
+  <portType name="DailyHoroHttpGet">
+    <operation name="GetHoro">
+      <input message="s0:GetHoroHttpGetIn" />
+      <output message="s0:GetHoroHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="DailyHoroHttpPost">
+    <operation name="GetHoro">
+      <input message="s0:GetHoroHttpPostIn" />
+      <output message="s0:GetHoroHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="DailyHoroSoap" type="s0:DailyHoroSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="GetHoro">
+      <soap:operation soapAction="http://tempuri.org/GetHoro" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="DailyHoroHttpGet" type="s0:DailyHoroHttpGet">
+    <http:binding verb="GET" />
+    <operation name="GetHoro">
+      <http:operation location="/GetHoro" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="DailyHoroHttpPost" type="s0:DailyHoroHttpPost">
+    <http:binding verb="POST" />
+    <operation name="GetHoro">
+      <http:operation location="/GetHoro" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DailyHoro">
+    <port name="DailyHoroSoap" binding="s0:DailyHoroSoap">
+      <soap:address location="http://www.dev1.eraserver.net/nakul/wshoro.asmx" />
+    </port>
+    <port name="DailyHoroHttpGet" binding="s0:DailyHoroHttpGet">
+      <http:address location="http://www.dev1.eraserver.net/nakul/wshoro.asmx" />
+    </port>
+    <port name="DailyHoroHttpPost" binding="s0:DailyHoroHttpPost">
+      <http:address location="http://www.dev1.eraserver.net/nakul/wshoro.asmx" />
+    </port>
+  </service>
+</definitions>

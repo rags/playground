@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Compare", "Compare.vcproj", "{313E208B-3F91-4C86-9D6B-095AACD52BE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{313E208B-3F91-4C86-9D6B-095AACD52BE5}.Debug.ActiveCfg = Debug|Win32
+		{313E208B-3F91-4C86-9D6B-095AACD52BE5}.Debug.Build.0 = Debug|Win32
+		{313E208B-3F91-4C86-9D6B-095AACD52BE5}.Release.ActiveCfg = Release|Win32
+		{313E208B-3F91-4C86-9D6B-095AACD52BE5}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

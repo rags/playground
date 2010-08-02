@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+    <style type="text/css">
+      .dead {display: inline; cursor:hand}
+      .alive {display: inline; background-color: #007FFF;cursor:hand;}
+      .cell {height:10px;width:10px;}
+    </style>
+
+    <script src="prototype.js"></script>
+
+    <script src="life.js"></script>
+
+    <script>
+        function createTable(rows,cols, liveCoords){
+            var table = document.createElement("table");
+            table.border = 1;
+            for(var i=0;i<rows;i++){
+                var row = table.insertRow(-1);
+                for(var j=0;j<cols;j++){
+                    var cell = row.insertCell(-1);                    
+		    cell.addClassName('cell');
+                    cell.innerHTML = "<div class='dead' onclick='toggleStyle(this)'></div>";
+                }
+            }      
+            if(liveCoords) setLiveCoords(table, liveCoords);
+            var container = $("container");
+            if(container.firstChild) container.replaceChild(table,container.firstChild);
+            else container.appendChild(table);
+        }
+        
+        function setLiveCoords(table, liveCoords){
+            liveCoords.each(function (coord){
+                table.rows[coord.x].cells[coord.y].firstChild.className = 'alive';
+            });
+        }
+        
+        function toggleDetails(){
+            var detailsStyle = $('details').style;
+            detailsStyle.display=detailsStyle.display=='block'?'none':'block';
+        }
+        
+        function toggleStyle(ele){ 
+            ele.className = ele.className=='alive'?'dead':'alive';
+        }
+        
+        function getLiveCoords(table){
+            var liveCoords = $A();
+            var rows = table.rows;
+            for(var i=0;i<rows.length;i++){
+                var cells = rows[i].cells;
+                for(var j=0;j<cells.length;j++){                    
+                    if(cells[j].firstChild.className=='alive') liveCoords.push(new CoOrd(i,j));
+                }
+            }            
+            return liveCoords;
+        }
+        function go(){
+            var table = $("container").firstChild;
+            grid = new Grid(new CoOrd(table.rows.length, table.rows[0].cells.length),
+                              getLiveCoords(table)
+                            );
+            play(grid);
+        }
+        var interval = 10;
+        function play(grid){
+            setInterval(function () {
+                            grid = grid.evolve();
+                            createTable(grid.bound.x,grid.bound.y, grid.cells);
+                        },
+                        interval);            
+        }
+        
+        function display(){
+        }
+    </script>
+
+</head>
+<body>
+  click on cells to select and "go". <br>f5 to stop.
+    <table>
+        <tr>
+            <td>
+                <div id="container">
+                </div>
+            </td>
+            <td>
+            <button id=go onclick="go();">go</button>
+            </td>
+        </tr>
+    </table>
+    <div onclick="toggleDetails()">
+        details>></div>
+    <div id="details" style="display: none">
+        rows:
+        <input type="text" id="rows" />
+        cols:
+        <input type="text" id="cols" />
+        <input type="button" value="create table" id="makeTable" onclick="createTable(parseInt($('rows').value) , parseInt($('cols').value));" />
+    </div>
+
+    <script>
+    createTable(70,100);
+    </script>
+
+</body>
+</html>

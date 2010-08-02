@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:ie>
+  <head>
+    <? IMPORT NAMESPACE="IE" IMPLEMENTATION="#default"?>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+  </head>
+  <SCRIPT LANGUAGE="JScript">
+var iNextPageToCreate = 1;
+
+function AddFirstPage()
+{
+    newHTML  = "<IE:DEVICERECT ID='page1' MEDIA='print' CLASS='pagestyle'>";
+    newHTML += "<IE:LAYOUTRECT ID='layoutrect1' CONTENTSRC='document'" +
+               "ONLAYOUTCOMPLETE='OnRectComplete()' NEXTRECT='layoutrect2'" +
+               "CLASS='lorstyle'/>";
+    newHTML += "</IE:DEVICERECT>";
+
+    pagecontainer.insertAdjacentHTML("afterBegin", newHTML);
+}
+
+function OnRectComplete()
+{
+    if (event.contentOverflow == true)
+    {
+        document.all("layoutrect" + iPageToCreate).onlayoutcomplete = null;
+
+        newHTML  = "<IE:DEVICERECT ID='page" + (iPageToCreate + 1) +  
+                   "' MEDIA='print' CLASS='pagestyle'>";
+        newHTML += "<IE:LAYOUTRECT ID='layoutrect" + (iPageToCreate + 1) + 
+                   "' ONLAYOUTCOMPLETE='OnRectComplete()' NEXTRECT='layoutrect" + 
+                   (iPageToCreate + 2) + "'  CLASS='lorstyle'/>";
+        newHTML += "</IE:DEVICERECT>";
+
+        pagecontainer.insertAdjacentHTML("beforeEnd", newHTML);
+        iPageToCreate++;
+    }
+}
+</SCRIPT>
+
+<BODY ONLOAD="AddFirstPage()">
+
+<DIV ID="pagecontainer">
+<!-- Dynamically created pages go here. -->
+</DIV>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+      function makeBold()
+      {
+        document.selection.createRange().execCommand("bold");//"CreateLink"
+      }
+      function init()
+      {
+   content.onbeforepaste=function(){event.returnValue=false;};  
+   content.onpaste=function ()      {
+   event.returnValue=false; 
+   //content.innerHTML + = 
+   alert(clipboardData.getData("URL"));
+   document.selection.createRange().pasteHTML(clipboardData.getData("Text"));
+   };
+      }
+    </script>
+  </head>
+  <body onload=init()>
+  <div id=content>
+  sdjfhs adkasjdf akjhf akjh kjahfaksjfhk  fjkasfkajsfkajsfakjfh kajfh<br>
+  sdhgsdkglasdkglasdkjglksdjglakdjglsdkjglsdkjlksdglskd ljksdglksjdg sdlkj<br>
+  sdjfhs adkasjdf akjhf akjh kjahfaksjfhk  fjkasfkajsfkajsfakjfh kajfh<br>
+  </div>
+  <button onclick="makeBold()" accesskey=b><u>B</u>old</button>&nbsp;&nbsp;
+  <button accesskey=d onclick="document.selection.clear();"><u>D</u>elete</button>
+  <button accesskey=a onclick='document.body.createTextRange().select();'>Select <u>A</u>ll</button>
+  <br>
+  </body>
+  
+</html>

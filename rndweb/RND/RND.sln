@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RND", "http://localhost/RND/RND.csproj", "{B2E0DF98-A612-4D49-B685-C3E533AFA018}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RND1", "http://localhost/RND1/RND1.csproj", "{4F1EC036-DC5B-4B85-9251-BD2E11FDB0B4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B2E0DF98-A612-4D49-B685-C3E533AFA018}.Debug.ActiveCfg = Debug|.NET
+		{B2E0DF98-A612-4D49-B685-C3E533AFA018}.Debug.Build.0 = Debug|.NET
+		{B2E0DF98-A612-4D49-B685-C3E533AFA018}.Release.ActiveCfg = Release|.NET
+		{B2E0DF98-A612-4D49-B685-C3E533AFA018}.Release.Build.0 = Release|.NET
+		{4F1EC036-DC5B-4B85-9251-BD2E11FDB0B4}.Debug.ActiveCfg = Debug|.NET
+		{4F1EC036-DC5B-4B85-9251-BD2E11FDB0B4}.Debug.Build.0 = Debug|.NET
+		{4F1EC036-DC5B-4B85-9251-BD2E11FDB0B4}.Release.ActiveCfg = Release|.NET
+		{4F1EC036-DC5B-4B85-9251-BD2E11FDB0B4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

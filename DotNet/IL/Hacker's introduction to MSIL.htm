@@ -1,0 +1,403 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="keywords" CONTENT="C-Sharp, C#,.Net,dotnet,programming,computing,consulting, MSIL,tutorial,training,XML, Aleksey Nudelman,MSIL">
+<meta name="description" CONTENT "Tutorials on C#,.Net and XML.">
+<title> Hacker's introduction to MSIL</title>
+<LINK REL=StyleSheet HREF="../default.css" type="text/css">
+
+
+</head>
+
+<body>
+
+<p><a href="../index.htm"><img border="0" src="../images/PreviousArrow.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="TOC.htm"><img border="0" src="../images/TOCIcon.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="Lesson3.htm"><img border="0" src="../images/NextArrow.gif" width="26" height="26"></a></p>
+
+<p><img border="0" src="../images/blueline.gif" width="550" height="8"></p>
+
+
+
+<h1>Lesson 2. Hacker's introduction to MSIL.</h1>
+
+
+<p>First of all I am not a hacker; I may even eventually get a PhD in Physics. But what
+could I do? I really wanted to learn Microsoft Intermediate&nbsp;
+Language (MSIL) programming and&nbsp; the documentation is a
+bit limited. So, I took a wonderful tool called ildasm, and started disassembling my C#
+code. Whatever is said in this chapter is my empirical knowledge. That is why I
+have called it hacking.</p>
+
+
+<p>So, why do we want to learn MSIL programming? First of all, because it looks cool on your resume. Second, because we want to understand a little better
+how the Common Language Runtime works. Let me ask you a question: Where does the
+term
+boxing come from? Is there such a keyword in C#? What about VB.Net? Why the
+hell do we call value to object conversion boxing? Because this is what MSIL
+does. Look at your favorite *.Net program which has this conversion and you will find a keyword box.&nbsp; So, let's study
+MSIL. The simplest MSIL program
+is the one which does not do anything and has no data.</p>
+
+
+<p class="sample"><font class="ekeyword">
+.assembly</font> hello{}<br>
+
+<font class="ekeyword">
+.class</font> hello{<br>
+
+
+<font class="ekeyword">
+&nbsp;&nbsp;&nbsp; </font>
+
+
+<font class="ekeyword">
+.method static public void </font>main() il managed{<br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>
+
+
+<font class="ekeyword">.entrypoint</font><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="ekeyword"> ret</font><br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+
+}</p>
+
+
+<p>MSIL&nbsp; supports OO programming, so we can have a class&nbsp;which has
+public and private methods. The entry point of the program needs to be&nbsp; specified.
+In fact it doesn't really matter whether the method is called Mam or Dad. The only
+thing that matters here is that .entrypoint is specified inside the method. MSIL
+programs are compiled with ilasm compiler. Since we are writing a managed
+assembly code, we have to make sure that no variables are allocated in memory
+when the program goes out of scope. Here is a more complicated program that,
+once again, does not do anything but has some data.</p>
+
+<p class="sample">
+<font class="ekeyword">.assembly</font> hello{}<br>
+
+
+<font class="ekeyword">.class</font> hello{<br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp; </font>
+
+
+<font class="ekeyword">.method static public void </font>main() il managed{<br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<font class="ekeyword">.entrypoint</font><br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<font class="ekeyword">.local</font>( <font class="ekeyword">string</font> V_0)<br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font> &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<font class="ekeyword">ldstr</font> &quot;hi there&quot;<br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<font class="ekeyword">stloc.0</font><br>
+
+
+<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<font class="ekeyword">ret</font><br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+
+}</p>
+
+
+<p>This program  has a statement .local(string V_0),which declares a single
+local variable of type string. This declaration allows the compiler to allocate
+&quot;hi there&quot; on the local stack. Because of that, stloc.0 can find &quot;hi there&quot; and pop it from the stack. Since you are working in a
+managed environment, you cannot leave data in memory before quitting the
+program. Memory leaks are not allowed. So every single variable which you have
+allocated in memory has to be popped&nbsp; from the registers. Every program
+also needs to start with a declaration of the assembly it belongs to. In our
+case, we choose the assembly name to be the same as the class name. Let's take a
+look at a
+bit more complicated example which still doesn't do anything useful.</p>
+
+<p class="sample">
+<font class="ecomment">//allocating and deallocating multiple variables on the stack</font><br>
+
+
+<font class="ekeyword">.assembly</font> hello{}<br>
+
+
+<font class="ekeyword">.class</font> hello{<br>
+
+
+<font class="ekeyword">.method static public void</font> main() il managed{<br>
+
+
+<font class="ekeyword">.maxstack</font> 2<br>
+
+
+<font class="ekeyword">.entrypoint</font><br>
+
+
+<font class="ekeyword">.local</font>( <font class="ekeyword">string </font>V_0, <font class="ekeyword">string </font>V_1) <font class="ecomment">//we have two local variables now</font> <br>
+
+
+<font class="ekeyword">ldstr</font> &quot;hi there&quot;<font class="ecomment"> //push this string on stack</font> <br>
+
+
+<font class="ekeyword">ldstr</font> &quot;bye here&quot; <font class="ecomment">//push second string on stack</font> <br>
+
+
+<font class="ekeyword">stloc.0</font> <font class="ecomment">//pop first string&nbsp; from the stack and store it in&nbsp; the
+local variable 0.</font> <br>
+
+
+<font class="ecomment">//you do not need to worry about deallocating local variables - it is done by
+the runtime.</font> <br>
+
+
+<font class="ekeyword">stloc.0</font> <font class="ecomment">//pop the second string from the stack and store it in the same local
+variable (&quot;hi there&quot; is overwritten)</font> <br>
+
+
+<font class="ekeyword">ret</font><br>
+
+
+}<br>
+
+
+}</sample>
+
+
+<p>There is a new element in this program: .maxstack declaration. We use .maxstack
+to declare the maximal number of variables we plan to have on the stack at any given
+time. The default value is 1, so we can always omit this declaration when&nbsp; we
+use a single register.</p>
+
+
+<p>Here is a hello world program written in MSIL</p>
+
+<p class="sample">
+<font class="ecomment">//compile with ilasm</font><br>
+<font class="ekeyword">.assembly</font> hello {}<br>
+<font class="ekeyword">.method static public void </font>main() il managed {<br>
+<font class="ekeyword">.entrypoint</font><br>
+	<font class="ekeyword">ldstr</font>	"Hello MS IL!"<br>
+	<font class="ekeyword">call	void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">class</font> 
+System.String)
+<br>
+<font class="ekeyword">	ret</font><br>
+}<br>
+</sample>
+
+<p>All MSIL directives start with a period. Recall that all C# code is contained
+within a class. This translates on MSIL level at having all code inside assembly
+.hello.</p>
+
+
+<p>.entrypoint and ret are equivalent to main(){&nbsp;... }&nbsp;</p>
+
+
+<p>.lsdtr loads
+string into a register and calls to WriteLine picks it up from there. WriteLine
+does all the clean up before it displays &quot;hello&nbsp; msil&quot;, we do not
+need to pop anything from the stack. We will get a runtime error if we do.</p>
+
+
+<p>Here is a program which illustrates how to store data into local variables and
+how to overwrite them</p>
+
+<p class="sample">
+
+<font class="ekeyword">.assembly </font>hello{}<br>
+<font class="ekeyword">.assembly</font> extern mscorlib {}<br>
+<font class="ekeyword">.class </font>hello{<br>
+<font class="ekeyword">.method static public void </font>main() il managed{<br>
+<font class="ekeyword">.maxstack </font>2<br>
+<font class="ekeyword">.entrypoint</font><br>
+<font class="ekeyword">.locals</font>(<font class="ekeyword">string</font> V_0, <font class="ekeyword">string </font>V_1)<br>
+<font class="ecomment">//we have two local variables now</font><br>
+<font class="ekeyword">ldstr </font>"hi there" <font class="ecomment">//push this string on stack</font><br>
+<font class="ekeyword">ldstr</font> "bye here" <font class="ecomment">//push second string on stack</font><br>
+<font class="ekeyword">stloc.0 </font><font class="ecomment">//pop first string  from the stack and store it in  the local variable 0.</font><br>
+<font class="ecomment">//you do not need to worry about dealocating local variables - it is done by the runtime.</font><br>
+<font class="ekeyword">stloc.0 </font><font class="ecomment">//pop the second string from the stack and store it in the same local variable ("bye there" is overwritten)</font><br>
+<font class="ekeyword">ldloc.0 <font class="ecomment">//push the remaining local variable containing "bye there" into the register</font><br>
+<font class="ekeyword">call void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">string</font>)<br>
+<font class="ekeyword">ret</font><br>
+}&nbsp;<br>
+}</sample>
+
+
+<p>It is always a lot of fun to manipulate integers with Assembly language.</p>
+
+
+<p>&nbsp;</p>
+
+<p class="sample">
+
+<font class="ecomment">//print number 2</font><br>
+
+
+<font class="ekeyword">.assembly</font> hello {}<br>
+
+
+<font class="ekeyword">.method public static void </font> Main() il managed<br>
+{<br>
+<font class="ekeyword">.entrypoint</font><br>
+
+
+<font class="ekeyword">.locals</font>(int32</font> V_0)<br>
+<font class="ekeyword">ldc.i4</font>.2<br>
+<font class="ekeyword">stloc.0</font><br>
+<font class="ekeyword">ldloc.0</font><br>
+<font class="ekeyword">call       void</font> [mscorlib]System.Console::WriteLine(<font class="ekeyword">int32</font>)<br>
+<font class="ekeyword">ret</font><br>
+}
+</sample>
+
+<p>The next program&nbsp; adds two integers</p>
+
+<p class="sample">
+
+
+<font class="ecomment">//add two numbers 1 and 3</font><br>
+<font class="ekeyword">.assembly</font> hello {}<br>
+<font class="ekeyword">.assembly extern</font> mscorlib {}<br>
+<font class="ekeyword">.class public</font> hello&nbsp;<br>
+{<br>
+<font class="ekeyword">&nbsp;&nbsp;&nbsp; </font>
+<font class="ekeyword">.method static public void </font>main() {<br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>
+	<font class="ekeyword">.entrypoint</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+	<font class="ekeyword">.maxstack </font>2<br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+	<font class="ekeyword">.locals</font>(<font class="ekeyword">int32 </font>V_0, <font class="ekeyword">int32 </font>V_1) <font class="ecomment">//declare two local variables</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+	<font class="ekeyword">ldc.i4.</font>1<font class="ecomment"> //put number&nbsp; 1 on the stack</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;
+	<font class="ekeyword">ldc.i4.</font>3 <font class="ecomment">//put number 3 on the stack</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font> &nbsp;&nbsp;&nbsp;&nbsp;
+	<font class="ekeyword">stloc.0</font> <font class="ecomment">//pop 1 from the stack and store it in the local variable</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;
+	<font class="ekeyword">ldloc.0 </font><font class="ecomment">//push local variable&nbsp; with value 1 on the stack</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp;</font> &nbsp;&nbsp;&nbsp;&nbsp;
+	<font class="ekeyword">add</font> <font class="ecomment">//add takes care of the second value on the local stack</font><br>
+	<font class="ecomment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+	<font class="ecomment">//you should not try to deallocoate memory there. it is done by add</font><br>
+	<font class="ecomment">&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp; <font class="ecomment">//add works with the first variable on the stack
+and the value&nbsp;</font><br>
+	<font class="ekeyword">&nbsp;&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp;
+	<font class="ekeyword">call	void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">int32</font>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ret<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+}
+</sample>
+
+
+<p>It is sometimes very useful to have an explicit conversion between a value
+and an object. This is done with box directive. The example bellow outputs an
+object value. So, we need to explicitly convert the data inside the register
+to&nbsp; a boxed data.</p>
+
+<p class="sample">
+<font class="ekeyword">.assembly </font>hello{}<br>
+<font class="ekeyword">.method public static void  </font>Main() il managed<br>
+{<br>
+  <font class="ekeyword"> .entrypoint</font><br>
+  <font class="ekeyword">ldc.i4.s</font> 100 <font class="ecomment">//put 100 on stack</font><br>   
+ <font class="ekeyword"> box    </font>    [mscorlib]System.Int32 <font class="ecomment">//convert it to on object in place</font><br>
+ <font class="ekeyword"> call       void</font> [mscorlib]System.Console::WriteLine(<font class="ekeyword">object</font>) <font class="ecomment">//print the value
+of the object</font><br>
+ <font class="ekeyword"> ret</font><br>
+}&nbsp;</sample>
+
+
+<p>The example above was a bit contrived to keep things simple . Here is another
+example</p>
+
+
+<p class="sample">
+<font class="ekeyword">.assembly </font>hello{}<br>
+<font class="ekeyword">.method public  static void </font> Main() il managed<br>
+{<br>
+<font class="ekeyword">.entrypoint</font><br>
+<font class="ekeyword">.maxstack </font> 2<br>
+<font class="ekeyword">.locals </font>(int32 V_0)<br>   
+<font class="ekeyword">ldstr </font>     "Please enter your age:"<br>    
+<font class="ekeyword">call     void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">string</font>)<br>    
+<font class="ekeyword">call     string</font> [mscorlib]System.Console::ReadLine()<br>     
+<font class="ekeyword">call </font>      int32 [mscorlib]System.Int32::Parse(<font class="ekeyword">string</font>)<br>
+<font class="ekeyword">stloc.0</font><br>   
+<font class="ekeyword">ldstr </font>     "You are {0} years old "<br>
+<font class="ekeyword">ldloc.0</font><br>  
+<font class="ekeyword">box    </font>    [mscorlib]System.Int32 <font class="ecomment">//convert int32 to an object on the stack</font><br>
+<font class="ekeyword">call     void </font>[mscorlib]System.Console::WriteLine(<font class="ekeyword">string</font>,<font class="ekeyword"> object</font>)<br>
+<font class="ekeyword">ret</font><br>
+&nbsp;}<br>
+</sample>
+<p>
+Note that MSIL does not have System.Consol::WriteLine(sting,int32 ) method, therefore
+int32 needs to be converted to another type to allow output to the console.</p>
+
+
+<p>Exercises:</p>
+
+
+<ol>
+  <li>Write a program that subtracts two integers.</li>
+  <li>Read an <a href="http://msdn.microsoft.com/msdnmag/issues/01/05/bugslayer/print.asp ">MSIL article</a> by John Robbins at
+    MSDN magazine.</li>
+  <li>Use ildasm to disassemble your .Net programs. Does compiling with /o+
+    optimization option change MSIL code? Why?</li>
+  <li>Find a mistake in this page.</li>
+  <li>Write a really cool program and send it to <a href="mailto:aleksey@csharpcomputing.com">me</a>. Do not forget to put a lot
+    of comments.</li>
+  <li>Do you think there is an important topic that I should have covered in
+    this lesson? Write to <a href="mailto:aleksey@csharpcomputing.com">me</a>
+    about it.</li>
+</ol>
+
+
+<h5>
+
+<br>
+
+<a href="../copyright.htm">Copyright</a>© 2003 C# COMPUTING</h5>
+
+<p><img border="0" src="../images/blueline.gif" width="550" height="8"></p>
+
+<p><a href="../index.htm"><img border="0" src="../images/PreviousArrow.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="TOC.htm"><img border="0" src="../images/TOCIcon.gif" width="26" height="26"></a>&nbsp;&nbsp;&nbsp;
+<a href="Lesson3.htm"><img border="0" src="../images/NextArrow.gif" width="26" height="26"></a></p>
+
+</body>
+
+</html>

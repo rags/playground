@@ -1,0 +1,58 @@
+A cell that lives and makes it to the next generation, grows a generation old. This process is called ageing and in addition to the transitions,
+   1. Any live cell with fewer than two live neighbours dies, as if by loneliness.
+   2. Any live cell with more than three live neighbours dies, as if by overcrowding.
+   3. Any live cell with two or three live neighbours lives, unchanged, to the next generation.
+   4. Any dead cell with exactly three live neighbours comes to life.
+there is another transition
+   5. Any live that is over 3 generations old dies, as if by ageing.
+
+The initial 'seed' pattern is the 0th generation of the system, the next one is the 1st and so on. Any cell that lives consecutively for 3 generations satisfies rule no 5.
+
+Problem.
+The inputs below represent the cells in the universe at generation 0. The last input line is the number of generation at which the state of the system needs to be printed.
+------------------------------------------------------------------------------------------------------------------
+Input A:
+1, 1
+1, 2
+2, 1
+2, 2
+2
+Output A:
+1, 1
+1, 2
+2, 1
+2, 2
+------------------------------------------------------------------------------------------------------------------
+Input B:
+1, 1
+1, 2
+2, 1
+2, 2
+5
+Output B: (no output)
+------------------------------------------------------------------------------------------------------------------
+(Blinker pattern)     
+Input C
+1, 1
+1, 0
+1, 2
+3
+Output C     
+0, 1
+2, 1
+------------------------------------------------------------------------------------------------------------------
+(Toad pattern)
+Input D
+
+1, 1
+1, 2
+1, 3
+2, 2
+2, 3
+2, 4
+3
+Output D
+0, 2
+1, 4
+2, 1
+3, 3

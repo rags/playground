@@ -1,0 +1,42 @@
+<ContentMenu>
+  <MenuItem id="406" name="Member Characteristics" type="dimensionGrp">
+    <MenuItem id="[Age Range]" name="Age Range" type="dimension" dimension="[Age Range]" />
+    <MenuItem id="[Benefit]" name="Benefit" type="dimension" dimension="[Benefit]" />
+    <MenuItem id="[Coverage Tier]" name="Coverage Tier" type="dimension" dimension="[Coverage Tier]" />
+    <MenuItem id="[Enrollment Payer]" name="Enrollment Payer" type="dimension" dimension="[Enrollment Payer]" />
+    <MenuItem id="[Enrollment PCP]" name="Enrollment PCP" type="dimension" dimension="[Enrollment PCP]" />
+    <MenuItem id="[Gender]" name="Gender" type="dimension" dimension="[Gender]" />
+    <MenuItem id="[Geographical Location]" name="Geographical Location" type="dimension" dimension="[Geographical Location]" />
+    <MenuItem id="[Member Status]" name="Member Status" type="dimension" dimension="[Member Status]" />
+    <MenuItem id="[Plan]" name="Plan" type="dimension" dimension="[Plan]" />
+    <MenuItem id="[Purchaser]" name="Purchaser" type="dimension" dimension="[Purchaser]" />
+  </MenuItem>
+  <MenuItem id="404" name="Event Characteristics" type="dimensionGrp">
+    <MenuItem id="[Admitting Diagnosis]" name="Admitting Diagnosis" type="dimension" dimension="[Admitting Diagnosis]" />
+    <MenuItem id="[Bill Type]" name="Bill Type" type="dimension" dimension="[Bill Type]" />
+    <MenuItem id="[DRG]" name="DRG" type="dimension" dimension="[DRG]" />
+    <MenuItem id="[Event Type]" name="Event Type" type="dimension" dimension="[Event Type]" />
+    <MenuItem id="[Formulary Status]" name="Formulary Status" type="dimension" dimension="[Formulary Status]" />
+    <MenuItem id="[Generic Status]" name="Generic Status" type="dimension" dimension="[Generic Status]" />
+    <MenuItem id="[Prescriber]" name="Prescriber" type="dimension" dimension="[Prescriber]" />
+    <MenuItem id="[SICD9  1]" name="SICD9  1" type="dimension" dimension="[SICD9  1]" />
+  </MenuItem>
+  <MenuItem id="403" name="Transaction Characteristics" type="dimensionGrp">
+    <MenuItem id="[Adjustment Reason]" name="Adjustment Reason" type="dimension" dimension="[Adjustment Reason]" />
+    <MenuItem id="[Calendar Time]" name="Calendar Time" type="dimension" dimension="[Calendar Time]" />
+    <MenuItem id="[Claims Diagnosis 1]" name="Claims Diagnosis 1" type="dimension" dimension="[Claims Diagnosis 1]" />
+    <MenuItem id="[Claims Payer]" name="Claims Payer" type="dimension" dimension="[Claims Payer]" />
+    <MenuItem id="[Claims PCP]" name="Claims PCP" type="dimension" dimension="[Claims PCP]" />
+    <MenuItem id="[Claims PCP Network]" name="Claims PCP Network" type="dimension" dimension="[Claims PCP Network]" />
+    <MenuItem id="[Claims PCP Panel]" name="Claims PCP Panel" type="dimension" dimension="[Claims PCP Panel]" />
+    <MenuItem id="[Claims PCP Speciality]" name="Claims PCP Speciality" type="dimension" dimension="[Claims PCP Speciality]" />
+    <MenuItem id="[Facility]" name="Facility" type="dimension" dimension="[Facility]" />
+    <MenuItem id="[Fiscal Time]" name="Fiscal Time" type="dimension" dimension="[Fiscal Time]" />
+    <MenuItem id="[Place of Service]" name="Place of Service" type="dimension" dimension="[Place of Service]" />
+    <MenuItem id="[Provider]" name="Provider" type="dimension" dimension="[Provider]" />
+    <MenuItem id="[Provider Network]" name="Provider Network" type="dimension" dimension="[Provider Network]" />
+    <MenuItem id="[Provider Panel]" name="Provider Panel" type="dimension" dimension="[Provider Panel]" />
+    <MenuItem id="[Provider Speciality]" name="Provider Speciality" type="dimension" dimension="[Provider Speciality]" />
+    <MenuItem id="[Service]" name="Service" type="dimension" dimension="[Service]" />
+  </MenuItem>
+</ContentMenu>

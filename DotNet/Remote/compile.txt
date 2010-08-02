@@ -1,0 +1,15 @@
+csc /t:library RemoteObject.cs
+
+csc /r:RemoteObject.dll /t:exe /out:Server.exe Server.cs ServerInstaller.cs //service server
+
+installutil server.exe //install
+installutil /u server.exe //uninstall
+
+csc /r:RemoteObject.dll Client.cs 
+
+csc /r:RemoteObject.dll Server1.cs //getche server
+
+
+
+
+

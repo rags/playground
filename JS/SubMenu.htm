@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+      document.oncontextmenu=function()
+      {
+        mainMenu.style.top = window.event.clientY + document.body.scrollTop;
+        mainMenu.style.left=window.event.clientX + document.body.scrollLeft;
+        mainMenu.style.display = "block";return false;
+      }
+      document.onclick=function(){mainMenu.style.display = "none";return false;}
+      function showSubMenu(subID)
+      {
+        var ele = event.srcElement;
+        var subMenu = document.getElementById(subID);
+        subMenu.style.top = mainMenu.style.top;
+        var eleLeft = mainMenu.style.left;
+        var eleWidth = ele.style.width;        
+        subMenu.style.left =parseInt(eleLeft.substring(0,eleLeft.indexOf("px"))) + parseInt(eleWidth.substring(0,eleWidth.indexOf("px")));
+        subMenu.style.display="block";
+      }
+    </script>
+    
+ <style>
+
+.drillMenu
+{
+  border:none;BACKGROUND-COLOR: #4E86D9;COLOR: aliceblue;
+}
+.drillMenuSeperator
+{
+  border:none;BACKGROUND-COLOR: #4E86D9;COLOR: aliceblue;border-bottom: outset 1px;
+}
+.drillMenuHover
+{
+  border:none;BACKGROUND-COLOR: #2D6DCE;COLOR: aliceblue;
+}
+.drillMenuText
+{
+  COLOR: aliceblue;
+  font-style: italic;
+  font-size:9px;
+}
+.selMenu
+{
+  display:none;
+  position: absolute;
+  background-color:#4E86D9;
+  border-color: #4E86D9;
+  border:outset 1px;
+}
+</style>
+  </head>
+  <body>
+  <table id="mainMenu" class="selMenu">
+  <tr><td class="drillMenu" style="width:100px" onmouseover="this.className='drillMenuHover';showSubMenu('sub1');" onmouseout="this.className='drillMenu'">menu 1</td></tr>
+  <tr><td class="drillMenu" style="width:100px" onmouseover="this.className='drillMenuHover';showSubMenu('sub2');" onmouseout="this.className='drillMenu'">menu 2</td></tr>
+  </table>
+  <table id="sub1" class="selMenu">
+  <tr><td class="drillMenu" onmouseover="this.className='drillMenuHover'" onmouseout="this.className='drillMenu'">sub menu 11</td></tr>  
+  <tr><td class="drillMenu" onmouseover="this.className='drillMenuHover'" onmouseout="this.className='drillMenu'">sub menu 12</td></tr>  
+  </table>
+  <table id="sub2" class="selMenu">
+  <tr><td class="drillMenu" onmouseover="this.className='drillMenuHover'" onmouseout="this.className='drillMenu'">sub menu 21</td></tr>
+  <tr><td class="drillMenu" onmouseover="this.className='drillMenuHover'" onmouseout="this.className='drillMenu'">sub menu 22</td></tr>
+  <tr><td class="drillMenu" onmouseover="this.className='drillMenuHover'" onmouseout="this.className='drillMenu'">sub menu 23</td></tr>
+  </table>
+  </body>
+</html>
+
+

@@ -1,0 +1,126 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Prototype</title>
+    <script src="http://localhost/js/scriptaculous-js-1.6.1/lib/prototype.js"></script>
+    <script src="http://localhost/js/scriptaculous-js-1.6.1/src/unittest.js"></script>
+    <script src="http://localhost/js/behaviour.js"></script>
+    <style type="text/css">
+      .red {color: red;}
+      .blueback {background: lightblue;}
+    </style>
+    
+</head>
+<body>
+    <div id=foo>fooooo</div>
+    <div id=foo1 class="red">fooooo1</div>
+    <div id=foo2>fooooo3</div>
+    <input id="txt1" type="text" name="txt1" value="enter here">
+    <div id="out" class="red blueback"></div>
+</body>
+<script>
+/* try {
+    netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
+   } catch (e) {
+    alert("Permission UniversalBrowserRead denied.1");
+   }*/
+
+        new Test.Unit.Runner
+       (
+	{
+	    test$$: function()
+	    {
+	      with(this)
+	      {
+		  $$('input#txt1','div#foo','div#foo1','div').each(function (element){assertNotNull(element);});
+	      }
+	    },
+	    test$: function()
+	    {
+	      with(this)
+	      {
+	          var i=0;
+	          var innerHtms =  $A(['fooooo','fooooo1','fooooo3']); 
+		  $('foo','foo1','foo2').each(function (element){ if($) assertEqual(innerHtms[i++],element.innerHTML); });
+	      }
+	    },
+	    testF$: function()
+	    {
+	      with(this)
+	      {
+	         assertEqual("enter here",$F('txt1'));
+	      }
+	    },
+	    testHash: function()
+	    {
+	      with(this)
+	      {
+	         var x = {a:1,b:2,c:function(){return 3;}};
+		 x[1]="abcd";
+		 var _x = $H(x);
+		 var values = _x.values();
+		 var keys = _x.keys();
+		 for(var i=0;i<keys.length;i++)
+		 assertEqual(_x[keys[i]],values[i]);
+ 	      }
+	    },
+	    test$R: function()
+	    {
+	      with(this)
+	      {
+	        $R(0,10,true).each(function (value,index) {assertEqual(value,index);});
+	      }	
+	    },
+	    testTryThese: function()
+	    {
+	      with(this)
+	      {
+	        assertEqual(1, Try.these(function() { throw "Exception!";}, function() {return 1;}, function (){return 2;}));
+	      }
+	    },
+	    'test Ajax and  Behavior':function()
+	    {
+	      with(this)
+	      {
+	      	Behaviour.register
+		  (
+		     {
+		      '#foo': function(div){
+				             div.onclick=function(){makeAjaxCall();}
+				             div.onreadystatechange=function(){alert(0); assertEqual("Hello world", $('foo').innerHTML); }
+		                           }
+		     }
+		  );
+		  Behaviour.apply();  
+		  $('foo').onclick();
+
+	      }
+	    },
+	    "foo": function()
+	    {
+	      with(this)
+	      {
+	          assertEqual(2,document.getElementsByClassName("red").lenght);
+	      }
+	    }
+	    
+
+        },
+        {testLog: "out"}
+);
+
+function makeAjaxCall()
+{
+  new Ajax.Updater("foo",
+                   "x.xml",
+                   {
+		    method: 'GET',		   
+		    asynchronous: true,
+		    onException: function(){alert(arguments[1]);}
+		   }
+		  );
+}
+
+
+   </script>
+</html>
