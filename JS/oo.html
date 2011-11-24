@@ -1,0 +1,25 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.7.js"></script>
+<body>
+  <img src="http://adsoftheworld.com/files/images/PornBlocker_Music.jpg" />
+</body>
+<script>
+ var namespace = namespace || {};
+ namespace.Clazz = function() {
+  var private1 = 12;
+  var privatearg;
+  function constructor(arg){
+   privatearg = arg;
+  }
+  function pub(){
+    return ++private1;
+  }
+  constructor.prototype.publicfn = pub;
+  return constructor;
+ }();  
+ $(document).ready(function(){
+   x = new namespace.Clazz();
+   console.log(x.publicfn());
+ });
+</script>
+</html>
