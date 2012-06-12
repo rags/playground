@@ -1,4 +1,4 @@
-The scripts copy over music from your ipod to a specified directory in artist/album/title.xxx format.
+The script copies over music from your ipod to a specified directory in artist/album/title.xxx format.
 
 Usage: 
 Run the script with 2 params ipod's Music dir and the destination dir.
