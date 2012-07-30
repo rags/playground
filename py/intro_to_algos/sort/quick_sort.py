@@ -2,6 +2,8 @@ import arrays
 import sys
 import random
 import selection_sort
+from profile import profile
+@profile
 def sort(a):
     quick_sort(a, 0, len(a)-1)
 

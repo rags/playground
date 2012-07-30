@@ -1,6 +1,8 @@
 import sys
 import arrays
+from profile import profile
 
+@profile
 def sort(a):
     merge_sort(a,0,len(a),[0]*len(a))
 

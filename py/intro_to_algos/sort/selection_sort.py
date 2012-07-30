@@ -1,6 +1,8 @@
 import arrays
 import sys
+from profile import profile
 
+@profile
 def sort(a):
     selection_sort(a,0,len(a))
 

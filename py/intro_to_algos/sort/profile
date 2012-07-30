@@ -3,4 +3,5 @@ for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 true
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 false
 for (( i=0 ;i<3 ;i++ )) time python merge_sort.py 1000000 true
 for (( i=0 ;i<3 ;i++ )) time python merge_sort.py 1000000 false
+for (( i=0 ;i<3 ;i++ )) time python selection_sort.py 1000000 true
 
