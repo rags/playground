@@ -1,4 +1,5 @@
-import unsorted,sys
+import sys
+import arrays
 
 def sort(a):
     merge_sort(a,0,len(a),[0]*len(a))
@@ -27,8 +28,8 @@ def merge_sort(a,start,end,result):
  
 
 def main():
-    a = unsorted.array()
-    sys.setrecursionlimit(len(a)**2)
+    a = arrays.make(sys.argv)
+    sys.setrecursionlimit(2**31-1)
     sort(a)
     return a
 

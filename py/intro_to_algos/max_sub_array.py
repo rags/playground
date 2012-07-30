@@ -18,6 +18,8 @@ def find_max_across(a,low,mid,high):
         
     
 def find_max_subarray(a,low,high):
+    if(low >= len(a)):
+        return (-1,-1,0)
     if(high==low+1 or high==low):
         return (low,high,a[low])
     mid = (low + high)//2
@@ -28,7 +30,6 @@ def find_max_subarray(a,low,high):
     across = find_max_across(a,low,mid,high)
     if(across[2]>result[2]): 
         result = across
-    print left,right,across
     return result
 
 
@@ -36,18 +37,20 @@ def max_subarray(a):
     low,high,sum = find_max_subarray(a,0,len(a))
     return a[low:high]
 
-
 def main():
     #print max_subarray([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])
     #print max_subarray([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])
     #print max_subarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])                     
     print max_subarray([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])
 
+
 def should_find_max_subarray():
-	assert max_subarray([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])==[18,20,-7,12]
-	assert max_subarray([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20,-7,12]
-	assert max_subarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])==[4,-1,2,1]
-       	assert max_subarray([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20]
+    assert max_subarray([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])==[18,20,-7,12]
+    assert max_subarray([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20,-7,12]
+    assert max_subarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])==[4,-1,2,1]
+    assert max_subarray([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20]
+    assert max_subarray([-7,-3,-2,-10,-6,-50])==[]
+    assert max_subarray([-7,-3,-2,-10,-6,-1])==[]
 
 if __name__=="__main__":
     main()
