@@ -1,27 +1,28 @@
 #include <stdio.h>
+
 const int rows=5;
 const int cols=3;
-void foo(int [rows][cols], void (*fn)(int[rows][cols],int,int));
-void bar(int[rows][cols]);
+void out(int [rows][cols], void (*fn)(int[rows][cols],int,int));
+void populate(int[rows][cols]);
 void print(int[rows][cols],int,int);
 
 int  main(){
   int a[rows][cols];
-  bar(a);
-  foo(a,print);
-  
-
+  populate(a);
+  out(a,print);
 }
 
-void bar(int a[rows][cols]){
-  int i;
-  for(i=0;i<rows*cols;i++){
-    a[i/cols][i%cols] = i+1;
+void populate(int a[rows][cols]){
+  int i,j;
+  for(i=0;i<rows;i++){
+	for(j=0;j<cols;j++){
+    a[i][j] = i*cols + j+1;
+	}
   }
 }
 
 
-void foo(int a[rows][cols], void (*fn)(int[rows][cols],int,int)){
+void out(int a[rows][cols], void (*fn)(int[rows][cols],int,int)){
   int i;
   for(i=0;i<rows*cols;i++){	
     fn(a,i/cols,i%cols);
