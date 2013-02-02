@@ -1,4 +1,4 @@
-import arrays
+from ds import arrays
 import sys
 import random
 import selection_sort

@@ -1,4 +1,4 @@
-import arrays
+from ds import arrays
 import selection_sort
 import merge_sort
 import quick_sort

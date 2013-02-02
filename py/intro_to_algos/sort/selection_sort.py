@@ -1,4 +1,4 @@
-import arrays
+from ds import arrays
 import sys
 from profile import profile
 
