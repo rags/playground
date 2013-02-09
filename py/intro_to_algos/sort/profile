@@ -1,7 +1,22 @@
 #!/bin/zsh
+RED="\e[00;31m"
+NO_COLOR="\e[00m"
+function e(){
+echo $RED$1$NO_COLOR
+}
+
+e "quick sort sorted array:" 
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 true
+e "quick sort unsorted array:"
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 false
+e "merge sort sorted array:"
 for (( i=0 ;i<3 ;i++ )) time python merge_sort.py 1000000 true
+e "merge sort un sorted array:"
 for (( i=0 ;i<3 ;i++ )) time python merge_sort.py 1000000 false
+e "selection sort sorted array:"
 for (( i=0 ;i<3 ;i++ )) time python selection_sort.py 1000000 true
+e "counting sort sorted array:"
+for (( i=0 ;i<3 ;i++ )) time python counting_sort.py 1000000 true
+e "counting sort un sorted array:"
+for (( i=0 ;i<3 ;i++ )) time python counting_sort.py 1000000 false
 

@@ -1,5 +1,5 @@
 import sys
-import arrays
+from ds import arrays
 from profile import profile
 
 @profile

@@ -7,7 +7,7 @@ class SingleLinkNode:
         return str(self.value) +  " -> " + str(self.next_node)
         
 class DoubleLinkNode:
-    def __init__(self, value, left, right):
+    def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
@@ -19,5 +19,7 @@ class DoubleLinkNode:
     @property
     def next(self):
         return self.right
-    
+
+    def is_leaf(self):
+        return not(self.right or self.left)
         

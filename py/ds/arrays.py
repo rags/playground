@@ -9,8 +9,8 @@ def make(argv):
         sorted = argv[2].lower()=="true"
     return array(upper,sorted)
 
-def array(upper,sorted=False):
-    a = range(1,upper+1)
+def array(upper,sorted=False, lower=1):
+    a = range(lower,upper+lower)
     if(not(sorted)):
         random.shuffle(a)
     return a
