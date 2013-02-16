@@ -3,29 +3,39 @@ import selection_sort
 import merge_sort
 import quick_sort
 import counting_sort
-
-def _assert_sorted(a):
-    for i in range(1,len(a)):
-        assert a[i-1]<a[i]
+import quick_sort_functional
+import numpy.random as rand
+def _assert_sorted(a, original):
+    assert sorted(original) == a
 
 def _sort(algorithm, length):
     a = arrays.array(length,False)
+    original = a[:]
     algorithm(a)
-    return a
+    return a, original
 
 def test_sorting_works_for(algorithm):
-    _assert_sorted(_sort(algorithm,10))
-    _assert_sorted(_sort(algorithm,101))
-    _assert_sorted(_sort(algorithm,500))
+    _assert_sorted(*_sort(algorithm,10))
+    _assert_sorted(*_sort(algorithm,101))
+    _assert_sorted(*_sort(algorithm,500))
 
 def should_sort_with_selection_sort():
     test_sorting_works_for(selection_sort.sort)
+
+def should_sort_with_funtional_quick_sort():
+    test_sorting_works_for(quick_sort_functional.sort)
 
 def should_sort_with_merge_sort():
     test_sorting_works_for(merge_sort.sort)
 
 def should_sort_with_quick_sort():
     test_sorting_works_for(quick_sort.sort)
+
+def should_sort_with_quick_sort_with_dups():
+    a = rand.randint(20, size=40).tolist()
+    expected = sorted(a)
+    quick_sort.sort(a)
+    assert expected == a
 
 def should_sort_with_counting_sort():
     test_sorting_works_for(counting_sort.sort)

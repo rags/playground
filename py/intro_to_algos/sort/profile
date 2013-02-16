@@ -9,6 +9,10 @@ e "quick sort sorted array:"
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 true
 e "quick sort unsorted array:"
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 false
+e "quick sort functional sorted array:" 
+for (( i=0 ;i<3 ;i++ )) time python quick_sort_functional.py 1000000 true
+e "quick sort functional unsorted array:"
+for (( i=0 ;i<3 ;i++ )) time python quick_sort_functional.py 1000000 false
 e "merge sort sorted array:"
 for (( i=0 ;i<3 ;i++ )) time python merge_sort.py 1000000 true
 e "merge sort un sorted array:"

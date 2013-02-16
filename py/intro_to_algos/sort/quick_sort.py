@@ -27,16 +27,16 @@ def partition(a, start, end):
     pivot = a[end]
     i, j = start,end
     while(i<j):
-        while(a[i]<pivot and i<=j):
+        while(a[i]<pivot and i<j):
             i += 1
-        while(a[j]>pivot and j>i):
+        while(a[j] >= pivot and j>i):
             j -= 1
-#        print i,j    
+
         if(i<j):
             a[i], a[j] = a[j], a[i]
             
-    a[j] = pivot
-    return i
+    a[j], a[end]= pivot, a[j]
+    return j
 
 def main():
     a = arrays.make(sys.argv)
