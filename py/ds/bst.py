@@ -5,6 +5,9 @@ def insert(value, tree=None):
         return Node(value)
     node = _find(tree, value)[0]
     if node.value == value:
+        new_node = Node(value)
+        new_node.right = node.right
+        node.right = new_node
         return tree
     if node.value > value:
         node.left = Node(value)
@@ -36,7 +39,23 @@ def inorder(tree):
     values = []
     _inorder(tree, values)
     return values
+def nth_highest(tree, n):
 
+    def _preorder(node, n, cnt):
+        if node.right:
+            cnt, val = _preorder(node.right, n, cnt)
+            if val:
+                return cnt, val
+        cnt += 1
+        if cnt == n:
+            return cnt, node.value
+        if node.left:
+            cnt, val = _preorder(node.left, n, cnt)
+            if val:
+                return cnt, val
+        return cnt, None
+    return _preorder(tree, n, 0)[1]
+    
 def left_most(node, parent):
     while(node.left):
         parent = node
@@ -71,6 +90,18 @@ def delete_node_with_1_or_0_children(parent, node, grand_child, root):
         parent.left = grand_child
     return root
 
+def lca(tree, v1, v2):
+    def _lca(node,v1, v2):
+        if not node:
+            return
+        if v1 > node.value and v2 > node.value:
+            return _lca(node.right, v1, v2)
+        if v1 < node.value and v2 < node.value:
+            return _lca(node.left, v1, v2)
+        if node.value <= v2 and node.value >= v1:
+            return node.value
+
+    return _lca(tree, min(v1, v2), max(v1, v2))
     
 def make_tree(vals):
     tree = None
@@ -78,22 +109,61 @@ def make_tree(vals):
         tree = insert(val, tree)
     return tree
 
+    
 #######################tests##############################
-from arrays import array
-import random
+from numpy import random
 def should_insert_values():
     for n in [50, 100, 500, 1000]:
-        a = array(n)
+        a = random.randint(1001, size=n)
         tree = make_tree(a)
         assert inorder(tree) == sorted(a)
 
 def should_delete_nodes():
-    arr = range(100)
-    tree = make_tree(arr)
-    while len(arr) > 0:
-        assert inorder(tree) == arr
-        val = random.choice(arr)
-        arr.remove(val)
-        tree = delete(tree, val)
-    assert tree
-    assert not tree
+    for i in range(3):
+        arr = sorted(random.randint(1000, size=10))
+        tree = make_tree(arr)
+        while len(arr) > 0:
+            assert inorder(tree) == arr
+            val = arr[random.randint(0, len(arr))]
+            arr.remove(val)
+            tree = delete(tree, val)
+            if len(arr) > 1:
+                assert tree
+        assert not tree
+
+def should_find_nth_element():
+    for i in range(5):
+        arr = random.randint(100, size=20)
+        sorted_arr = sorted(arr)
+        tree = make_tree(arr.tolist())
+        for i in range(5):
+            n = random.randint(low=1, high=20)
+            assert nth_highest(tree, n) == sorted_arr[-n]
+
+def should_find_lca():
+    '''
+        _______6______
+       /              \
+    ___2__          ___8__
+   /      \        /      \
+   1       4       7       9
+         /  \
+         3   5
+    
+ lca(5,2)=2
+ lca(1,5)=2
+ lca(2,9)=6
+'''
+    tree = Node(6,
+                Node(2,
+                     Node(1),
+                     Node(4,
+                          Node(3),
+                          Node(5))),
+                Node(8,
+                     Node(7),
+                     Node(9)))
+    assert 2 == lca(tree, 5, 2) 
+    assert 2 == lca(tree, 1, 5) 
+    assert 6 == lca(tree, 2, 9) 
+
