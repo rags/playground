@@ -1,4 +1,5 @@
 from nodes import DoubleLinkNode as Node
+from tree_ops import inorder
 
 def insert(value, tree=None):
     if not tree:
@@ -28,17 +29,6 @@ def _find(node, value, parent=None):
         return _find(node.right, value, node)
     return (node, parent)
 
-def _inorder(node, vals):
-    if not node:
-        return vals
-    _inorder(node.left, vals)
-    vals.append(node.value)
-    _inorder(node.right, vals)
-    
-def inorder(tree):
-    values = []
-    _inorder(tree, values)
-    return values
 def nth_highest(tree, n):
 
     def _preorder(node, n, cnt):
@@ -166,4 +156,8 @@ def should_find_lca():
     assert 2 == lca(tree, 5, 2) 
     assert 2 == lca(tree, 1, 5) 
     assert 6 == lca(tree, 2, 9) 
+
+    assert 1 == lca(Node(1, right=Node(2, right=Node(3))), 1, 3)
+    assert 2 == lca(Node(2, Node(2), Node(3)), 1, 3)
+    assert 3 == lca(Node(3, Node(2, Node(1))), 1, 3)
 
