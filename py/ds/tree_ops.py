@@ -1,14 +1,14 @@
 
-def _inorder(node, vals):
+def _inorder(node, vals, attr=None):
     if not node:
         return vals
-    _inorder(node.left, vals)
-    vals.append(node.value)
-    _inorder(node.right, vals)
+    _inorder(node.left, vals, attr)
+    vals.append(node.value if not attr else node.__getattribute__(attr))
+    _inorder(node.right, vals, attr)
     
-def inorder(tree):
+def inorder(tree, attr=None):
     values = []
-    _inorder(tree, values)
+    _inorder(tree, values, attr)
     return values
 
 def rotate_left(pivot):
@@ -37,20 +37,40 @@ def rotate_right(pivot):
 # lca for non-BST binary trees
 def lca(tree, val1, val2):
     def _lca(node):
-        if not node:
-            return None, None
         val1_ans = node if node.value == val1 else None
         val2_ans = node if node.value == val2 else None
             
         for child in [node.right, node.left]:
+            if not child:
+                continue
             val1_ans_tmp, val2_ans_tmp = _lca(child)
             val1_ans = val1_ans or val1_ans_tmp
             val2_ans = val2_ans or val2_ans_tmp
             if val1_ans and val2_ans:
-                return val1_ans, val2_ans if val1_ans == val2_ans else node, node
+                return (val1_ans, val2_ans) if val1_ans == val2_ans else (node, node)
         return val1_ans, val2_ans
     return _lca(tree)[0].value
+
+from collections import deque
     
+DFS, BFS = 1, 2
+
+def _traverse(lst, remove_method, res):
+    while(lst):
+        item = remove_method(lst)
+        if item.left:
+            lst.append(item.left)
+        if item.right:
+            lst.append(item.right)
+        res.append(item.value)
+    
+    
+def traverse(tree, method=DFS):
+    res = []
+    (_traverse([tree], list.pop, res) if method == DFS
+     else _traverse(deque([tree]), deque.popleft, res))
+    return res
+
 ######################################## TESTS ########################################
 
 from nodes import DoubleLinkNode as Node
@@ -195,3 +215,37 @@ def should_find_lca():
     assert 1 == lca(Node(1, right=Node(2, right=Node(3))), 1, 3)
     assert 2 == lca(Node(2, Node(1), Node(3)), 1, 3)
     assert 3 == lca(Node(3, Node(2, Node(1))), 1, 3)
+
+def should_traverse():
+    assert [8, 4, 2, 6, 1, 3, 5, 7] == traverse(tree_for_rotation(), BFS)
+    assert [8, 4, 6, 7, 5, 2, 3, 1] == traverse(tree_for_rotation(), DFS)
+    tree = Node(6, #tree from should_find_lca()
+                Node(2,
+                     Node(1),
+                     Node(4,
+                          Node(3),
+                          Node(5))),
+                Node(8,
+                     Node(7),
+                     Node(9)))
+    assert [6,2, 8, 1, 4, 7, 9, 3, 5] == traverse(tree, BFS)
+    assert [6, 8, 9, 7, 2, 4, 5, 3, 1] == traverse(tree, DFS)
+    assert [1, 2, 3] == traverse(Node(1, Node(2, Node(3))), BFS)
+    assert [1, 2, 3] == traverse(Node(1, Node(2, Node(3))), DFS)
+    '''
+                    5
+                  /   \
+                4       6
+              /          \
+            3              7
+          /                  \
+        2                      8
+      /                         \
+    1                             9
+    '''
+    tree = Node(5,
+                Node(4, Node(3, Node(2, Node(1)))),
+                Node(6, right=Node(7, right=Node(8, right=Node(9)))))
+    assert [5, 4, 6, 3, 7, 2, 8, 1, 9] == traverse(tree, BFS)
+    assert [5, 6, 7, 8, 9, 4, 3, 2, 1] == traverse(tree, DFS)
+ 

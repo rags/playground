@@ -1,25 +1,32 @@
 from nodes import DoubleLinkNode as Node
 from tree_ops import inorder
 
-def insert(value, tree=None):
+def insert_node(new_node, tree=None):
     if not tree:
-        return Node(value)
+        return new_node
+    value = new_node.value
     node = _find(tree, value)[0]
     if node.value == value:
-        new_node = Node(value)
         new_node.right = node.right
         node.right = new_node
         return tree
     if node.value > value:
-        node.left = Node(value)
+        node.left = new_node
     else:
-        node.right = Node(value)
+        node.right = new_node
     return tree
 
+def insert(value, tree=None):
+    insert_node(Node(value), tree)
+    
 def search(tree, value):
     node = _find(tree, value)[0]
     return node.value == value
-        
+
+def is_valid_binary_tree(tree):
+    values_in_order = inorder(tree)
+    return values_in_order == sorted(values_in_order)
+    
 def _find(node, value, parent=None):
     if not node:
         raise Exception("empty node")

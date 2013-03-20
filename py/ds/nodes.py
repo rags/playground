@@ -1,4 +1,4 @@
-class SingleLinkNode:
+class SingleLinkNode(object):
     def __init__(self, value, next_node = None):
         self.value = value
         self.next_node = next_node
@@ -6,7 +6,7 @@ class SingleLinkNode:
     def __str__(self):
         return str(self.value) +  " -> " + str(self.next_node)
         
-class DoubleLinkNode:
+class DoubleLinkNode(object):
     def __init__(self, value, left=None, right=None):
         self.value = value
         self.left = left
@@ -31,4 +31,9 @@ class DoubleLinkNode:
                 other.right == self.right)
 
     def __repr__(self):
-        return "Node(%s%s%s)" % (self.value, ", left=" + repr(self.left) if self.left else "", ", right=" + repr(self.right) if self.right else "")
+        return "Node(%s%s%s)" % (self.value, ", left=" + repr(self.left)
+                                 if self.left else "", ", right=" + repr(self.right)
+                                 if self.right else "")
+class buldymoulda_papasheeee:
+    pass
+        
