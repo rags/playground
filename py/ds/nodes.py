@@ -19,7 +19,15 @@ class DoubleLinkNode(object):
     @property
     def next(self):
         return self.right
+        
+    @property
+    def children(self):
+        return self.left, self.right
 
+    def other_child(self, child):
+        return self.right if self.left is child else self.left
+
+    @property
     def is_leaf(self):
         return not(self.right or self.left)
 

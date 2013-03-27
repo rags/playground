@@ -59,7 +59,9 @@ def left_most(node, parent):
         node = node.left
     return node, parent
     
-def next_in_order(node):#left most child in the right branch of the node is the next number in sequence
+def next_descendant_in_order(node):#left most child in the right branch of the node is the next number in sequence
+    if not node.right:
+        return None, None
     return left_most(node.right, node)
     
 def delete(tree, value):
@@ -71,7 +73,7 @@ def delete(tree, value):
                                                 node.right or node.left or None, tree)
 
     #node has both children
-    next_node, next_node_parent = next_in_order(node)
+    next_node, next_node_parent = next_descendant_in_order(node)
     node.value = next_node.value #over write with next number in sequence
     #del next_node. This node may have a right child, but not left as its the left most node
     next_node_parent.left = next_node.right 
