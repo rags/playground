@@ -17,7 +17,7 @@ def insert_node(new_node, tree=None):
     return tree
 
 def insert(value, tree=None):
-    insert_node(Node(value), tree)
+    return insert_node(Node(value), tree)
     
 def search(tree, value):
     node = _find(tree, value)[0]

@@ -144,7 +144,7 @@ def should_rotate_left():
     assert 2 == tree.left.left.value
     assert 1 == tree.left.left.left.value
     rotate_right(tree.left)
-    assert sample_tree() == tree
+    assert sample_tree().equivalent(tree)
 
     
 def should_rotate_right():
@@ -168,14 +168,14 @@ def should_rotate_right():
     rotate_right(four)
     assert [3, 4, 5, 6, 7] == inorder(four)
     assert 3 == four.left.value
-    assert four == four.left.parent
+    assert four.equivalent(four.left.parent)
     two = four.parent
     assert 2 == two.value
     assert not two.parent # 2 is root
     original_tree = sample_tree()
     assert inorder(original_tree) == inorder(two)
     rotate_left(two)
-    assert four == original_tree
+    assert four.equivalent(original_tree)
     assert not four.parent # 4 is root again
     assert 2 == four.left.value
     assert 6 == four.right.value

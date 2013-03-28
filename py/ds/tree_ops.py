@@ -126,7 +126,7 @@ def should_rotate_left():
     assert [1, 2, 3] == inorder(tree.left.left.left)
 
     rotate_right(tree.left)
-    assert tree_for_rotation() == tree
+    assert tree_for_rotation().equivalent(tree)
 
 def should_rotate_right():
     '''
@@ -147,15 +147,15 @@ def should_rotate_right():
     '''
     tree = tree_for_rotation()
     rotate_right(tree.left)
-    assert tree == Node(8,
+    assert tree.equivalent(Node(8,
                         Node(2,
                              Node(1),
                              Node(4,
                                   Node(3),
-                                  Node(6, Node(5), Node(7)))))
+                                  Node(6, Node(5), Node(7))))))
     assert [1, 2, 3, 4, 5, 6, 7, 8] == inorder(tree)
     rotate_left(tree.left)
-    assert tree == tree_for_rotation()
+    assert tree.equivalent(tree_for_rotation())
 
 
 def should_rotate():
@@ -171,19 +171,19 @@ def should_rotate():
     #clockwise
     tree = Node(3, Node(2, Node(1)))
     rotate_left(tree)
-    assert tree == Node(3, Node(2, Node(1))) #no change
+    assert tree.equivalent(Node(3, Node(2, Node(1)))) #no change
     rotate_right(tree)
-    assert tree == Node(2, Node(1), Node(3))
+    assert tree.equivalent(Node(2, Node(1), Node(3)))
     rotate_right(tree)
-    assert tree == Node(1, right=Node(2, right=Node(3)))
+    assert tree.equivalent(Node(1, right=Node(2, right=Node(3))))
     rotate_right(tree)
-    assert tree == Node(1, right=Node(2, right=Node(3))) #no change
+    assert tree.equivalent(Node(1, right=Node(2, right=Node(3)))) #no change
 
     #anti-clockwise
     rotate_left(tree)
-    assert tree == Node(2, Node(1), Node(3))
+    assert tree.equivalent(Node(2, Node(1), Node(3)))
     rotate_left(tree)
-    assert tree == Node(3, Node(2, Node(1)))
+    assert tree.equivalent(Node(3, Node(2, Node(1))))
     
 def should_find_lca():
     '''
