@@ -1,4 +1,5 @@
-from ds import arrays, heap
+from ds import arrays
+import heap_sort
 import selection_sort
 import merge_sort
 import quick_sort
@@ -23,7 +24,7 @@ def should_sort_with_selection_sort():
     test_sorting_works_for(selection_sort.sort)
 
 def should_sort_with_heap_sort():
-    test_sorting_works_for(heap.sort)
+    test_sorting_works_for(heap_sort.sort)
 
 def should_sort_with_funtional_quick_sort():
     test_sorting_works_for(quick_sort_functional.sort)

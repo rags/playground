@@ -9,9 +9,17 @@ def parent(i):
 def left(i): return i * 2 + 1
 def right(i): return i * 2 + 2
 
+#def children(i, size=None):
+#    l, r = left(i), right(i)
+#    return (l, r) if not size else (i for i in (l, r) if i < size)
+
 def children(i, size=None):
     l, r = left(i), right(i)
-    return (l, r) if not size else (i for i in (l, r) if i < size)
+    if not size or r < size:
+        return l, r
+    if l < size:
+        return l, 
+    return tuple()   
 
 class Heap(object):
     def __init__(self, vals=None,comparitor=cmp, fixed_size = False):
@@ -96,12 +104,32 @@ def siftup(heap, i, cmp_):
             return
         i = p
         
+#def siftdown(heap, i, cmp_, n):
+#    mini = i
+#    for child in children(i, n):
+#        if cmp_(heap[mini], heap[child]) > 0:
+#            mini = child
+#    if i!=mini:
+#        heap[i], heap[mini] = heap[mini], heap[i]
+#        if mini < n / 2:
+#            siftdown(heap, mini, cmp_, n)
+def min_i(a, i, n, cmp_):
+    l = i * 2 + 1
+    r = l + 1
+    min = i
+    if l < n and cmp_(a[min], a[l]) > 0:
+        min = l
+    if r < n and cmp_(a[min], a[r]) > 0:
+        min = r
+    return min
+    
 def siftdown(heap, i, cmp_, n):
-    for child in children(i, n):
-        if cmp_(heap[i], heap[child]) > 0:
-            heap[i], heap[child] = heap[child], heap[i]
-            if i < n / 2:
-                siftdown(heap, child, cmp_, n)
+    m = min_i(heap, i, n, cmp_)
+    if m != i:
+        heap[i], heap[m] = heap[m], heap[i]
+        if m < n / 2:
+            siftdown(heap, m, cmp_, n)
+
 
 def reverse_cmp(x, y): return -cmp(x, y)
     
@@ -119,46 +147,48 @@ def main():
 
 if __name__=="__main__":
      main()
-
+     #print(main())
+else:
+    
 ######################################## TESTS ##############################
-from numpy import random as rand
-def should_validate():
-    heap =  Heap()
-
-    heap.vals = [1, 3, 2, 4, 6, 8, 10, 7]
-    assert heap.is_valid()
-
-    heap.vals = range(100)
-    assert heap.is_valid()
-
-    heap.vals = [2, 3, 1]
-    assert not heap.is_valid()
-
-def should_heapify():
-    for i in range(3):
-        heap = Heap(list(rand.randint(1000, size=100)))
+    from numpy import random as rand
+    def should_validate():
+        heap =  Heap()
+    
+        heap.vals = [1, 3, 2, 4, 6, 8, 10, 7]
         assert heap.is_valid()
-
-
-def should_add_and_delete():
-    for i in range(3):
-        vals = list(rand.randint(1000, size=200))
-        heap = Heap()
-        for i, val in enumerate(vals):
-            heap.push(val)
-            assert heap.peek() == min(vals[:i+1])
+    
+        heap.vals = range(100)
         assert heap.is_valid()
-        for val in sorted(vals):
-            assert heap.pop() == val
-        assert not len(heap)
-
-def should_heap_sort():
-    for n in [50, 100, 200, 500, 1000]:
-        vals = list(rand.randint(10000, size=n))
-        original = vals[:]
-        heap = Heap(vals, lambda x, y: -cmp(x, y), True)
-
-        for i in vals:
-            heap.pop()
-        assert sorted(original) == vals
-
+    
+        heap.vals = [2, 3, 1]
+        assert not heap.is_valid()
+    
+    def should_heapify():
+        for i in range(3):
+            heap = Heap(list(rand.randint(1000, size=100)))
+            assert heap.is_valid()
+    
+    
+    def should_add_and_delete():
+        for i in range(3):
+            vals = list(rand.randint(1000, size=200))
+            heap = Heap()
+            for i, val in enumerate(vals):
+                heap.push(val)
+                assert heap.peek() == min(vals[:i+1])
+            assert heap.is_valid()
+            for val in sorted(vals):
+                assert heap.pop() == val
+            assert not len(heap)
+    
+    def should_heap_sort():
+        for n in [50, 100, 200, 500, 1000]:
+            vals = list(rand.randint(10000, size=n))
+            original = vals[:]
+            heap = Heap(vals, lambda x, y: -cmp(x, y), True)
+    
+            for i in vals:
+                heap.pop()
+            assert sorted(original) == vals
+    

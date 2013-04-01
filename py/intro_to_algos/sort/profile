@@ -3,13 +3,18 @@ export PYTHONPATH=../../
 RED="\e[00;31m"
 NO_COLOR="\e[00m"
 function e(){
-echo $RED$1$NO_COLOR
+	echo $RED$1$NO_COLOR
 }
 
-#e "heap sort sorted array:" 
-#for (( i=0 ;i<3 ;i++ )) time python ../../ds/heap.py 1000000 true
+e "OO heap sort sorted array:" 
+for (( i=0 ;i<3 ;i++ )) time python ../../ds/heap.py 1000000 true
+e "OO heap sort unsorted array:"
+for (( i=0 ;i<3 ;i++ )) time python ../../ds/heap.py 1000000 false
+
+e "heap sort sorted array:" 
+for (( i=0 ;i<3 ;i++ )) time python heap_sort.py 1000000 true
 e "heap sort unsorted array:"
-for (( i=0 ;i<3 ;i++ )) time python ../../ds/heap.py 10000 false
+for (( i=0 ;i<3 ;i++ )) time python heap_sort.py 1000000 false
 
 e "quick sort sorted array:" 
 for (( i=0 ;i<3 ;i++ )) time python quick_sort.py 1000000 true
