@@ -6,23 +6,21 @@ def cmp_frontier(f1, f2):
 def shortest_path(graph, src, dest):
     if src == dest:
         return [src], 0
-    dist = traverse(graph, Heap([([src], 0)], cmp_frontier), dest, {src})
+    dist = traverse(graph, Heap([([src], 0)], cmp_frontier), dest)
     if not dist:
         print "No path form %s to %s" %  (src, dest)
         return
     print "The min distance from %s to %s is %s" % (src, dest, dist)
     return dist
 
-def traverse(graph, min_heap, dest, visited):
+def traverse(graph, min_heap, dest):
     while len(min_heap) > 0:
         nodes, dist_so_far= min_heap.pop()
+        print nodes, dist_so_far, min_heap.vals
         frontier = nodes[-1]
         if frontier == dest:
             return nodes, dist_so_far
         for neighbor, dist in graph[frontier].items():
-            if neighbor in visited:
-                print "Cycle detected"
-                continue
             min_heap.push((nodes + [neighbor], dist_so_far + dist))
     
             
@@ -53,8 +51,8 @@ def graph1():
 
 '''        2
          #------#
-    1    v      |  6
- A-----> B ---> C --------> E
+    1    v      |  6             3
+ A-----> B ---> C --------> E <----- F
  ^       |  3   \           ^
  |_______|       \          | 2
     2            #---> D --#
@@ -65,13 +63,16 @@ def graph_with_cycles():
             'B': {'A': 2, 'C': 3},
             'C': {'B': 2, 'D': 3, 'E': 6},
             'D': {'E': 2},
-            'E': {}}
+            'E': {},
+            'F': {'E', 3}}
 
-def should_find_shortest_distance_with_cycles():
+#dijikstra's cant handle cycles'
+def xshould_find_shortest_distance_with_cycles():
     graph = graph_with_cycles()
     assert (['A', 'B', 'C', 'D', 'E'], 9) == shortest_path(graph, 'A', 'E')
     assert (['C', 'B', 'A'], 4) == shortest_path(graph, 'C', 'A')
     assert (['C', 'D', 'E'], 5) == shortest_path(graph, 'C', 'E')
+    assert not shortest_path(graph, 'A', 'F')
     assert not shortest_path(graph, 'D', 'A')
     
 def should_find_shortest_distance():
