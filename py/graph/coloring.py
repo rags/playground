@@ -2,18 +2,16 @@ def color(graph):
     uncolored_nodes = graph.keys()
     color = 0
     colors = {node: None for node in uncolored_nodes}
-    #for i in xrange(len(uncolored_nodes)):
     while(uncolored_nodes):
         color += 1
-        nodes = []
-        for node in uncolored_nodes:
+        i = 0
+        while i < len(uncolored_nodes):
+            node = uncolored_nodes[i]
             if all([colors[neighbor] != color for neighbor in graph[node]]):
                 colors[node] = color
+                uncolored_nodes.pop(i)
             else:
-                nodes.append(node)
-        print colors
-        uncolored_nodes = nodes
-
+                i += 1
     return color, colors
 
 def is_valid(graph, colors):
@@ -106,5 +104,10 @@ def should_color_south_and_central_india():
     assert is_valid(BIPATITE, colors)
     assert colors['A'] == colors['B'] == colors['C']
     assert colors[1] == colors[2] == colors[3]
+
+    #completely disconnected graph
+    color_cnt, colors = color({1: [], 2: [], 3: [], 4: [], 5: []})
+    assert 1 == color_cnt
+    assert {1} == set(colors.values())
 
     
