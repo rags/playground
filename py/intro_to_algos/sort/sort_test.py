@@ -5,8 +5,10 @@ import merge_sort
 import quick_sort
 import counting_sort
 import quick_sort_functional
+import kway_mergesort
 import numpy.random as rand
 def _assert_sorted(a, original):
+    print a, sorted(original)
     assert sorted(original) == a
 
 def _sort(algorithm, length):
@@ -34,6 +36,9 @@ def should_sort_with_merge_sort():
 
 def should_sort_with_quick_sort():
     test_sorting_works_for(quick_sort.sort)
+    
+def should_sort_with_kway_mergesort():
+    test_sorting_works_for(kway_mergesort.sort)
 
 def should_sort_with_quick_sort_with_dups():
     a = rand.randint(20, size=40).tolist()
