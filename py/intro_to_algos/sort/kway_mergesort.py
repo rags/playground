@@ -104,10 +104,12 @@ else:
     
     def should_sort():
         for i in [50, 100, 300, 1000, 10000, 100000]:
-            a = range(i)
-            rand.shuffle(a)
-            sort(a)
-            assert range(i) == a
+            arr = range(i)
+            expected = range(i)
+            for no_of_parts in range(3, 7): #sort with 3 to 6 partitions
+                rand.shuffle(arr)
+                sort(arr, no_of_parts)
+                assert expected == arr
             
     def should_heapify():
         assert heapify([1, 2, 3, 4], 0, 2) == [2, 1, 3, 4]
