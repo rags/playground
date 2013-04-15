@@ -6,24 +6,32 @@ import quick_sort
 import counting_sort
 import quick_sort_functional
 import kway_mergesort
+import radix_sort
+import radix_alpha_sort
 import numpy.random as rand
 def _assert_sorted(a, original):
     print a, sorted(original)
     assert sorted(original) == a
 
-def _sort(algorithm, length):
-    a = arrays.array(length,False)
+def _sort(algorithm, length, gen=arrays.array):
+    a = gen(length)
     original = a[:]
     algorithm(a)
     return a, original
 
-def test_sorting_works_for(algorithm):
-    _assert_sorted(*_sort(algorithm,10))
-    _assert_sorted(*_sort(algorithm,101))
-    _assert_sorted(*_sort(algorithm,500))
+def test_sorting_works_for(algorithm, gen=arrays.array):
+    _assert_sorted(*_sort(algorithm, 10, gen))
+    _assert_sorted(*_sort(algorithm, 101, gen))
+    _assert_sorted(*_sort(algorithm, 500, gen))
 
 def should_sort_with_selection_sort():
     test_sorting_works_for(selection_sort.sort)
+    
+def should_sort_with_radix_sort():
+    test_sorting_works_for(radix_sort.sort)
+    
+def should_sort_with_radix_alpha_sort():
+    test_sorting_works_for(radix_alpha_sort.sort, radix_alpha_sort.array)
 
 def should_sort_with_heap_sort():
     test_sorting_works_for(heap_sort.sort)
