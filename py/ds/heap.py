@@ -74,8 +74,8 @@ class Heap(object):
         depth = math.floor(math.log(len(self), 2))
         leaves = 2 ** depth
 
-        for i, val in enumerate(self.vals):
-            _cur_depth = math.log(i + 1, 2)
+        for i, val in enumerate(self.vals, start = 1):
+            _cur_depth = math.log(i , 2)
 
             if _cur_depth % 1 == 0:
                 cur_depth = math.floor(_cur_depth)
@@ -174,9 +174,9 @@ else:
         for i in range(3):
             vals = list(rand.randint(1000, size=200))
             heap = Heap()
-            for i, val in enumerate(vals):
+            for i, val in enumerate(vals, start=1):
                 heap.push(val)
-                assert heap.peek() == min(vals[:i+1])
+                assert heap.peek() == min(vals[:i])
             assert heap.is_valid()
             for val in sorted(vals):
                 assert heap.pop() == val

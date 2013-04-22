@@ -22,10 +22,10 @@ def _match(_str, tokens):
     
 def tokenize(pattern):
     tokens = []
-    for i, c in enumerate(pattern):
+    for i, c in enumerate(pattern, start=1):
         if c == '*':
             continue
-        if i + 1 < len(pattern) and pattern[i + 1] == '*':
+        if i < len(pattern) and pattern[i] == '*':
             tokens.append((c, '*'))
         else:
             tokens.append((c, 1))

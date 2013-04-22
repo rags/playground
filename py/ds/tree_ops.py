@@ -1,9 +1,24 @@
-
+def depth(node):
+    # inefficient but easy to understand recursion.
+    # inefficient because base case n extra call are made
+    # i.e 2 calls for each n/2 leaf node
+    # (complete bin tree has n/2 leafs - this is the best case)
+    # efficient impl = check if child exists before making a call
+    # In general checking before making recursive calls is a
+    # good strategery for bina trees as no of items double
+    # at each level
+    
+    if not node:
+        return 0
+    return 1 + max(depth(node.left), depth(node.right))
+    
 def _inorder(node, vals, attr=None):
     if not node:
         return vals
     _inorder(node.left, vals, attr)
-    vals.append(node.value if not attr else node.__getattribute__(attr))
+    vals.append(node.value if not attr
+                else attr(node) if hasattr(attr,  '__call__')
+                else node.__getattribute__(attr))
     _inorder(node.right, vals, attr)
     
 def inorder(tree, attr=None):
