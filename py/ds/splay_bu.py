@@ -149,7 +149,7 @@ def should_splay():
     tree.delete(4)
     assert [1, 2, 3, 5, 6] == inorder(tree.root)
 
-def should_insert():
+def should_insert_delete():
     for i in range(5):#regress 5 times
         depth_ratio = 0
         NO_OF_TREES = 25
