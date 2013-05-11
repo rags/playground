@@ -115,13 +115,6 @@ class Tree():
             self.root.left, self.root = None, self.root.left
         else:
             self.root.right, self.root = None, self.root.right
-
-            
-        
-            
-            
-        
-
             
 ######################################## TESTS ########################################
 N = Node
