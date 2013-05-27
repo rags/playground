@@ -1,4 +1,5 @@
 import prim
+import kruskal
 import pytest
 
 def make_undirected(graph):
@@ -7,16 +8,7 @@ def make_undirected(graph):
             graph[neighbor][node] = distance
     return graph
 
-#
-#@pytest.mark.parametrize(("equal"), [True, False])
-            #@pytest.mark.parametrize(("input", "expected"), [
-            #    ("3+5", 8),
-            #    ("2+4", 6),
-            #    ("6*9", 42)])
-            #def should_foo(input, expected, equal):
-            #    assert (input == expected) == equal
-            #
-@pytest.mark.parametrize(("algorithm"), [prim.min_span])
+@pytest.mark.parametrize(("algorithm"), [prim.min_span, kruskal.min_span])
 @pytest.mark.parametrize(("graph", "min_span_trees"), [
     (
         # 
