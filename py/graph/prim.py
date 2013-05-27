@@ -23,6 +23,7 @@ def min_span(graph):
         if not parent in span_tree:
             span_tree[parent] = {}
         span_tree[parent][node] = span_tree[node][parent] = distance
+    assert len(graph) == len(span_tree), "No spaning tree"
     return span_tree
                 
 class Queue:
