@@ -27,11 +27,27 @@ def make_indegree_map(graph):
     return indegree_map
 
 
+def dfs(node, graph, order, visited):
+    visited.add(node)
+    for child in graph[node]:
+        if not child in visited:
+            dfs(child, graph, order, visited)
+    order.insert(0, node)
+
+    
+def topological_sort_dfs(graph):
+    order = []
+    visited = set()
+    for node in graph:
+        if not node in visited:
+            dfs(node, graph, order, visited)
+    return order
 ############################## TESTS ##############################
 import pytest
 
-def should_topt_sort():
-    assert [3,  5,  7,  8,  11,  2,  9,  10] == topological_sort(
+@pytest.mark.parametrize(("algorithm"), [topological_sort, topological_sort_dfs])
+def should_sort(algorithm):
+    assert algorithm(
         {
             7: [8, 11],
             11:  [2, 9, 10],
@@ -40,8 +56,9 @@ def should_topt_sort():
             8: [9],
             2: [],
             9: [],
-            10: [] })
-    assert [4, 5, 6, 0, 2, 3, 1] == topological_sort(
+            10: [] }) in ([7,  5,  11,  3,  8,  9, 10, 2],
+                          [3,  5,  7,  8,  11,  2,  9,  10])
+    assert algorithm(
         {
             0: [],
             1:  [],
@@ -50,9 +67,9 @@ def should_topt_sort():
             4: [0, 1],
             5: [0, 2],
             6: [],
-            })
+            }) in ([6,  5,  4,  2,  3,  1,  0], [4, 5, 6, 0, 2, 3, 1])
 
-    assert ['B', 'A', 'D', 'C', 'E'] == topological_sort(
+    assert ['B', 'A', 'D', 'C', 'E'] == algorithm(
         {
             'A': ['C', 'D'],
             'B':  ['A', 'D'],
@@ -60,7 +77,7 @@ def should_topt_sort():
             'D':  ['C', 'E'],
             'E': [],
           })
-    assert ['B', 'A', 'D', 'C', 'E'] == topological_sort(
+    assert ['B', 'A', 'D', 'C', 'E'] == algorithm(
         {
             'A': ['C', 'D'],
             'B':  ['A', 'D'],
@@ -69,7 +86,7 @@ def should_topt_sort():
             'E': [],
           })
 
-    assert ['S', 'A', 'B', 'C', 'E', 'D', 'G', 'F', 'T'] == topological_sort(
+    assert algorithm(
         {'S': {'A': 1, 'B': 9},
          'A': {'C': 3, 'D': 1},
          'B': {'D': 1, 'E': 2},
@@ -78,8 +95,15 @@ def should_topt_sort():
          'E': {'G': 3},
          'F': {'T': 5},
          'G': {'T': 2},
-         'T': {}})
-    
+         'T': {}}) in (['S', 'A', 'B', 'C', 'E', 'D', 'G', 'F', 'T'],
+                       ['S', 'B', 'E', 'A', 'D', 'G', 'C', 'F', 'T'] )
+
+
+def dfs_should_handle_cycles():
+    [1, 2, 3] == topological_sort_dfs({1: [2], 2: [3], 3: [1]})
+    [0, 1, 2, 3] == topological_sort_dfs({0: [1], 1: [2], 2: [3], 3: [1]})
+
+def should_throw_error():
     with pytest.raises(AssertionError) as e:
         topological_sort({1: [2], 2: [3], 3: [1]})
     assert "Cycles in graph?" == str(e.value)

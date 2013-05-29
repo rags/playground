@@ -10,10 +10,8 @@ def make_undirected(graph):
 
 @pytest.mark.parametrize(("algorithm"), [prim.min_span, kruskal.min_span])
 @pytest.mark.parametrize(("disconnected_graph"),
-                         [
-                             {1: {2: 1}, 2: {}, 3: {4: 1},  4: {}},
-                             
-                             {0: {1: 1, 2: 1}, 1: {2: 1}, 2: {},  3: {}}])
+                         [{1: {2: 1}, 2: {}, 3: {4: 1},  4: {}},
+                          {0: {1: 1, 2: 1}, 1: {2: 1}, 2: {},  3: {}}])
 def should_fail_when_no_spaning_tree(disconnected_graph, algorithm):
     with pytest.raises(AssertionError) as e:
         algorithm(make_undirected(disconnected_graph))
