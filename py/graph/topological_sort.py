@@ -100,6 +100,8 @@ def should_sort(algorithm):
 
 
 def dfs_should_handle_cycles():
+    #This is upsurd - cannot sort DAG with cycles
+    #The return values dont make any sense
     [1, 2, 3] == topological_sort_dfs({1: [2], 2: [3], 3: [1]})
     [0, 1, 2, 3] == topological_sort_dfs({0: [1], 1: [2], 2: [3], 3: [1]})
 
