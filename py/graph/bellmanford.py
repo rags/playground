@@ -1,5 +1,6 @@
 #An optimized version of bellamn ford
-def shortest_paths(graph, source):
+# worst case O(ne). mostly better than that
+def bellmanford_optimized(graph, source):
     queue = [source]
 
     #dest: (distance,parent)
@@ -28,7 +29,7 @@ def shortest_paths(graph, source):
     assert len(queue) == 0, "Negative weight cycles in graph"
     return shortest
 
-
+# order O(ne) best case and worst case
 def bellmanford(graph, source):
     shortest = {source: (0, None)}
 
@@ -58,7 +59,7 @@ def bellmanford(graph, source):
 ############################## TESTS ##############################
 import pytest
 
-@pytest.mark.parametrize(('algorithm'), [shortest_paths, bellmanford])
+@pytest.mark.parametrize(('algorithm'), [bellmanford_optimized, bellmanford])
 @pytest.mark.parametrize(("graph", 'source', "distances"), [(
 #            C            
 #         3/   \2       
