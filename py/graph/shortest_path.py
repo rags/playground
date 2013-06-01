@@ -1,3 +1,4 @@
+#A modified version dijikstra
 from ds.heap import Heap
 
 def cmp_frontier(f1, f2):
