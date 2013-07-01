@@ -1,6 +1,11 @@
 def combinations_recur(denoms, amount):
     return _combinations_recur(sorted(denoms), amount, [[]]) or []
-    
+'''
+for some N amount and K numbers.
+T(N,K) = T(N,K-1) + T(N-1,K) assuming there are K 1's
+The tree goes N*K=X deep
+So T(N,K) = T(X) = 2T(X-1)=2^(X-1)=2^N*K-1= O(2^K*N)
+'''    
 def _combinations_recur(denoms, amount, combs):
     #print denoms, amount
     if amount == 0:
@@ -21,6 +26,7 @@ def _combinations_recur(denoms, amount, combs):
     return combs_without_demon0 or combs_with_demon0
 
 
+#O(N*K)
 def combinations_dp(denoms, amount):
     bags = {0: [[]]}
     denoms = sorted(denoms)
@@ -30,7 +36,6 @@ def combinations_dp(denoms, amount):
             if denom <= amt:
                 bags[amt].extend(map(lambda comb: comb + [denom], bags[amt - denom]))
     return bags[amount]
-
 
 
 def _min_comb(comb1, comb2):
