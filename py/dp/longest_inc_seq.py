@@ -1,3 +1,4 @@
+#http://en.wikipedia.org/wiki/Longest_increasing_subsequence
 from ds.nodes import SingleLinkNode as Node
 
 class Tree:
@@ -21,7 +22,7 @@ class Tree:
             
     def __str__(self):
         return str(self.root)
-            
+#O(n^2)
 def non_decreasing_seq(seq):
     if not seq:
         return []

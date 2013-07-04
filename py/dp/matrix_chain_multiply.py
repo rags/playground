@@ -2,8 +2,11 @@ import numpy as np
 
 def multiply_recur(chain):
     return _multiply_recur(zip(chain, chain[1:]))
-    
+#k = 0
+#from the var k - its O(3^N). Cant work out how
 def _multiply_recur(matrices):
+    #global k
+    #k += 1
     if len(matrices) == 1:
         return (0, matrices[0], matrices[0])
     min_ = None
@@ -58,6 +61,10 @@ import pytest
       '((30 x 35 * (35 x 15 * 15 x 5)) * ((5 x 10 * 10 x 20) * 20 x 25))'))])
 
 def should_matrix_chain_multiply_optimal(input, expected, algorithm):
+#    global k
+#    k = 0
     res = algorithm(input)
     assert expected == (res[0], res[1], rep(res))
-    
+ #   if algorithm == multiply_recur:
+ #       print k, len(input) - 1
+ #       assert 0
