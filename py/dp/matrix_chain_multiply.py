@@ -1,3 +1,4 @@
+#substring DP
 import numpy as np
 
 def multiply_recur(chain):

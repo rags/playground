@@ -1,5 +1,6 @@
 import numpy as np
 '''
+substring DP problem
 T(N)=T(N-1)+T(N-2)
 the solution is between 2T(N-2) and 2T(N-1)
 Approx: i.e between 2^N and 2^(n/2) i.e, sqrt(2)^N i.e 1.414^N

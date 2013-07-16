@@ -1,4 +1,4 @@
-#Find longest common subsequence between 2 sequences
+#Find longest common subsequence between 2 sequences. Suffix
 
 #O(2^n) - all combinations of a sequence 
 def all_combs(seq):
@@ -90,7 +90,7 @@ def is_subseq(str_, sub):
 @pytest.mark.parametrize(('s1', 's2', 'subseqs'),
                          [('AAACCGTGAGTTATTCGTTCTAGAA', 'CACCCCTAAGGTACCTTTGGTTC',
                            ['ACCTAGTATTGTTC', 'ACCTGGTTTTGTTC']),
-                          ('XMJYAUZ', 'MZJAWXU', ['MJAU'])
+                          ('HIEROGLYPHOLOGY', 'MICHAELANGELO', ['IELLO', 'HEGLO', 'HELLO'])
                       ])
 def should_be_sub_seq(s1, s2, subseqs):
     for subseq in subseqs:
@@ -130,6 +130,7 @@ def should_find_lcs(s1, s2, lcses, algorithm):
 @pytest.mark.parametrize(('s1', 's2', 'lcses'),
                          [('AAACCGTGAGTTATTCGTTCTAGAA', 'CACCCCTAAGGTACCTTTGGTTC',
                            ['ACCTAGTATTGTTC', 'ACCTGGTTTTGTTC']),
+                          ('HIEROGLYPHOLOGY', 'MICHAELANGELO', ['IELLO', 'HEGLO', 'HELLO']), 
                           ('empty!bottle', 'nematode knowledge', ['emtole']),
                       ])
 def should_find_lcs_long_inputs(s1, s2, lcses, algorithm):

@@ -1,4 +1,4 @@
-
+#suffix DP problem
 def all_possible(a, i):
     if not a or i >= len(a):
         return []
