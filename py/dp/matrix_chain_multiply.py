@@ -45,9 +45,6 @@ def multiply_dp(chain):
                                       (rows_m1, cols_m2), (m1, m2))
     return dp_table[0][n - 1]
              
-
-    
-    
     
 ############################## TESTS ##############################
 import pytest
