@@ -178,7 +178,7 @@ def should_encode(text):
         bits = bits[8:]
     assert ''.join(expected) == encoded
 
-@pytest.mark.parametrize('text', ['Hello world',
+@pytest.mark.parametrize('text', ['ab', '1234','Hello world',
                                   'aa bbbb cccc ddddd ee',
                                   '''First line: foo bar
                                   Second line is blah blah
