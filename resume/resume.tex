@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% Raghunandan Rao's resume
+%%   - based off work by Yisong Yue, Michael DeCorte 
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%
+%% The following code sets up the document formatting
+%%
+
+%this assumes that res_yy.sty is in some path
+\documentstyle[hyperref, margin, line]{res_yy}
+
+
+\hypersetup{backref,pdfpagemode=Full,colorlinks=true,backref}
+
+\addtolength{\oddsidemargin}{-0.45in}
+\addtolength{\voffset}{-0.30in}
+\addtolength{\textwidth}{1.00in} \addtolength{\textheight}{1.50in}
+
+\renewcommand{\namefont}{\LARGE\emph}
+
+\newenvironment{mylist}{
+  \begin{list}{$\star$}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{.175in}}}{\end{list}}
+
+%%
+%% The following code defines some macros for terms which have raised font
+%% (ie 4\fourth would result 4th with the 'th' raised (superscripted)
+%%
+
+\def\Cplusplus{{\rm C\raise.5ex\hbox{\small ++}}}
+\def\CSharp{{\rm C\raise.5ex\hbox{\small \#}}}
+% 'st' 'nd' 'rd' 'th' superscripts for numbers
+\def\first{{\raise.5ex\hbox{\small st}}}
+\def\second{{\raise.5ex\hbox{\small nd}}}
+\def\third{{\raise.5ex\hbox{\small rd}}}
+\def\fourth{{\raise.5ex\hbox{\small th}}}
+
+
+
+%%
+%% starting the actual document
+%%
+
+\begin{document}
+
+%the name in big fonts at the top of resume
+%this is left aligned
+\name{Raghunandan Rao}
+
+%this is right aligned
+\address{phone: +91 9663382039 \ \   email: \href{mailto:r.raghunandan@gmail.com}{r.raghunandan@gmail.com}  \ \   github: \url{https://github.com/rags}}
+
+\begin{resume}
+
+
+
+%%
+%% This section of code is inelegant, but I'm too lazy to fix it
+%%
+
+\section{\textsc{Summary of Interests / Work Experience}}
+My primary areas of experience are Analytics/Business Intelligence, Distributed systems with a total of 11 years experience. Most of my early experince was in building classical Analytics Servers (star schema based). I have also implemented a Distributed Continous Integration server and off late have been working on more modern Analytics (unstructured data, MapReduce). My areas of interests are Algorithms, Analytics, Distributed systems, Machine Learning, Functional Languages.
+
+\section{\textsc{Skills}} 
+{\textbf{Proficient}}
+\begin{mylist}
+  \item Building scalable distributed systems that need to handle lots of concurrent load
+  \item Messaging based systems with staged event-driven architecture (SEDA)
+  \item Datawarehousing, Analytics/BI, Aggregation/Measures engine, OLAP, ROLAP
+  \item Java, Python, \CSharp,  JRuby/Ruby, Javascript
+  \item Extreme programming and related agile practices like TDD, OO design, refactoring, Continous integration
+  \item Google app engine infrastructure which includes Mapreduce, Search, NoSql Datastore, Pipeline
+  \item Performance tuning/profiling, SQL optimization, caching, transaction/lock management.
+  \item Linux/Unix environment and the command line environment (zsh/bash, scripting, commandline tools, emacs)
+\end{mylist}
+
+{\textbf{Also worked/familiar with}}
+\begin{mylist}
+  \item Machine learning and NLP with tools like NLTK, OpenNLP, Octave(Matlab), scikit-learn, scipy/numpy, pandas
+  \item Lisp, Elisp, Scheme
+  \item Scala, Haskell
+  \item Mysql, Oracle, SQLServer, Teradata, Postgres, DB2
+  \item Build and Continous Integration tools like Ant, Buildr, gradle, rake, Nant, Maven,  Jenkins, CruiseControl (.net, .rb), Travis-CI and Go(CI)
+  \item testing frameworks like py.test, junit, nunit, jbehave, jasmine, selenium, sahi, rspec
+\end{mylist}
+
+
+
+\begin{formatb}
+  \employer{l}\title{r}\\
+  \location{l}\dates{r}\\
+  \body\\
+\end{formatb}
+
+\section{\textsc{Work Experience}}
+
+\employer{\textbf{Haggle Inc}}
+\title{R \& D Engineer}
+\location{Bangalore}
+\dates{2012 - Present}
+\begin{position}
+Part of the founding team, responsible for mentoring, design/development of most of the back-end systems. 
+\end{position}
+
+
+\employer{\textbf{ThoughtWorks Inc}}
+\title{Lead Developer}
+\location{Bangalore, San Francisco}
+\dates{2005 - 2012}
+\begin{position}
+Started as a developer, moved onto senior and then lead positions. I have worked in both product and services devision of this company. Delivered many complex products and projects here.
+\end{position}
+
+\employer{\textbf{Nous Infosystem}}
+\title{Developer}
+\location{Bangalore}
+\dates{2003 - 2005}
+\begin{position}
+Worked as a developer on analytics in the Medical health-care domain
+\end{position}
+
+\employer{\textbf{Excelsoft Technologies}}
+\title{Developer}
+\location{Mysore}
+\dates{2002 - 2003}
+\begin{position}
+Front-end developer responsible  for building assessment/quiz UI for a e-learning suite of products. Most of the work was in javascript, XSLT. 
+\end{position}
+
+
+
+
+%%
+%% We use the same formatting for projects as for work experience
+%% Shown below is the formatting used previously
+%%
+%%  \begin{formatb}
+%%    \employer{l}\title{r}\\
+%%    \location{l}\dates{r}\\
+%%    \body\\
+%%  \end{formatb}
+%%
+%% 
+%%  Note that \location is now being used for non-location information
+%%
+
+
+\begin{formatb}
+  \employer{l}\dates{r}\\
+  \body\\
+\end{formatb}
+
+\section{\textsc{Open Source}}
+
+\employer{\textbf{pynt}}
+\dates{\url{http://rags.github.io/pynt/}}
+\begin{position}
+Pynt is a lightweight python build tool. The build scripts are python files and tasks python functions. Pynt provides interface to specify and manage dependencies between tasks. 
+\end{position}
+
+\employer{\textbf{Mondrian (Pentaho Analysis Services)}}
+\dates{\url{http://mondrian.pentaho.com/}}
+\begin{position}
+Mondrian is a open source ROLAP engine written in java. It provides MDX, XML/A, olap4j interface for connecting to its service. I have been part of its release 3.0(\url{http://mondrian.pentaho.com/documentation/roadmap.php#Mondrian_3.0}) where I have added features like aggregation of distinct count measures, several import performance and bug fixes. I also introduced CI in the project. Contributed to Mondrian  was done as part of a commercial project that used Mondrian as its analysis server.
+\end{position}
+
+\employer{\textbf{toggle-test}}
+\dates{\url{https://github.com/rags/toggle-test/}}
+\begin{position}
+Toggle test is an Emacs plugin (written in elisp). Its a language agnostic TDD tool that allows you to quickly switch between test and test subject. Test Toggle is similar to test toggle functionality provided by IntelliJ and other JetBrains IDEs.
+\end{position}
+
+\section{\textsc{Projects}}
+
+\employer{\textbf{Haggle \url{www.gethaggle.com}}}
+\dates{2012 - present}
+\begin{position}
+Haggle is a platform that lets users exercise the power that comes from the data they create. It is a platform that provides personalized pricing to the consumer and bring businesses and consumers together where they can negotiate on a price for the services the business has to offer. It matches consumer with business based the consumer Loyalty, Social influence, Purchasing power and his History of interaction with similar businesses.
+
+{\textbf{Role:}} I was responsible for developing most of the back-end, specifically, responsible for developing a negotiation engine and make it an API platform.
+
+{\textbf{Technology:}} Google App Engine, Python, Search API, Mapreduce/Pipeline, NLP. 
+\end{position}\\
+
+\employer{\textbf{Sales Quote Engine}}
+\dates{2011-2012}
+\begin{position}
+This was a project done for a major British Telecom company. This is a platform where any products like VPN, VOIP can be configured and a price quotation generated for the client (Similar to configuring laptops on dell.com). The aim was to build a backbone in
+a product agnostic manner so that any new product that was prioritized by the business could be easily integrated into the sales quoting engine.
+
+{\textbf{Role:}} Technical lead responsible for developing APIs that would be consumed by product teams
+
+{\textbf{Technology:}} This was a 'stackless java stack' environment that used Java, JPA, SimpleFramework, Freemarker, jQuery, Guava, gradl
+\end{position}\\
+
+\employer{\textbf{Go \url{www.thoughtworks-studios.com/go-continuous-delivery}}}
+\dates{2009-2010}
+\begin{position}
+Go is a continuous delivery server that manages the workflow from developer check-in to deployment. It is based on CruiseControl which was the first CI server ever written. Go automates the build-test-release cycle and other dev-ops functions like Infrastructure Management and Deployment.
+
+{\textbf{Role:}} Was responsible for moving the UI to rails, ORM from iBatis to Hibernate, performance tuning, delivering new features and mentoring. Performance was a major bottle neck for the server, because of high concurrent loads and so I was part of release cycle that incorporated event driven architecture and other changes like minimizing lock window to increase server throughput, optimizing Db queries, caching and invalidation of caching. 
+
+{\textbf{Technology:}} Go is a distributed server that manages several agents that do the actual work. It was a very ploy-glot environment and used Java, JRuby on rails, Spring IOC, Hibernate, jQuery, Hibernate, buidlr, git, perforce, svn, mercurial.
+\end{position}\\
+
+
+\employer{\textbf{Trainline \url{www.thetrainline.com}}}
+\dates{2008-2009, 2010-2011}
+\begin{position}
+Trainline is an ASP (Application service provider) that serves almost all the train operating companies in UK (Ex: \url{www.virgintrains.co.uk}, \url{www.scotrail.co.uk}, \url{www.redspottedhanky.com}). The idea is to have single project team/codebase for 20+ applications. The challenge here was to come up with different business flow and UI for businesses that needed varying configurability of application. To address that a stable, reliable SOA layer is built that encapsulates the train retailing business and applications are built on top of this common infrastructure. Another challenge was to be able to handle high loads and maintain high availability.
+
+{\textbf{Role:}} I did 2 stints on this project as a Tech lead for a team 12-14 members. I was responsible for design and delivery of services/API, performance profiling/tuning and mentoring.
+
+{\textbf{Technology:}} \CSharp, homegrown MVC framework, NHibernate,  windsor container for IOC, MSMQ/Biztalk for async workflow and assured delivery and WCF for SOA.
+\end{position}\\
+
+
+\employer{\textbf{Healthcare Analytics for Thomson Medstat}}
+\dates{2005-2008}
+\begin{position}
+The application provides market intelligence, decision support solutions and analysis services for managing healthcare costs to service providers, corporations, insurance companies. This application is the clients core product – which leverages their data and proprietary analytics. The 
+development mostly involved enhancing an open source ROLAP (Relational Online Analytical Processing) engine called Mondrian. 
+
+{\textbf{Role:}} I was responsible for analysis and solutioning of the requirements because of my prior experience in both the medical domain and OLAP technology. 
+
+{\textbf{Technology:}} Java, ANTLR for parsing/building Sql AST for Sql manipulation, ROLAP, MDX, XML/A, custom JDBC driver, DB2, Teradata, SQL Server, Oracle, GWT(Google web toolkit), Apache Jackrabbit, Star schema (denormalized DB).
+\end{position}\\
+
+\employer{\textbf{Clinical knowledge management}}
+\dates{2003-2005}
+\begin{position}
+The product can be used to study the health of the employees in an organization and actual utilization of fund being allocated as Medical Insurance to the employee. The product is targeted to provide various analyses for Insurance companies providing medical coverage for employees of an organization.
+
+{\textbf{Role:}} Responsible for Ad-hoc reporting via dynamic MDX generation, charts, flattening multi dimensional data.
+
+{\textbf{Technology:}} CSharp, MSAS and MOLAP cubes, MDX, Javascript, Star schema.
+\end{position}\\
+
+\employer{\textbf{SARAS}}
+\dates{2002-2003}
+\begin{position}
+SARAS is a virtual learning environment. It provides a robust environment to deploy and manage e-Learning courses as well as to create and deliver tests and assessments.
+
+{\textbf{Role:}} I was UI developer here responsible for presentation of Quizes/Assessment. Most of my work was in javascript and XSLT and loading data dynamically via async requests using ActiveXObject (A technology now called AJAX).
+
+{\textbf{Technology:}} XSLT, Javascript, .Net 1.0
+\end{position}\\
+
+
+\section{\textsc{Education}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill} } l  r }
+  \textbf{Sikkim Manipal University} & 2005-2007  \\
+  MBA ( IT )  & First class distinction  \\
+\\
+  \textbf{Visvesvaraya Technological University} & 1998-2002  \\
+  B.E in Information Science  & First class distinction  \\
+\end{tabular*}
+
+\end{resume}
+\end{document}
