@@ -67,12 +67,12 @@
 %%
 
 \section{\textsc{Summary of Interests / Work Experience}}
-My primary areas of experience are Analytics/Business Intelligence, Distributed systems with a total of 11 years experience. Most of my early experince was in building classical Analytics Servers (star schema based). I have also implemented a Distributed Continous Integration server and off late have been working on more modern Analytics (unstructured data, MapReduce). My areas of interests are Algorithms, Analytics, Distributed systems, Machine Learning, Functional Languages.
+I have total of 11 years of experience. My primary areas of experience are Analytics/Business Intelligence and Distributed systems. Most of my early experince was in building classical Analytics Servers (star schema based). I have also implemented a Distributed Continous Integration server and off late have been working on more modern Analytics (unstructured data, MapReduce). My areas of interests are Algorithms, Analytics, Distributed systems, Machine Learning, Functional Languages.
 
 \section{\textsc{Skills}} 
 {\textbf{Proficient}}
 \begin{mylist}
-  \item Building scalable distributed systems that need to handle lots of concurrent load
+  \item Building scalable distributed systems that need to handle high volumes of concurrent load
   \item Messaging based systems with staged event-driven architecture (SEDA)
   \item Datawarehousing, Analytics/BI, Aggregation/Measures engine, OLAP, ROLAP
   \item Java, Python, \CSharp,  JRuby/Ruby, Javascript
@@ -80,6 +80,8 @@ My primary areas of experience are Analytics/Business Intelligence, Distributed 
   \item Google app engine infrastructure which includes Mapreduce, Search, NoSql Datastore, Pipeline
   \item Performance tuning/profiling, SQL optimization, caching, transaction/lock management.
   \item Linux/Unix environment and the command line environment (zsh/bash, scripting, commandline tools, emacs)
+
+  \item Build and Continous Integration tools like Ant, Buildr, gradle, rake, Nant, Maven,  Jenkins, CruiseControl (.net, .rb), Travis-CI and Go(I was a developer on Go CI server).
 \end{mylist}
 
 {\textbf{Also worked/familiar with}}
@@ -88,8 +90,7 @@ My primary areas of experience are Analytics/Business Intelligence, Distributed 
   \item Lisp, Elisp, Scheme
   \item Scala, Haskell
   \item Mysql, Oracle, SQLServer, Teradata, Postgres, DB2
-  \item Build and Continous Integration tools like Ant, Buildr, gradle, rake, Nant, Maven,  Jenkins, CruiseControl (.net, .rb), Travis-CI and Go(CI)
-  \item testing frameworks like py.test, junit, nunit, jbehave, jasmine, selenium, sahi, rspec
+  \item Testing frameworks like py.test, junit, nunit, jbehave, jasmine, selenium, sahi, rspec
 \end{mylist}
 
 
@@ -100,6 +101,16 @@ My primary areas of experience are Analytics/Business Intelligence, Distributed 
   \body\\
 \end{formatb}
 
+\section{\textsc{Education}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill} } l  r }
+  \textbf{Sikkim Manipal University} & 2005-2007  \\
+  MBA ( IT )  & First class distinction  \\
+\\
+  \textbf{Visvesvaraya Technological University} & 1998-2002  \\
+  B.E in Information Science  & First class distinction  \\
+\end{tabular*}
+
 \section{\textsc{Work Experience}}
 
 \employer{\textbf{Haggle Inc}}
@@ -107,7 +118,7 @@ My primary areas of experience are Analytics/Business Intelligence, Distributed 
 \location{Bangalore}
 \dates{2012 - Present}
 \begin{position}
-Part of the founding team, responsible for mentoring, design/development of most of the back-end systems. 
+Part of the founding team, responsible for mentoring, design/development of the back-end systems. 
 \end{position}
 
 
@@ -180,20 +191,20 @@ Toggle test is an Emacs plugin (written in elisp). Its a language agnostic TDD t
 
 \section{\textsc{Projects}}
 
-\employer{\textbf{Haggle \url{www.gethaggle.com}}}
+\employer{\emph{{\textbf {Haggle}} \url{www.gethaggle.com}}}
 \dates{2012 - present}
 \begin{position}
 Haggle is a platform that lets users exercise the power that comes from the data they create. It is a platform that provides personalized pricing to the consumer and bring businesses and consumers together where they can negotiate on a price for the services the business has to offer. It matches consumer with business based the consumer Loyalty, Social influence, Purchasing power and his History of interaction with similar businesses.
 
-{\textbf{Role:}} I was responsible for developing most of the back-end, specifically, responsible for developing a negotiation engine and make it an API platform.
+{\textbf{Role:}} I was responsible for developing the back-end, specifically, responsible for developing a negotiation engine and make it an API platform.
 
 {\textbf{Technology:}} Google App Engine, Python, Search API, Mapreduce/Pipeline, NLP. 
 \end{position}\\
 
-\employer{\textbf{Sales Quote Engine}}
+\employer{\emph{{\textbf {Sales Quote Engine}}}}
 \dates{2011-2012}
 \begin{position}
-This was a project done for a major British Telecom company. This is a platform where any products like VPN, VOIP can be configured and a price quotation generated for the client (Similar to configuring laptops on dell.com). The aim was to build a backbone in
+This was a project done for  BT (British Telecom). This is a platform where BT's products like VPN, VOIP can be configured and a price quotation generated for the client (Similar to configuring laptops on dell.com). The aim was to build a backbone in
 a product agnostic manner so that any new product that was prioritized by the business could be easily integrated into the sales quoting engine.
 
 {\textbf{Role:}} Technical lead responsible for developing APIs that would be consumed by product teams
@@ -201,29 +212,29 @@ a product agnostic manner so that any new product that was prioritized by the bu
 {\textbf{Technology:}} This was a 'stackless java stack' environment that used Java, JPA, SimpleFramework, Freemarker, jQuery, Guava, gradl
 \end{position}\\
 
-\employer{\textbf{Go \url{www.thoughtworks-studios.com/go-continuous-delivery}}}
+\employer{\emph{{\textbf {Go}} \url{www.thoughtworks-studios.com/go-continuous-delivery}}}
 \dates{2009-2010}
 \begin{position}
 Go is a continuous delivery server that manages the workflow from developer check-in to deployment. It is based on CruiseControl which was the first CI server ever written. Go automates the build-test-release cycle and other dev-ops functions like Infrastructure Management and Deployment.
 
-{\textbf{Role:}} Was responsible for moving the UI to rails, ORM from iBatis to Hibernate, performance tuning, delivering new features and mentoring. Performance was a major bottle neck for the server, because of high concurrent loads and so I was part of release cycle that incorporated event driven architecture and other changes like minimizing lock window to increase server throughput, optimizing Db queries, caching and invalidation of caching. 
+{\textbf{Role:}} I was responsible for moving the UI to rails, ORM from iBatis to Hibernate, performance tuning, delivering new features and mentoring. Performance was a major bottle neck for the server, because of high concurrent loads. I was part of release cycle that incorporated event driven architecture and other changes like minimizing lock window to increase server throughput, optimizing Db queries, caching and invalidation of caching. 
 
 {\textbf{Technology:}} Go is a distributed server that manages several agents that do the actual work. It was a very ploy-glot environment and used Java, JRuby on rails, Spring IOC, Hibernate, jQuery, Hibernate, buidlr, git, perforce, svn, mercurial.
 \end{position}\\
 
 
-\employer{\textbf{Trainline \url{www.thetrainline.com}}}
+\employer{\emph{{\textbf {Trainline}} \url{www.thetrainline.com}}}
 \dates{2008-2009, 2010-2011}
 \begin{position}
 Trainline is an ASP (Application service provider) that serves almost all the train operating companies in UK (Ex: \url{www.virgintrains.co.uk}, \url{www.scotrail.co.uk}, \url{www.redspottedhanky.com}). The idea is to have single project team/codebase for 20+ applications. The challenge here was to come up with different business flow and UI for businesses that needed varying configurability of application. To address that a stable, reliable SOA layer is built that encapsulates the train retailing business and applications are built on top of this common infrastructure. Another challenge was to be able to handle high loads and maintain high availability.
 
 {\textbf{Role:}} I did 2 stints on this project as a Tech lead for a team 12-14 members. I was responsible for design and delivery of services/API, performance profiling/tuning and mentoring.
 
-{\textbf{Technology:}} \CSharp, homegrown MVC framework, NHibernate,  windsor container for IOC, MSMQ/Biztalk for async workflow and assured delivery and WCF for SOA.
+{\textbf{Technology:}} \CSharp, homegrown MVC framework, NHibernate,  windsor container for IOC, MSMQ / Biztalk for async workflow and assured delivery and WCF for SOA.
 \end{position}\\
 
 
-\employer{\textbf{Healthcare Analytics for Thomson Medstat}}
+\employer{\emph{{\textbf {Healthcare Analytics for Thomson Medstat}}}}
 \dates{2005-2008}
 \begin{position}
 The application provides market intelligence, decision support solutions and analysis services for managing healthcare costs to service providers, corporations, insurance companies. This application is the clients core product – which leverages their data and proprietary analytics. The 
@@ -234,17 +245,17 @@ development mostly involved enhancing an open source ROLAP (Relational Online An
 {\textbf{Technology:}} Java, ANTLR for parsing/building Sql AST for Sql manipulation, ROLAP, MDX, XML/A, custom JDBC driver, DB2, Teradata, SQL Server, Oracle, GWT(Google web toolkit), Apache Jackrabbit, Star schema (denormalized DB).
 \end{position}\\
 
-\employer{\textbf{Clinical knowledge management}}
+\employer{\emph{{\textbf {Clinical Knowledge Management}}}}
 \dates{2003-2005}
 \begin{position}
 The product can be used to study the health of the employees in an organization and actual utilization of fund being allocated as Medical Insurance to the employee. The product is targeted to provide various analyses for Insurance companies providing medical coverage for employees of an organization.
 
 {\textbf{Role:}} Responsible for Ad-hoc reporting via dynamic MDX generation, charts, flattening multi dimensional data.
 
-{\textbf{Technology:}} CSharp, MSAS and MOLAP cubes, MDX, Javascript, Star schema.
+{\textbf{Technology:}} \CSharp, MSAS and MOLAP cubes, MDX, Javascript, Star schema.
 \end{position}\\
 
-\employer{\textbf{SARAS}}
+\employer{\emph{{\textbf {SARAS}}}}
 \dates{2002-2003}
 \begin{position}
 SARAS is a virtual learning environment. It provides a robust environment to deploy and manage e-Learning courses as well as to create and deliver tests and assessments.
@@ -255,15 +266,7 @@ SARAS is a virtual learning environment. It provides a robust environment to dep
 \end{position}\\
 
 
-\section{\textsc{Education}}
 
-\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill} } l  r }
-  \textbf{Sikkim Manipal University} & 2005-2007  \\
-  MBA ( IT )  & First class distinction  \\
-\\
-  \textbf{Visvesvaraya Technological University} & 1998-2002  \\
-  B.E in Information Science  & First class distinction  \\
-\end{tabular*}
 
 \end{resume}
 \end{document}
