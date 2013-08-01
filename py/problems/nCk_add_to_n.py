@@ -1,10 +1,18 @@
 #Filter from set nCk to just return numbers that add upto n
+#K = None
 def combinations(n, k):
+#    global K
     all_combs = []
+#    K = 0
+
     _combinations(range(1, n + 1),n, k,[], all_combs)
     return all_combs
 
 def _combinations(a, n, k, cur, all_combs):
+
+#    global K
+#    K += 1
+
     if len(cur) == k and sum(cur) == n:
         all_combs.append(cur)
         return
