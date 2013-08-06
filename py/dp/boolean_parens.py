@@ -98,7 +98,7 @@ def add((cnt1, exps1), (cnt2, exps2)):
 OPS = {'&': and_, '|': or_, '^': xor_}
 BASIC_OPS = {'&': bool.__and__, '|': bool.__or__, '^': bool.__xor__}
 
-
+#O(n^3)
 def total_ways_to_true(exp):
     tokens = exp.replace(' ','')
     operands = [tokens[i] for i in range(len(tokens)) if i % 2 == 0]
