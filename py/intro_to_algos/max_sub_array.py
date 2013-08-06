@@ -37,6 +37,25 @@ def max_subarray(a):
     low,high,sum = find_max_subarray(a,0,len(a))
     return a[low:high]
 
+def max_subarray_kadane(a):
+    max_ending_here = max_so_far = 0
+    max_arr_ending_here, max_arr_so_far = [], []
+    for x in a:
+        if max_ending_here + x >= 0:
+            max_ending_here = max_ending_here + x
+            max_arr_ending_here.append(x)
+        else:
+            max_ending_here = 0
+            max_arr_ending_here = []
+        if max_ending_here > max_so_far:
+            max_so_far = max_ending_here
+            max_arr_so_far = max_arr_ending_here[:]
+    return max_arr_so_far
+
+############################## TESTS ##############################
+
+import pytest
+
 def main():
     #print max_subarray([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])
     #print max_subarray([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])
@@ -44,13 +63,14 @@ def main():
     print max_subarray([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])
 
 
-def should_find_max_subarray():
-    assert max_subarray([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])==[18,20,-7,12]
-    assert max_subarray([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20,-7,12]
-    assert max_subarray([-2, 1, -3, 4, -1, 2, 1, -5, 4])==[4,-1,2,1]
-    assert max_subarray([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20]
-    assert max_subarray([-7,-3,-2,-10,-6,-50])==[]
-    assert max_subarray([-7,-3,-2,-10,-6,-1])==[]
+@pytest.mark.parametrize('algorithm', [max_subarray, max_subarray_kadane])
+def should_find_max_subarray(algorithm):
+    assert algorithm([13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7])==[18,20,-7,12]
+    assert algorithm([13,18,20,-7,12,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20,-7,12]
+    assert algorithm([-2, 1, -3, 4, -1, 2, 1, -5, 4])==[4,-1,2,1]
+    assert algorithm([13,18,20,-7,7,-3,-25,20,-3,-16,-23,-5,-22,15,-4,7])==[13,18,20]
+    assert algorithm([-7,-3,-2,-10,-6,-50])==[]
+    assert algorithm([-7,-3,-2,-10,-6,-1])==[]
 
 if __name__=="__main__":
     main()
