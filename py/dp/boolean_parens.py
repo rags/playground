@@ -93,10 +93,11 @@ def xor_(lhs, rhs, dp_table):
 
 
 def add((cnt1, exps1), (cnt2, exps2)):
-    return (cnt1 + cnt2, list(set(exps1 + exps2)))
+    return (cnt1 + cnt2, set(exps1) | set(exps2))
 
 OPS = {'&': and_, '|': or_, '^': xor_}
 BASIC_OPS = {'&': bool.__and__, '|': bool.__or__, '^': bool.__xor__}
+
 
 def total_ways_to_true(exp):
     tokens = exp.replace(' ','')
@@ -131,19 +132,50 @@ def total_ways_to_true(exp):
     #print map(lambda r: map(lambda c: c[0] if isinstance(c, tuple) else c, r), dp_table)
     return dp_table[0][n - 1]
 
+def total_ways_to_true_recur(exp):
+    tokens = exp.replace(' ','')
+    texps, fexps = [], []
+    texps, fexps = _total_ways_to_true_recur(tokens)
+    return len(texps), texps
+    
+def  _total_ways_to_true_recur(tokens):
+    if len(tokens) == 1:
+        return ([tokens], []) if tokens == 'T' else ([], [tokens])
+    texps, fexps = set(), set()
+    for i in range(len(tokens) // 2):
+        lhs, op, rhs = tokens[:i * 2 + 1], tokens[i * 2 + 1], tokens[i * 2 + 2:]
+        ltexps, lfexps = _total_ways_to_true_recur(lhs)
+        rtexps, rfexps = _total_ways_to_true_recur(rhs)
+        tt = set('(%s%s%s)' % (l, op, r) for l in ltexps for r in rtexps)
+        tf = set('(%s%s%s)' % (l, op, r) for l in ltexps for r in rfexps)
+        ft = set('(%s%s%s)' % (l, op, r) for l in lfexps for r in rtexps)
+        ff = set('(%s%s%s)' % (l, op, r) for l in lfexps for r in rfexps)
+        print op, tt, tf, ft, ff
+        if op == '|':
+            texps |= tt | tf | ft
+            fexps |= ff
+        elif op == '^':
+            texps |= tf | ft
+            fexps |= tt | ff
+        elif op == '&':
+            texps |= tt
+            fexps |= tf | ft | ff
+    return texps, fexps
 
 ############################## TESTS ##############################
+import pytest
 
-def should_counts_brackets_for_true_eval():
-    assert (1, ['(T^(T&F))'])== total_ways_to_true('T^T&F')
-    assert (2, ['((F|T)&T)', '(F|(T&T))']) == total_ways_to_true('F|T&T')
-    assert (5, ['(T|((F|T)|F))', '(((T|F)|T)|F)', '((T|F)|(T|F))',
-                '((T|(F|T))|F)', '(T|(F|(T|F)))']) == total_ways_to_true('T|F|T|F')
-    assert (5, ['(T|(F&(T^F)))', '(T|((F&T)^F))', '((T|F)&(T^F))',
-                '(((T|F)&T)^F)', '((T|(F&T))^F)']) == total_ways_to_true('T|F&T^F')
-    assert (2, ['(T|((F&T)&F))', '(T|(F&(T&F)))']) == total_ways_to_true('T|F&T&F')
+@pytest.mark.parametrize('algorithm', [total_ways_to_true_recur, total_ways_to_true])
+def should_counts_brackets_for_true_eval(algorithm):
+    assert (1, {'(T^(T&F))'})== algorithm('T^T&F')
+    assert (2, {'((F|T)&T)', '(F|(T&T))'}) == algorithm('F|T&T')
+    assert (5, {'(T|((F|T)|F))', '(((T|F)|T)|F)', '((T|F)|(T|F))',
+                '((T|(F|T))|F)', '(T|(F|(T|F)))'}) == algorithm('T|F|T|F')
+    assert (5, {'(T|(F&(T^F)))', '(T|((F&T)^F))', '((T|F)&(T^F))',
+                '(((T|F)&T)^F)', '((T|(F&T))^F)'}) == algorithm('T|F&T^F')
+    assert (2, {'(T|((F&T)&F))', '(T|(F&(T&F)))'}) == algorithm('T|F&T&F')
     
-    cnt, exps = total_ways_to_true('F&T|F^F^T&T|F')
+    cnt, exps = algorithm('F&T|F^F^T&T|F')
     assert cnt == len(exps)
     assert cnt == 66
     assert cnt == sum(map(lambda exp: eval(exp,{'F':0,'T':1}),exps))
