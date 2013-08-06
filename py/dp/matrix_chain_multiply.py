@@ -29,6 +29,7 @@ def multiply_dp(chain):
     n = len(chain) - 1
     dp_table = np.zeros((n, n))
 
+    dp_table = [[None for i in range(n)] for j in range(n)]
     for i in range(n):
         matrix_dims = (chain[i], chain[i + 1])
         dp_table[i][i] = (0, matrix_dims, matrix_dims)
@@ -39,17 +40,24 @@ def multiply_dp(chain):
     #iterate excluding diagonal
     for k in range(n - 1):
         for i in range(n - k - 1):
-            m1, m2 = dp_table[i][i + k], dp_table[i + 1][i + k + 1]
-            (rows_m1, cols_m1), (rows_m2, cols_m2) = m1[1], m2[1]
-            dp_table[i][i + k + 1] = (m1[0] + m2[0] + rows_m1 * cols_m1 * cols_m2,
-                                      (rows_m1, cols_m2), (m1, m2))
+            j=i+k+1
+            choices = []
+            m = k + 2
+            for l in range(1, m):
+                    m1, m2 = dp_table[i][j - l], dp_table[i + m - l][j]
+                    (rows_m1, cols_m1), (rows_m2, cols_m2) = m1[1], m2[1]
+                    choices.append((m1[0] + m2[0] + rows_m1 * cols_m1 * cols_m2,
+                                      (rows_m1, cols_m2), (m1, m2)))
+            
+            dp_table[i][j] = min(choices)
+            
     return dp_table[0][n - 1]
              
     
 ############################## TESTS ##############################
 import pytest
 
-@pytest.mark.parametrize('algorithm', [multiply_recur, multiply_recur])
+@pytest.mark.parametrize('algorithm', [multiply_recur, multiply_dp])
 @pytest.mark.parametrize(('input', 'expected'), [
     ([10, 100, 5, 50, 1], (1750, (10, 1),
                            '(10 x 100 * (100 x 5 * (5 x 50 * 50 x 1)))')),    
@@ -62,7 +70,8 @@ def should_matrix_chain_multiply_optimal(input, expected, algorithm):
 #    global k
 #    k = 0
     res = algorithm(input)
+    #print expected, (res[0], res[1], rep(res)), res
     assert expected == (res[0], res[1], rep(res))
- #   if algorithm == multiply_recur:
+    #if algorithm == multiply_recur:
  #       print k, len(input) - 1
- #       assert 0
+    #    assert 0
