@@ -1,5 +1,6 @@
+#O(ElogV)
 def min_span(graph):
-    edges_sorted = sortedEdges(graph)
+    edges_sorted = sortededges(graph)
     union_find = UnionFind(graph)
     for edge in edges_sorted:
         union_find.add(edge)
@@ -34,8 +35,8 @@ class UnionFind(object):
         src_graph.update(dest_graph)
         src_graph[src][dest] = src_graph[dest][src] = distance
                 
-    
-def sortedEdges(graph):
+#O(ElogE)=O(ElogV^2)=)(E*2logV)=O(ElogV)
+def sortededges(graph):
     edges = []
     for node, neighbors in graph.items():
         for neighbor, distance in neighbors.items():

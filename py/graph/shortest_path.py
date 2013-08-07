@@ -1,4 +1,4 @@
-#A modified version dijikstra
+#A* algorithm - https://en.wikipedia.org/wiki/A*_search_algorithm
 from ds.heap import Heap
 
 def cmp_frontier(f1, f2):
