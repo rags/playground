@@ -1,5 +1,10 @@
 # find min range x,y in lists l1,l2, l3... such that range x..y (x,y inclusive)
 # contains atleast one element from each list
+
+'''
+start with the set (l1[0],l2[0],l3[0]...) increment the index of arr with minimum value.
+repeat until (l1[l],l2[m],l3[n]...) where l,m,n... are last indices of l1,l2,l3...
+'''
 def min_covering_range(*args):
     idx = [0] * len(args)
     min_range = None
