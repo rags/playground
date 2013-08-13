@@ -98,15 +98,17 @@ def longest_palindrome_n2(seq):
             else seq[max_ // 2 - palins[max_]: max_ // 2 + palins[max_] + 1])
     
 
-#O(n) - incomplete
+# O(n) - most fucked up piece of code I ever wrote.
+# Explanation - http://www.akalin.cx/longest-palindrome-linear-time
 def longest_palindrome(seq):
     n = len(seq)
     i = 0
     palins = [0] * (n * 2 - 1)
     max_ = 0
+    #XX = 0 # for testing time
     while i < n:
         if n - i - 1 < palins[max_]:
-            print("done", i, n, max_, palins[max_])
+#            print("done", i, n, max_, palins[max_])
             break
         if (n - 1) - (i + 1) >= palins[max_]:
             cnt = palins[i * 2]
@@ -116,11 +118,9 @@ def longest_palindrome(seq):
                 k -= 1
                 l += 1
             palins[i * 2] = cnt
-            if cnt:
-                if cnt > palins[max_]:
-                    max_ = i * 2
-                for j in range(1, cnt * 2+ 1):
-                    palins[i * 2 + j] = palins[i * 2 - j]
+            if cnt > palins[max_]:
+                max_ = i * 2
+            #XX += cnt
         if i + 1 < n:
             cnt = palins[i * 2 + 1]
             k, l = i - cnt, i + 1 + cnt
@@ -129,15 +129,24 @@ def longest_palindrome(seq):
                 k -= 1
                 l += 1
             palins[i * 2 + 1] = cnt
-            if i == 1:
-                print("here",i * 2 + 1, palins[i * 2 + 1])
-
-            if cnt:
-                if cnt > palins[max_]:
-                    max_ = i * 2 + 1
-                for j in range(max(1, palins[i * 2]), cnt * 2+ 1):
-                    palins[i * 2 + 1 + j] = palins[i * 2 + 1 - j]
-        i += 1
+#            if i == 1:
+#                print("here",i * 2 + 1, palins[i * 2 + 1])
+            if cnt > palins[max_]:
+                max_ = i * 2 + 1
+            #XX += cnt
+        next = i + max(min(palins[i * 2], palins[i * 2 + 1]), 1)
+        for j in range(1, max(palins[i * 2] * 2 , palins[i * 2 + 1] * 2)):
+            idx = i * 2 + 1 - j
+            if palins[idx]:
+                #print(idx // 2)
+                next = (i * 2 + 1 + j)// 2
+                break
+        assert next > i, (palins, i, i * 2, i * 2 + 1, next)
+        i = next
+        #XX += 1
+        #print(i, palins)
+    #print("L=", len(seq), "O=", XX)
+#    print(palins[max_], max_)
     return (seq[max_ // 2 - palins[max_] + 1: max_ // 2 + palins[max_] + 1] if max_ % 2 == 1
             else seq[max_ // 2 - palins[max_]: max_ // 2 + palins[max_] + 1])
     
@@ -146,7 +155,8 @@ def longest_palindrome(seq):
 ############################## TESTS ##############################
 
 if __name__ == '__main__':
-    longest_palindrome('aaaa')
+    print(longest_palindrome('abcbabccbabcbaaaaa'))
+    print(longest_palindrome('abcbabccbabcba'))
     
 import pytest
 
@@ -159,6 +169,7 @@ def should_detect_int_palidrome():
                                        longest_palindrome_dp,
                                        longest_palindrome_n2, longest_palindrome])
 def should_return_longest_contigious_palidrome(algorithm):
+    assert 'abcbabccbabcba' == algorithm('abcbabccbabcbaaaaa')
     assert 'baxab' == algorithm('baxybaxab')
     assert 'aibohphobia' == algorithm('aibohphobia')
     assert 'abcbabcbabcba' == algorithm('abcbabcbabcba')
@@ -171,3 +182,4 @@ def should_return_longest_contigious_palidrome(algorithm):
     assert '01044010' == algorithm('014101044010414')
     assert [3, 0, 1, 0, 1, 0, 3] == algorithm([1, 0, 3, 0, 1, 0, 1, 0, 3, 2, 1])
     assert 'abaxxaba' == algorithm('babaxxaba')
+    #assert algorithm != longest_palindrome
