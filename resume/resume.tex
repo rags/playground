@@ -14,7 +14,6 @@
 %this assumes that res_yy.sty is in some path
 \documentstyle[hyperref, margin, line]{res_yy}
 
-
 \hypersetup{backref,pdfpagemode=Full,colorlinks=true,backref}
 
 \addtolength{\oddsidemargin}{-0.45in}
@@ -36,7 +35,8 @@
 %%
 
 \def\Cplusplus{{\rm C\raise.5ex\hbox{\small ++}}}
-\def\CSharp{{\rm C\raise.5ex\hbox{\small \#}}}
+\def\CSharp{{\rm C\raisebox {.5ex}{\footnotesize \#}}}
+
 % 'st' 'nd' 'rd' 'th' superscripts for numbers
 \def\first{{\raise.5ex\hbox{\small st}}}
 \def\second{{\raise.5ex\hbox{\small nd}}}
@@ -75,8 +75,8 @@ I have total of 11 years of experience. My primary areas of experience are Analy
   \item Building scalable distributed systems that need to handle high volumes of concurrent load
   \item Messaging based systems with staged event-driven architecture (SEDA) with tools like ActiveMQ, MSMQ and App engine queues.
   \item Datawarehousing, Analytics/BI, Aggregation/Measures engine, OLAP, ROLAP
-  \item Java, Python, \CSharp,  JRuby/Ruby, Javascript
-  \item Extreme programming and related agile practices like TDD, OO design, refactoring, Continous integration
+  \item \CSharp, Python, Java, JRuby/Ruby, Javascript
+  \item Extreme programming and related agile/lean practices like TDD, OO design, refactoring, Continous integration
   \item Google app engine infrastructure which includes Mapreduce, Search, NoSql Datastore, Pipeline
   \item Performance tuning/profiling, SQL optimization, caching, transaction/lock management.
   \item Linux/Unix environment and the command line environment (zsh/bash, scripting, commandline tools, emacs)
@@ -90,7 +90,7 @@ I have total of 11 years of experience. My primary areas of experience are Analy
   \item Lisp, Elisp, Scheme
   \item Scala, Haskell
   \item Mysql, Oracle, SQLServer, Teradata, Postgres, DB2
-  \item Testing frameworks like py.test, junit, nunit, jbehave, jasmine, selenium, sahi, rspec
+  \item Testing frameworks like MSUnit, NUnit, py.test, JUnit, JBehave, Jasmine, Selenium, Sahi, RSpec
 \end{mylist}
 
 
@@ -109,6 +109,15 @@ I have total of 11 years of experience. My primary areas of experience are Analy
 \\
   \textbf{Visvesvaraya Technological University} & 1998-2002  \\
   B.E in Information Science  & First class distinction  \\
+\end{tabular*}
+
+
+\section{\textsc{Certifications / Honors}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill} } l  r }
+  \textbf{Microsoft Certified Application Developer} & 2004  \\
+\\
+  \textbf{Microsoft Community Star} & 2004  \\
 \end{tabular*}
 
 \section{\textsc{Work Experience}}
@@ -230,7 +239,7 @@ Trainline is an ASP (Application service provider) that serves almost all the tr
 
 {\textbf{Role:}} I did 2 stints on this project as a Tech lead for a team 12-14 members. I was responsible for design and delivery of services/API, performance profiling/tuning and mentoring.
 
-{\textbf{Technology:}} \CSharp, homegrown MVC framework, NHibernate,  windsor container for IOC, MSMQ / Biztalk for async workflow and assured delivery and WCF for SOA.
+{\textbf{Technology:}} \CSharp, ASP.net, homegrown MVC framework, NHibernate,  windsor container for IOC, MSMQ / Biztalk for async workflow and assured delivery and WCF for SOA.
 \end{position}\\
 
 
@@ -252,7 +261,7 @@ The product can be used to study the health of the employees in an organization 
 
 {\textbf{Role:}} Responsible for Ad-hoc reporting via dynamic MDX generation, charts, flattening multi dimensional data.
 
-{\textbf{Technology:}} \CSharp, MSAS and MOLAP cubes, MDX, Javascript, Star schema.
+{\textbf{Technology:}} \CSharp, ASP.net, MSAS and MOLAP cubes,Sql Server 2000, MDX, Javascript, Star schema.
 \end{position}\\
 
 \employer{\emph{{\textbf {SARAS}}}}
@@ -262,7 +271,7 @@ SARAS is a virtual learning environment. It provides a robust environment to dep
 
 {\textbf{Role:}} I was UI developer here responsible for presentation of Quizes/Assessment. Most of my work was in javascript and XSLT and loading data dynamically via async requests using ActiveXObject (A technology now called AJAX).
 
-{\textbf{Technology:}} XSLT, Javascript, .Net 1.0
+{\textbf{Technology:}} XSLT, Javascript, .Net 1.0, ASP.net
 \end{position}\\
 
 
