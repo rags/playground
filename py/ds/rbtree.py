@@ -38,7 +38,8 @@ def delete(value, tree):
 
     parent = node.parent
     sibling = parent.other_child(node)
-    assert sibling, strify(tree)
+    #if node is black, it must have to sibling to balance black height
+    assert sibling, strify(tree) 
     nephew_left, nephew_right = sibling.children
     while node.color == B and (sibling.color == R or
         (nephew_left and nephew_left.color == R) or
