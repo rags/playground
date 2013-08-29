@@ -141,34 +141,59 @@ def assert_has_same_shapes(expected, actual):
 
 def main(matrix):
     buckets = identify_and_bucket(matrix)
-    print(buckets)
+    #print(buckets)
     n = len(matrix)
-    out_matrix = [[('0', NO_COLOR) for i in range(n)] for i in range(n)]
+    out_matrix = [[('0', COLORS[0]) for i in range(n)] for i in range(n)]
 
     for i, bucket in enumerate(buckets):
-        color = COLORS[(i + 1)% len(COLORS)]
+        color = COLORS[(i + 8)% len(COLORS)]
         for x, y in itertools.chain(*bucket):
             out_matrix[x][y] = ('1', color)
-    print("%s shapes found" % len(buckets))
+    print("%s shapes found (grouped by color)" % len(buckets))
     for row in out_matrix:
         print()
         for val, color in row:
-            print(color + val + NO_COLOR, end = ' ')
+            print(color + val + ' ' + NO_COLOR, end = '')
+    print('\n')
     
 if __name__ == '__main__':
-    str_ = '''111101110101
-        101000010101
-        101001110010
-        000000010010
-        111100100100
-        010100111101
-        010100100101
-        000011011010
-        111000000010
-        010100010101
-        010100010101
-        111001101111'''
-    
-    matrix = build_matrix(str_)
-    main(matrix)
+    strs = ['''111000010001000
+              101110010001000
+              111000111001111
+              000010101000000
+              000010111001111
+              011110000001000
+              000001011101000
+              100101000001111
+              100101111010000
+              100100000010010
+              111100011110010
+              000011100000111
+              101110100010101
+              100011100010111
+              100000011110000''',
+            '''111101110101
+               101000010101
+               101001110010
+               000000010010
+               111100100100
+               010100111101
+               010100100101
+               000011011010
+               111000000010
+               010100010101
+               010100010101
+               111001101111''',
+            '''1000010011
+               1001111001
+               1100010001
+               0001000010
+               1011110010
+               1001000011
+               1000111000
+               0010000100
+               1110001111
+               0001110100''']
+    for str_ in strs:
+        main(build_matrix(str_))
     
