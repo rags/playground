@@ -1,0 +1,57 @@
+# Created by Octave 3.6.2, Sat Sep 07 17:34:56 2013 IST <rags@Raghu.local>
+# name: foodLabels
+# type: sq_string
+# elements: 5
+# length: 4
+Rice
+# length: 6
+Quinoa
+# length: 8
+Tortilla
+# length: 7
+Lentils
+# length: 8
+Broccoli 
+
+# name: nutrientLabels
+# type: sq_string
+# elements: 3
+# length: 13
+Carbohydrates
+# length: 7
+Protein
+# length: 3
+Fat
+
+
+
+# name: nutrients
+# type: matrix
+# rows: 5
+# columns: 3
+53 	4.4 	0.4
+40 	8 	3.6
+12 	3 	2
+53 	12 	0.9
+6  	1.9 	0.3 
+
+
+# name: costs
+# type: matrix
+# rows: 5
+# columns: 1
+0.5
+0.9
+0.1
+0.6
+0.4 
+
+# name: bounds
+# type: matrix
+# rows: 3
+# columns: 2
+100 	1000
+10 	100
+0 	100 
+
+

@@ -1,0 +1,23 @@
+# Usage: octave solveDietMin.m diet1.mat diet1_constraints.mat
+
+# name: otherConstraints
+# type: matrix
+# rows: 5
+# columns: 5
+0.2 -0.54 -0.06 -0.36 -0.24
+-0.3 0.36 -0.06 -0.36 -0.24
+-0.3 -0.54 0.04 -0.36 -0.24
+-0.3 -0.54 -0.06 0.24 -0.24
+-0.3 -0.54 -0.06 -0.36 0.16
+
+# name: otherConstraintUpperBounds
+# type: matrix
+# rows: 5
+# columns: 1
+0
+0
+0
+0
+0
+
+
