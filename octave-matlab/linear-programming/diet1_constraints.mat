@@ -1,4 +1,16 @@
 # Usage: octave solveDietMin.m diet1.mat diet1_constraints.mat
+# Objective: No single food should cost more than 60% total cost
+# Explantion: For x1, x1*x1_cost <= 0.6 * total_cost 
+# so for variables x [x1,x2,x3,x4,x5] and costs [.5, .9,  .1,  .6., .4]
+#                                <= .6 * (x .* [.5, .9,  .1,  .6., .4])
+#                                <= x .* [.3, .54, .06, .36. .24] 
+# note that [.3, .54, .06, .36. .24] = .6 * [.5, .9,  .1,  .6., .4]
+# So for x1 (with cost = 0.5),
+# x1 * 0.5 - (x .* [.3, .54, .06, .36. .24]) <= 0
+# x1* 0.5 - x1 * .3 - x2 *. 54 - x3 * .06 - x4 * .36 - x5 * .24 <= 0 
+# the x1's reduce to .5x1 - .3x1 = .2x1 and result is
+# x .* [.2, -.9, -.1, -.6., -.4] <= 0
+
 
 # name: otherConstraints
 # type: matrix
