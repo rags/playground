@@ -16,7 +16,6 @@ def pivot(dictionary, basic_vars, objective_vars):
     if not entering_candidates:
         return INFEASIBLE, None
     entering = min(entering_candidates, key = lambda i: objective_vars[i - 1])
-
     leaving_candidates, min_ratio = None, None
     for i in range(0, m - 1):
         cur_entering_coeff = dictionary[i][entering]
@@ -31,8 +30,10 @@ def pivot(dictionary, basic_vars, objective_vars):
     if not leaving_candidates:
         return UNBOUNDED, None
     leaving = min(leaving_candidates, key = lambda i: basic_vars[i])
+    return pivot_for(dictionary, basic_vars, objective_vars, entering, leaving)
 
-
+def pivot_for(dictionary, basic_vars, objective_vars, entering, leaving):
+    n = len(dictionary[0])
     leaving_row = dictionary[leaving]
     leaving_coeff = leaving_row[entering]
     for i in range(0, n):
@@ -54,15 +55,15 @@ def pivot(dictionary, basic_vars, objective_vars):
     
 def make_dictionary(file):
     m, n = map(int, file.readline().split())
-    basic_vars = map(int, file.readline().split())
-    objective_vars = map(int, file.readline().split())
+    basic_vars = [int(i) for i in file.readline().split()]
+    objective_vars = [int(i) for i in file.readline().split()]
     b_coeffs = map(float, file.readline().split())
-    assert len(b_coeffs) == m
     dictionary = []
-    for i in range(m):
-        dictionary.append([b_coeffs[i]] + map(float, file.readline().split()))
+    for i, cur in enumerate(b_coeffs):
+        dictionary.append([cur] + [float(f) for f in file.readline().split()])
         assert len(dictionary[i]) == n + 1
-    dictionary.append(map(float, file.readline().split()))
+    assert i == m - 1
+    dictionary.append([float(f) for f in file.readline().split()])
     assert len(dictionary) == m + 1
     return dictionary, basic_vars, objective_vars
 
@@ -84,6 +85,8 @@ if __name__ == '__main__':
     pivot_once(sys.argv[1])
 
 
+
+
 ############################## TESTS ##############################
 def should_pivot_once():
     for i in range(1, 11):
@@ -95,6 +98,6 @@ def should_pivot_once():
             if res != SUCCESS:
                 assert res == output.read().strip()
             else:
-                assert list(vars_) == map(int, [output.readline(), output.readline()])
+                assert vars_ == tuple(map(int, [output.readline(), output.readline()]))
                 expected_res = float(output.readline())
                 assert abs(expected_res - dictionary[-1][0]) < .001
