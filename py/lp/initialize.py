@@ -23,6 +23,7 @@ def initialize_input(file_path):
 
 def initialize_io(file_path):
     dict_ = initialize_input(file_path)
+    print(dict_)
     with open(file_path + ".out", "w") as out:
             out.write("%s\n" % dict_[-1][0])
 
