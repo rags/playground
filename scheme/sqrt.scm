@@ -6,7 +6,15 @@
 
 (define (square x) (* x x))
 
+; In each iteration of newton's method Xn 
+; is determined by the value of X in previous iteration Xn-1 as follows
 
+;Xn = Xn-1  - y/(dy/dx)
+;
+;where y = f(Xn-1)
+;      dy/dx = f'(Xn-1) = [f(Xn-1 + dx) - f(Xn-1)]/dx
+;      is the derivative of the function f(Xn-1)
+ 
 (define (newton f guess)
   (define deriv (λ (f) (λ (x) (/ (- (f (+ x dx)) (f x)) dx))))
   (define df (deriv f))
