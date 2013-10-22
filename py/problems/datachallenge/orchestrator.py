@@ -4,21 +4,24 @@ from itertools import chain
 from math import log2
 from mapper import link_combinations
 from reducer import consolidate
+from prettyprint_mapper import format_connections
+from combine_mapper import combine
+from combine_reducer import extend_paths
+
+def merge(onto, from_):
+    return consolidate(sorted(extend_paths(sorted(combine(
+        chain(onto, format_connections(from_)))))))
 
 def orchestrate(network, n):
-    path_fragments = []
+    dp_table = {}
     for i in range(int(log2(n)) + 1):
         network = list(consolidate(sorted(link_combinations(network))))
         cur_pow2 = 2 ** i
-        if n & cur_pow2 == cur_pow2:
-            path_fragments.append(network)
-    if len(path_fragments) == 1:
-        return path_fragments[0]
-    print(len(path_fragments))
-    if len(path_fragments) > 1:
-        print(path_fragments[0])
-        print(path_fragments[1])
-    return consolidate(sorted(reduce(chain, path_fragments)))
+        if n & cur_pow2 == cur_pow2: #only store if pow2 bit is set in n
+            dp_table[cur_pow2] = network
+    if len(dp_table) == 1:
+        return format_connections(dp_table[n])
+    return format_connections(reduce(merge, (dp_table[i] for i in sorted(dp_table.keys(), reverse = True))))
 
 def main(n):
     for user_network in orchestrate(sys.stdin, n):

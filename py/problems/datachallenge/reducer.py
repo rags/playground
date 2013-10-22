@@ -8,7 +8,7 @@ def consolidate(connections):
     #format: user friends # nth_deg_network
     def construct_ouput():
         friendstr = '\t'.join(friends)
-        extended_friendstr = '\t'.join(extended_friends - friends)
+        extended_friendstr = '\t'.join(extended_friends - (friends.union({cur_user})))
         return (cur_user + (('\t' + friendstr) if friendstr else '') 
                 + '\t#' + (('\t' + extended_friendstr) if extended_friends else ''))
         

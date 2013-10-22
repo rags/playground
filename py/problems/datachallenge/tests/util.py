@@ -4,6 +4,7 @@ import contextlib
 from io import StringIO as SOut #3.x
 #from StringIO import StringIO as SOut #2.7.x 
 from collections import Iterable
+import re
 
 @contextlib.contextmanager
 def mock_console_io(input_str):
@@ -18,14 +19,14 @@ def mock_console_io(input_str):
 
 def replace(txt, frm, to):
     def rep(s):
-        return s.replace(frm, to)
+        return re.sub(frm, to, s)
     if isinstance(txt, str):
         return rep(txt)
     elif isinstance(txt, Iterable):
         return list(map(rep, txt))
     
 def tabify(txt):
-    return replace(txt, ' ',  '\t')
+    return replace(txt, ' +',  '\t')
 
 
 def untabify(txt):

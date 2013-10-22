@@ -7,7 +7,7 @@ def should_generate_friend_of_friends_list_for_n_X_2_degree():
 
              'p2 p4 p5 p6', 'p4 p2 p5 p6', #line2 output
              'p5 p2 p4 p6', 'p6 p2 p4 p5'
-         ] == untabify(link_combinations(tabify(['p1 p2 p3 p5 #', 'p2 p4 p5 p6'])))
+         ] == untabify(link_combinations(tabify(['p1 p2 p3 p5', 'p2 p4 p5 p6'])))
     
 def should_map_friends_at_degree_1():
     assert tabify(['kim omid', 'omid kim',
