@@ -1,0 +1,6 @@
+source ./func.sh
+cat input.txt | map |sort| reduce | map | sort| reduce | map | sort | reduce | map_print
+
+
+
+
