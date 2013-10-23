@@ -1,5 +1,5 @@
 from path_doubling_mapper import link_combinations, main
-from .util import mock_console_io, tabify, untabify
+from tests.util import mock_console_io, tabify, untabify
     
 def should_generate_friend_of_friends_list_for_n_X_2_degree():
     assert  ['p1 p2 p3 p5', 'p2 p1 p3 p5',

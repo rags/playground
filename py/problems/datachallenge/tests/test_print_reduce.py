@@ -1,6 +1,6 @@
 from .util import mock_console_io,  tabify
-from ..reducer import consolidate, main
-from ..prettyprint_mapper import format_connections, main as print_main
+from reducer import consolidate, main
+from prettyprint_mapper import format_connections, main as print_main
 def should_consolidate():
     assert (list(format_connections(consolidate(tabify(['1 2 3', '1 4 5',
                                                 '2 3 1', '2 5 6', '3 1 2'])))) ==

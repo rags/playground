@@ -1,0 +1,158 @@
+ 
+\documentclass[a4paper]{article}
+\usepackage{amssymb}
+
+\addtolength{\oddsidemargin}{-.9in}
+\addtolength{\evensidemargin}{-.9in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-1.5in}
+\addtolength{\paperheight}{2in}
+\addtolength{\textheight}{1.75in}
+
+\begin{document}
+ 
+% Article top matter
+\title{Solution and Complexity} 
+\author{Raghunandan Rao}  %\texttt formats the text to a typewriter style font
+\maketitle
+ 
+\section{Approach}
+
+The codebase contains 2 algorithms. A simpler algorithm which expands/traverses the social graph 1 level at a time. So for $N^{th}$ degree its $\mathcal{O}(n)$. A more efficient algorithm exploits the fact the a route from $A$ to $C$ via $B$ can be constructed if we have path from $A -> B$ and $B -> C$. This in done in powers of 2 to reduce complexity to $\mathcal{O}(\log n)$
+
+\subsubsection{explanation for path doubling algorithm}
+Consider the graph 
+\begin{verbatim}
+1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7
+
+At N=3,
+1:{2,3,4}
+2:{3,4,5}
+4:{5,6,7}
+\end{verbatim}
+ At $N=3$ node $1$ has connections $\{2, 3, 4\}$ and node $4$ has connections $\{5, 6, 7\}$. To get connections at $N=6$ for $1$ we can combine $N=3$ connections of all $1$'s connections (which is $2,3 \& 4$). So at $N=6$ node $1$ will have $\{2, 3, 4, 5, 6, 7\}$ as $6^\circ$ connections. this is basic idea.
+
+So for example if you want take 13 steps from any node in a graph it can be done by path doubling as follows. You expand 1 level and combine the result with itself to get 2 level expansion and combine level 2 with itself to get $4^{th}$ level of expansion. So $13^{th}$ degree of seperation can be for from calculating level 1, 2, 4, 8. $ 13 = 2^0 + 2^2 + 2^3 = 1 + 4 + 8$. For any $n$ you need to only have $\lfloor \log N\rfloor$. 
+  
+In retrospect any social network these days has less then $4^\circ$ of seperation (For facebook this value is 3.74 as of 2011). So the second algorithm may nor provide a lot of leverage. It is more useful in graphs that have longer paths.     
+\section{Implementation Details}
+The solution is implemented in Python 3.x. I have provided commented out 2.7.x alternatives in few places that  I use 3.3 specific syntax/libraries. In case the solution needs to be tested on machines that have only python 2 (Search for 2.7 in the solution files). The only $3^{rd}$ party library used is py.test, which will not be required for running the code itself. Only one test uses py.test specific code. Everthing else can be run with Python's builtin unittesting framework. There is some duplication in the code itself especially between \emph{one\_hop\_mapper.py} and \emph{path\_doubling\_mapper.py} this is intertionally done to keep each file independent. The only import statements call out to builtin libraries. This also means there is no constants defined in a seperate file and hard coding of string constants.
+
+Because of the distributed nature of the requirements the solution cannot be coded as a pretty looking monlithic solution. I will try to explain my implementation here since I didnt want to clutter the code with comments. Please feel free to contact me if something is unclear or if some clarifications are required for running the code. Here is a brief description of the files.
+
+\subsection{Incremental expansion solution}
+Much of the code is reused in both solutions. The files need for running incremental expansion algorithm are:
+
+\begin{description}
+    \item[one\_hop\_mapper.py] Produces combinations for expanding the path by 1 level using immediate neighbors
+    \item[reducer.py] Merges results from different mappers for a node.
+    \item[prettyprint\_mapper.py] Print the result in the sorted and tab seperated format specified in the problem definition
+    \item[orchestrator.py (optional)] Main program for chaining map reduce in python.
+\end{description}
+
+To run the program for $N=2$
+\begin{verbatim}
+> cat input.txt | tr ' ' '\t' | python one_hop_mapper.py | sort \
+| python reducer.py | python one_hop_mapper.py | sort | \
+python reducer.py | python prettyprint_mapper.py
+\end{verbatim}
+
+\emph{Note that the solution expected a tab seperated input. If your editor converts tab char to spaces you might get incorrect results.} To change this behavior change \begin{verbatim}.split('\t') to split()\end{verbatim}  in all the files
+
+\subsection{Path doubling solution}
+\emph{reducer.py, prettyprint\_mapper.py and orchestrator.py} are reused here. The other files are
+
+\begin{description}
+    \item[path\_doubling\_mapper.py] Produces combinations for expanding the path by 2 times the current level. This is done by expanding with immediate neighbors and all the nodes that are reachable with the current expansion.
+    \item[combine\_mapper.py] This is the key to this solution it 2 graphs with $N^\circ$ and $M^\circ$ ($M>N$) of expansion and cleverly formats it the input so that the reducer can meanifully combine them. The idea is get $(M+N)^\circ$ and not $M^2$. This mapper yields values so that reducer can differentiate between input that comes from $M$ from $N$. Note that $M$ is in raw format and $N$ is in pretty format. 
+    \item[combine\_reducer.py] This reducer applies new path fragments from N onto M.
+    \item[noop\_mapper.py] hadoop supports only mappers with no reducers but not the other way around. This is a noop mapper in one case where reducer need to called directly.
+
+    \item[reducer.py] Merges results from different mappers for a node.
+    \item[prettyprint\_mapper.py] Print the result in the sorted and tab seperated format specified in the problem definition
+    \item[orchestrator.py (optional)] Main program for chaining map reduce in python.
+\end{description}
+
+To run the program $N=5 (4+1)$ 
+\begin{verbatim}
+> M(){
+python `pwd`/path_doubling_mapper.py
+}
+> R(){
+python `pwd`/reducer.py
+}
+> print(){
+python `pwd`/prettyprint_mapper.py
+}
+> CM(){
+python `pwd`/combine_mapper.py
+}
+> CR(){
+python `pwd`/combine_reducer.py
+}
+
+> cat input.txt | tr ' ' '\t' | M | sort | R > 1.out
+> cat 1.out | print > 1_pretty  
+> cat 1.out | M | sort | R | M | sort | R > 4.out
+# Now there are 2 choices:-
+# either combine with 1_pretty
+> cat 1_pretty 4.out | CM | sort | CR | sort | R | print 
+# or since 4 is just one step away from 5
+> cat 1_pretty 4.out | python one_hop_mapper.py | sort | R | print 
+\end{verbatim}
+
+\subsection{Running the code}
+\emph{orchestrator.py} does the orchestration for both algorithm. Use \emph{\textit{python orchestration.py}} to run it. There also scripts provided for running this.
+\begin{verbatim} 
+> ./run         # to run shell based pipeline
+> ./run_hadoop  # hadoop based combine orchestraion
+> ./t           # to run all the tests ('pip install pynt' to run this)
+\end{verbatim} 
+
+\subsection{Intemediate data format}
+In all intermediate steps the data is stored in a format that makes it easy to identify immediate neighbors (friends). The only difference between doubling expansion and 1 step expansion is this. One step expansion uses immediate neighbors to expand by 1 level, whereas doubleing uses all nodes. $\#$ charecter is the delimiter between friends and the extended network.
+ 
+\begin{verbatim} 
+user friend1 friend2 ... # friend_of_friend1 friend_of_friend1 ...
+Ex:
+brendan torsten #       davidbowie      ziggy   mick    omid    kim
+davidbowie      kim     ziggy   omid    #       mick    torsten brendan
+
+\end{verbatim} 
+here davidbowie has 3 friends and bendan has just one. In both cases name that follow $\#$ are people in their extended network 
+
+ 
+\section{Space/Time Complexity}
+This section will be a little informal and very rigorous. 
+\begin{verbatim} 
+S = Number of users (nodes)
+N = levels of expansion (or degree of separation)
+E = No of friendships (edges)
+O = maximum out degree (Max friends a person can have)
+\end{verbatim} 
+ 
+\subsection{Time for non distributed algorithm}
+At each step in the algorithm you try to expand all S (users) nodes. In case of 1 step expansions in each iteration we just look at just the immediate neighbors and their entire network (which is bound by $O * S$). So, its \[\mathcal{O}(N * S * O * S)\] and for very small N, its $\mathcal{O}(S^2 * O)$
+
+For a doubling algorithm. There are $\log_2 N$ iterations. Each iteration looks at all nodes in a user network and merges them. \[\mathcal{O}(\log N * S * S * E) = \mathcal{O}(S^2 * E)\] Since $\log N$ will be a very small number.
+
+Since $O$ is bound by $E$ $N * S^2 * E$ can be looser upper bound for both algorithms, which $\mathcal{O}(S^2 E)$ for very small $N$. 
+
+There is also $S\log S$ time spent and sorting the data finally but this is a lower order term and can be ignored.
+
+\subsection{Distributed algorithm}
+The parallelism of any parallel algorithm is given by $T_1/T_\infty$. $T_1$ is time on single processor machine and $T_/infty$ time on machine with infinite number of processors. The mapping process involves looking at all nodes ($S$) in the graph. Each map job looks at every connection and yields a value for each connection at the current degree of connectivity which is bound by $S$ (Since for a large N everything is connected to everything else). Complexity of map job is $\mathcal{O}(S)$
+
+Shuffle can get data for  $S * 0$ number of items to shuffle and $S$ unique keys. 
+
+Reduce merges results for data generated for each node bound by $O$ teh data itself in each of these $O$ items is bound by $S$. Complexity of reduce is $\mathcal{O}(S * O)$
+
+So overall $T_/infty = S + S * O = \mathcal{O}(S * O)$ for a single round of mapreduce and parallelism,
+\[P = T_1/T_\infty = \frac{S^2 . E}{S . O}  = \mathcal{O}(\frac{S . E}{O})\]   
+\subsection{Space}
+As N increased the graph size increases from $S.E$ to $S^2$. For an incremental algorithm only the graph from previous iteration is required so its \[\mathcal{O}(S^2)\] and for a path doubling algorithm graphs from all the $\lfloor\log N\rfloor$ iterations are needed. So its,
+\[\mathcal{O}(S^2 \log N)\] 
+
+ 
+\end{document}  %End of document.

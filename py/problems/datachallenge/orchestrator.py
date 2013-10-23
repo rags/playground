@@ -36,16 +36,3 @@ def main(n=2, algorithm=orchestrate_logn):
 if __name__ == '__main__':
     main()
 
-
-def pow2factors(n):
-    assert n > 0
-    while n > 0:
-        pow2 = 2 ** int(log2(n))
-        yield pow2
-        n = n - pow2
-
-def hadoop_orchestrate():
-    pass
-
-def sh_orchestrate():
-    pass 

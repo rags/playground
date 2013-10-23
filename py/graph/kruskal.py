@@ -1,3 +1,4 @@
+#greedy algorithm
 #O(ElogV)
 def min_span(graph):
     edges_sorted = sortededges(graph)

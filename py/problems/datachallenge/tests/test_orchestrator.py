@@ -1,15 +1,8 @@
 from .util import tabify, untabify, mock_console_io
-from ..orchestrator import (pow2factors, orchestrate_logn,
+from orchestrator import (orchestrate_logn,
                             main,  orchestrate_O_of_n)
 import pytest
 import random
-
-def should_return_pow2_factors():
-    assert [8, 4, 2, 1] == list(pow2factors(15))
-    assert [8, 2, 1] == list(pow2factors(11))
-    assert [32] == list(pow2factors(32))
-    assert [1] == list(pow2factors(1))
-
      
 LINEAR_NETWORK_SIZE = 100
 def neighbors_at_length(no_of_hops):
