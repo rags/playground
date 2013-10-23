@@ -33,3 +33,4 @@ def should_combine():
 5 1 2 3 4
 6 1 2 3 4''').split('\n')
     
+    

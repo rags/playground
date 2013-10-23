@@ -1,5 +1,5 @@
 map() { 
-python mapper.py 
+python path_doubling_mapper.py 
 }
 
 reduce() { 

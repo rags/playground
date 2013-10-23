@@ -1,5 +1,8 @@
 from .util import tabify, untabify, mock_console_io
-from ..orchestrator import pow2factors, orchestrate, main
+from ..orchestrator import (pow2factors, orchestrate_logn,
+                            main,  orchestrate_O_of_n)
+import pytest
+import random
 
 def should_return_pow2_factors():
     assert [8, 4, 2, 1] == list(pow2factors(15))
@@ -20,16 +23,19 @@ def neighbors_at_length(no_of_hops):
     network.sort()
     return network
 
-def should_work_for_longer_hops(): #takes over 30s to complete
+@pytest.mark.parametrize('algorithm',
+                         [orchestrate_logn, orchestrate_O_of_n])
+def should_work_for_longer_hops(algorithm): 
     #1->2->3->4 ...... 99->100
     LINEAR_NETWORK = ['%d\t%d' % pair for pair in zip(
         range(1,LINEAR_NETWORK_SIZE),
         range(2,LINEAR_NETWORK_SIZE + 1))]
-    for i in range(1, LINEAR_NETWORK_SIZE):
-        assert neighbors_at_length(i) == list(orchestrate(LINEAR_NETWORK, i))
+    for i in range(1, LINEAR_NETWORK_SIZE, random.randint(5, 10)):
+        assert neighbors_at_length(i) == list(algorithm(LINEAR_NETWORK, i))
 
-    
-def should_work_for_the_given_input():
+@pytest.mark.parametrize('algorithm',
+                         [orchestrate_logn, orchestrate_O_of_n])
+def should_work_for_the_given_input(algorithm):
     with mock_console_io(tabify(
 '''davidbowie  omid
 davidbowie  kim
@@ -39,7 +45,7 @@ brendan     torsten
 ziggy       davidbowie
 mick        ziggy
 ''')) as out:
-        main(2)
+        main(2, algorithm)
         
     assert out[0] == tabify(
 '''brendan kim omid torsten
