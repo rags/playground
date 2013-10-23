@@ -1,6 +1,20 @@
-source ./func.sh
-cat input.txt | map |sort| reduce | map | sort| reduce | map | sort | reduce | map_print
+source `pwd`/func.sh
+e "mpython orchestration, n=2" "----------------------------"
+cat input.txt| tabify | python `pwd`/orchestrator.py
+ 
+e "console pipeline, 1 hop map reduce, n=2" "----------------------------------------"
+cat input.txt | tabify | map1step | shuffle | reduce | map1step | shuffle | reduce |  map_print
 
+e "console pipeline, path doubling map reduce, n=3, 5", "-------------------------------"
+cat input.txt | tabify | map2x | shuffle | reduce  > /tmp/n1.out
+cat /tmp/n1.out |  map_print > /tmp/n1_pretty.out
+cat /tmp/n1.out |  map2x | shuffle | reduce  > /tmp/n2.out
+cat /tmp/n2.out |  map2x | shuffle | reduce  > /tmp/n4.out
+e "3rd degree"
+#3=2+1
+cat /tmp/n2.out /tmp/n1_pretty.out  | map_combine | shuffle | reduce_combine | shuffle | reduce | map_print
 
-
+e "5rd degree"
+#3=2+1
+cat /tmp/n4.out /tmp/n1_pretty.out  | map_combine | shuffle | reduce_combine | shuffle | reduce | map_print
 

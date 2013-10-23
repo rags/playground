@@ -29,12 +29,12 @@ def orchestrate_O_of_n(network, n):
         network = list(consolidate(sorted(one_hop(network))))
     return format_connections(network)
 
-def main(n, algorithm=orchestrate_logn):
+def main(n=2, algorithm=orchestrate_logn):
     for user_network in algorithm(sys.stdin, n):
         print(user_network)
 
 if __name__ == '__main__':
-    main(2)
+    main()
 
 
 def pow2factors(n):

@@ -1,0 +1,24 @@
+source ./run
+
+e "Hadoop combiner (using files generated from prev steps), n=7"
+e "This might not run if \$HADOOP_HOME isnt set"
+#7=(6+2) + 1
+h="${HADOOP_HOME}/bin/hadoop jar ${HADOOP_HOME}/share/hadoop/tools/lib/hadoop-streaming-2.2.0.jar"
+rm -rf /tmp/n2_pretty /tmp/n6_dups /tmp/n6 /tmp/n7_dups /tmp/n7 /tmp/n7_pretty
+
+
+$h -mapper "python `pwd`/prettyprint_mapper.py" -input /tmp/n2.out -output "/tmp/n2_pretty" 
+
+cat /tmp/n2_pretty/*
+$h -mapper "python `pwd`/combine_mapper.py" -reducer "python `pwd`/combine_reducer.py" -input /tmp/n2_pretty -input /tmp/n4.out  -output "/tmp/n6_dups"
+
+$h -mapper "python `pwd`/noop_mapper.py" -reducer "python `pwd`/reducer.py" -input /tmp/n6_dups  -output "/tmp/n6"
+
+$h -mapper "python `pwd`/combine_mapper.py" -reducer "python `pwd`/combine_reducer.py" -input /tmp/n1_pretty.out -input /tmp/n6  -output "/tmp/n7_dups"
+
+$h -mapper "python `pwd`/noop_mapper.py" -reducer "python `pwd`/reducer.py" -input /tmp/n7_dups  -output "/tmp/n7"
+
+$h -mapper "python `pwd`/prettyprint_mapper.py" -input /tmp/n7 -output "/tmp/n7_pretty"
+
+e "N=7 output from hadoop" "-----------------------------------------"
+cat /tmp/n7_pretty/*
