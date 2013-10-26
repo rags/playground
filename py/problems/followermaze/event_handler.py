@@ -39,9 +39,6 @@ class EventHandler(object):
         print("Handling: ", data)
         parts = data.split(b'|')
         receivers = self.handlers[parts[1]](parts)
-        if len(receivers) == 1 and receivers[0] not in self.users:
-            return False
         for receiver in receivers:
             if receiver in self.users:
                 send(self.users[receiver], data)
-        return True

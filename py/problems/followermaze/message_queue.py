@@ -27,7 +27,8 @@ class MessageQueue(object):
     def _push(self, id, event):
         with self.new_item_available: 
             heapq.heappush(self.queue, (id, event))
-            self.new_item_available.notify()
+            if self.next_item == id:
+                self.new_item_available.notify()
     
     #The call blocks till next item is available
     def pop(self):
