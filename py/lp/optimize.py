@@ -8,7 +8,7 @@ def optimize(dictionary, basic_vars, non_basic_vars):
             break
         cnt += 1
     
-    return (pivot.UNBOUNDED, cnt) if res == pivot.UNBOUNDED else (dictionary[-1][0], cnt)
+    return (pivot.UNBOUNDED, cnt) if res == pivot.UNBOUNDED else (dictionary[-1, 0], cnt)
         
 def optimize_input(file_path):
     with open(file_path) as f:
