@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f0586f7-7c53-49f9-a15f-9521a844ac97" name="Default" comment="" />
+    <list default="true" id="9f0586f7-7c53-49f9-a15f-9521a844ac97" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/Direction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Distribution.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/query/DistributionTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThroughScanner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThroughScannerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThru.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruFixture.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThruList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruMatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThrusFixture.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Func.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/query/GroupTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_15_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_sources_15_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_sources_4_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_all_sources_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Predicates.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/Query.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Reducer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/query/ReducerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vehiclesurvey/time/Time.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/java/vehiclesurvey/time/TimeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VehicleSurvey.iml" afterPath="$PROJECT_DIR$/VehicleSurvey.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="VehicleSurvey.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/pom.xml" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383289682728" ignored="false" />
+    <file path="/Dummy.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383413848242" ignored="false" />
+    <file path="/FooTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383225743805" ignored="false" />
+    <file path="/DriveThru.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383389962627" ignored="false" />
+    <file path="/Heading.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383219835267" ignored="false" />
+    <file path="/fragment.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383416562635" ignored="false" />
+    <file path="/DriveThroughScanner.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383373601711" ignored="false" />
+    <file path="/DriveThruList.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383387168222" ignored="false" />
+    <file path="/DriveThroughScannerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383383129181" ignored="false" />
+    <file path="/DriveThruMatcher.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383384683153" ignored="false" />
+    <file path="/Func.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383427111997" ignored="false" />
+    <file path="/Query.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383302837293" ignored="false" />
+    <file path="/Reducer.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383307836926" ignored="false" />
+    <file path="/ReducerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383308347718" ignored="false" />
+    <file path="/GroupBy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383396944663" ignored="false" />
+    <file path="/Time.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383374690689" ignored="false" />
+    <file path="/Groups.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383382983805" ignored="false" />
+    <file path="/TimeTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383373041704" ignored="false" />
+    <file path="/DriveThruTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383434060612" ignored="false" />
+    <file path="/Slots.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383389642700" ignored="false" />
+    <file path="/DriveThrusFixture.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383385095664" ignored="false" />
+    <file path="/DriveThruFixture.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383384563825" ignored="false" />
+    <file path="/a.dummy" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383398209678" ignored="false" />
+    <file path="/SlotsTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383391780857" ignored="false" />
+    <file path="/DistributionTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383398815273" ignored="false" />
+    <file path="/Distribution.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383398753667" ignored="false" />
+    <file path="/Group.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383430940946" ignored="false" />
+    <file path="/ReflectionUtil.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383419822889" ignored="false" />
+    <file path="/GroupTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383431401256" ignored="false" />
+    <file path="/ReflectionUtilTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383419553080" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +74,62 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CloverPlugin" class="com.cenqua.clover.idea.config.IdeaCloverConfig">
+    <loadPerTestData>true</loadPerTestData>
+    <projectRebuild class="com.cenqua.clover.idea.config.ProjectRebuild">ASK</projectRebuild>
+    <filteredHighlight>-4144960</filteredHighlight>
+    <relativeInitString>false</relativeInitString>
+    <buildWithClover>false</buildWithClover>
+    <lastProjectConfigTabSelected>0</lastProjectConfigTabSelected>
+    <periodicRefresh>false</periodicRefresh>
+    <notCoveredStripe>-65536</notCoveredStripe>
+    <flushPolicy>0</flushPolicy>
+    <viewIncludeAnnotation>false</viewIncludeAnnotation>
+    <alwaysExpandTestClasses>false</alwaysExpandTestClasses>
+    <languageLevel>1.8 - lambda functions, virtual extension methods.</languageLevel>
+    <manualInitString null="true" />
+    <autoRefreshInterval>2000</autoRefreshInterval>
+    <flushInterval>5000</flushInterval>
+    <showInline>true</showInline>
+    <showSummaryInToolwindow>true</showSummaryInToolwindow>
+    <autoRefresh>true</autoRefresh>
+    <coveredHighlight>-3605816</coveredHighlight>
+    <enabled>true</enabled>
+    <alwaysCollapseTestClasses>false</alwaysCollapseTestClasses>
+    <excludes null="true" />
+    <filteredStripe>-12566464</filteredStripe>
+    <instrumentTests>true</instrumentTests>
+    <calculateTestCoverage>true</calculateTestCoverage>
+    <outOfDateHighlight>-32</outOfDateHighlight>
+    <notCoveredHighlight>-341816</notCoveredHighlight>
+    <hideFullyCovered>false</hideFullyCovered>
+    <cloudReportIncludeSubpkgs>false</cloudReportIncludeSubpkgs>
+    <includes null="true" />
+    <includePassedTestCoverageOnly>false</includePassedTestCoverageOnly>
+    <testViewScope class="com.cenqua.clover.idea.config.TestViewScope">GLOBAL</testViewScope>
+    <testCaseLayout class="com.cenqua.clover.idea.config.TestCaseLayout">TEST_CASES</testCaseLayout>
+    <contextFilterSpec />
+    <viewCoverage>true</viewCoverage>
+    <coveredStripe>-16711936</coveredStripe>
+    <autoViewInCloudReport>true</autoViewInCloudReport>
+    <autoScroll>true</autoScroll>
+    <showGutter>true</showGutter>
+    <useGeneratedInitString>true</useGeneratedInitString>
+    <dumpInstrumentedSources>false</dumpInstrumentedSources>
+    <failedCoveredStripe>-14336</failedCoveredStripe>
+    <regexpContexts class="java.util.ArrayList" />
+    <flattenPackages>false</flattenPackages>
+    <autoScrollFromSource>false</autoScrollFromSource>
+    <showErrorMarks>true</showErrorMarks>
+    <showTooltips>true</showTooltips>
+    <showSummaryInToolbar>true</showSummaryInToolbar>
+    <span>0</span>
+    <generatedInitString>$PROJECT_DIR$/.clover/coverage.db</generatedInitString>
+    <modelScope class="com.cenqua.clover.idea.config.ModelScope">APP_CLASSES_ONLY</modelScope>
+    <outOfDateStripe>-256</outOfDateStripe>
+    <failedCoveredHighlight>-3920</failedCoveredHighlight>
+    <highlightCovered>false</highlightCovered>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -55,6 +174,38 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java" line="82" class="vehiclesurvey.query.Group" package="vehiclesurvey.query">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java" line="99" class="vehiclesurvey.query.Group$5" package="vehiclesurvey.query">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -62,18 +213,203 @@
   <component name="FavoritesManager">
     <favorites_list name="VehicleSurvey" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Group.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="27" selection-start="2966" selection-end="2966" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2203#2397#0" expanded="true" />
+                <element signature="e#2382#2383#0" expanded="true" />
+                <element signature="e#2552#2717#0" expanded="true" />
+                <element signature="e#2706#2707#0" expanded="true" />
+                <element signature="e#2836#3027#0" expanded="true" />
+                <element signature="e#3016#3017#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Distribution.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Distribution.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="128" column="41" selection-start="4276" selection-end="4276" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Query.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/Query.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriveThruTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="69" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriveThru.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThru.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DriveThruList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThruList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="0" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Func.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Func.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="13" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#378#565#0" expanded="true" />
+                <element signature="e#554#555#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/query/GroupTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="50" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2048#2245#0" expanded="true" />
+                <element signature="e#2234#2235#0" expanded="true" />
+                <element signature="e#2656#2666#0" expanded="true" />
+                <element signature="e#3717#4195#0" expanded="true" />
+                <element signature="e#3903#4142#0" expanded="true" />
+                <element signature="e#4115#4116#0" expanded="true" />
+                <element signature="e#4176#4177#0" expanded="true" />
+                <element signature="e#4843#5068#0" expanded="true" />
+                <element signature="e#5049#5050#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DistributionTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/query/DistributionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="57" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="4" />
-    <option name="width" value="1580" />
-    <option name="height" value="860" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThru.java" />
+        <option value="$PROJECT_DIR$/test/java/vehiclesurvey/query/SlotsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Slots.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/GroupBy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Predicates.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Distribution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/Util.java" />
+        <option value="$PROJECT_DIR$/test/java/vehiclesurvey/ReflectionUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/ReflectionUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThruList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Func.java" />
+        <option value="$PROJECT_DIR$/test/java/vehiclesurvey/query/GroupTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vehiclesurvey/Query.java" />
+        <option value="$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruTest.java" />
+        <option value="$PROJECT_DIR$/test/java/vehiclesurvey/query/DistributionTest.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1600" />
+    <option name="height" value="869" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Error handling</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -94,13 +430,11 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
+      <autoscrollToSource Scope="true" />
+      <autoscrollFromSource Scope="true" />
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -116,7 +450,99 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VehicleSurvey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VehicleSurvey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="test/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -124,14 +550,158 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3-sources.jar!/" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="vehiclesurvey" />
+      <recent name="vehiclesurvey.query" />
+      <recent name="vehiclesurvey.time" />
+      <recent name="vehiclesurvey.func" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources/vehiclesurvey" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="vehiclesurvey.query.func" />
+      <recent name="vehiclesurvey.func" />
+      <recent name="vehiclesurvey" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in VehicleSurvey">
+    <configuration default="false" name="GroupTest.shouldSumAllSalaries" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="VehicleSurvey" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vehiclesurvey.query" />
+      <option name="MAIN_CLASS_NAME" value="vehiclesurvey.query.GroupTest" />
+      <option name="METHOD_NAME" value="shouldSumAllSalaries" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GroupTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="VehicleSurvey" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vehiclesurvey.query" />
+      <option name="MAIN_CLASS_NAME" value="vehiclesurvey.query.GroupTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in VehicleSurvey" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="VehicleSurvey" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="vehiclesurvey in VehicleSurvey" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="VehicleSurvey" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vehiclesurvey" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DriveThruTest.shouldTellIfDriveThroughWasInATimeRange" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="VehicleSurvey" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vehiclesurvey" />
+      <option name="MAIN_CLASS_NAME" value="vehiclesurvey.DriveThruTest" />
+      <option name="METHOD_NAME" value="shouldTellIfDriveThroughWasInATimeRange" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -220,13 +790,45 @@
       <patterns />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GroupTest.shouldSumAllSalaries" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GroupTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in VehicleSurvey" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.vehiclesurvey in VehicleSurvey" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DriveThruTest.shouldTellIfDriveThroughWasInATimeRange" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in VehicleSurvey" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DriveThruTest.shouldTellIfDriveThroughWasInATimeRange" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.vehiclesurvey in VehicleSurvey" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GroupTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GroupTest.shouldSumAllSalaries" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9f0586f7-7c53-49f9-a15f-9521a844ac97" name="Default" comment="" />
@@ -236,28 +838,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="4" width="1580" height="860" extended-state="0" />
+    <frame x="0" y="0" width="1600" height="869" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32142857" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24646075" sideWeight="0.104395606" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967825" sideWeight="0.3392857" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24646075" sideWeight="0.5645604" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32142857" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -319,6 +924,232 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///usr/lib/jvm/java-7-openjdk/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="309" column="23" selection-start="15306" selection-end="15306" vertical-scroll-proportion="0.021367522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1947" selection-end="1947" vertical-scroll-proportion="0.18518518">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="240" column="0" selection-start="9451" selection-end="9451" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#9300#9448#0" expanded="false" />
+            <element signature="e#9433#9434#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/15.0/guava-15.0-sources.jar!/com/google/common/collect/Iterables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="20" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Reducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/query/GroupTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="50" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2048#2245#0" expanded="true" />
+            <element signature="e#2234#2235#0" expanded="true" />
+            <element signature="e#2656#2666#0" expanded="true" />
+            <element signature="e#3717#4195#0" expanded="true" />
+            <element signature="e#3903#4142#0" expanded="true" />
+            <element signature="e#4115#4116#0" expanded="true" />
+            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="e#4843#5068#0" expanded="true" />
+            <element signature="e#5049#5050#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThruList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="27" selection-start="2966" selection-end="2966" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2203#2397#0" expanded="true" />
+            <element signature="e#2382#2383#0" expanded="true" />
+            <element signature="e#2552#2717#0" expanded="true" />
+            <element signature="e#2706#2707#0" expanded="true" />
+            <element signature="e#2836#3027#0" expanded="true" />
+            <element signature="e#3016#3017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/func/Func.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#378#565#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/query/Distribution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="41" selection-start="4276" selection-end="4276" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/DriveThru.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/DriveThruTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="69" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/java/vehiclesurvey/query/DistributionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="57" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Detection</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>VehicleSurvey</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.google.guava:guava:15.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 
