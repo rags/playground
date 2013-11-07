@@ -1,5 +1,6 @@
 package vehiclesurvey;
 
+import com.google.common.collect.Range;
 import org.junit.Test;
 import vehiclesurvey.time.Time;
 
@@ -13,10 +14,10 @@ public class DriveThruTest {
     public void shouldTellIfDriveThroughWasInATimeRange() {
         Time tenthMin = time().minutes(10);
         DriveThru driveThru = aDriveThru().atTime(tenthMin).build();
-        assertFalse(driveThru.wasBetween(time().minutes(5),tenthMin));
-        assertTrue(driveThru.wasBetween(tenthMin, time().minutes(15)));
-        assertTrue(driveThru.wasBetween(time().minutes(9), time().minutes(15)));
-        assertTrue(driveThru.wasBetween(time(1000 * 59 + 999).minutes(9), time(1).minutes(10))); //between -1ms +1ms
+        assertFalse(driveThru.wasBetween(Range.closedOpen(time().minutes(5), tenthMin)));
+        assertTrue(driveThru.wasBetween(Range.closedOpen(tenthMin, time().minutes(15))));
+        assertTrue(driveThru.wasBetween(Range.closedOpen(time().minutes(9), time().minutes(15))));
+        assertTrue(driveThru.wasBetween(Range.closedOpen(time(1000 * 59 + 999).minutes(9), time(1).minutes(10)))); //between -1ms +1ms
     }
 
     @Test

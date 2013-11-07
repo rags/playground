@@ -39,6 +39,10 @@ public class Time implements Comparable<Time> {
         return new Time(milliseconds + MINUTE * mins);
     }
 
+    public Time seconds(int secs) {
+        return new Time(milliseconds + SECOND * secs);
+    }
+
     public Time hours(int hours) {
         return new Time(milliseconds + HOUR * hours);
     }
@@ -67,5 +71,9 @@ public class Time implements Comparable<Time> {
     @Override
     public int compareTo(Time other) {
         return milliseconds - other.milliseconds;
+    }
+
+    public int millis() {
+        return milliseconds;
     }
 }

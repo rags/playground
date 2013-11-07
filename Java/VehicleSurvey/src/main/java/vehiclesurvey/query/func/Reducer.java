@@ -5,7 +5,7 @@ import java.util.Iterator;
 public abstract class Reducer<A, B> {
     public abstract B apply(A item, B accumulator);
 
-    //homogenous reduce where result and iterable type match. Ex: sum,min,max...
+    //homogenous reduce where results and iterable type match. Ex: sum,min,max...
     public static <T> T reduce(Reducer<T, T> reducer, Iterable<T> items) {
         Iterator<T> iterator = items.iterator();
         if (!iterator.hasNext()) {

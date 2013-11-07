@@ -1,6 +1,6 @@
 package vehiclesurvey.query;
 
-import com.google.common.base.Predicate;
+import vehiclesurvey.ScopedPredicate;
 
-public interface Predicates<T> extends Iterable<Predicate<T>> {
+public interface Predicates<T> extends Iterable<ScopedPredicate<T>> {
 }

@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+\usepackage{amssymb}
+
+\addtolength{\oddsidemargin}{-.9in}
+\addtolength{\evensidemargin}{-.9in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-1.5in}
+\addtolength{\paperheight}{2in}
+\addtolength{\textheight}{1.75in}
+
+\begin{document}
+ 
+% Article top matter
+\title{Design and Approach} 
+\author{Raghunandan Rao}  
+\maketitle
+
+ 
+\section{Why this problem?}
+
+I chose Vehicle Survey for 2 reasons. Analytics/Data is one the areas of my interest and this problems analyses traffic data to get different metrics. The second reason is the complexity/scope of the problem itself. The other 2 problems are well defined and limited in scope - there is only so much new requirements you can add to the other 2 problems. But the data in this problem can be visualized from different dimensions and on different measures.   
+ 
+\section{Approach}
+
+The overall approach is to come up with a query language (similar to LINQ) using fluent interfaces that can make not only the reports required by the problem definitions but also new kinds of reports easy to generate. All this with just a few lines of code.
+
+The idea is to not the just answer the queries in the problem statement but to make querying itself so trivial that new kinds of queries can easily be added with minimal effort. To put it another way answering specific queries is less interesting/useful but building a framework that makes the entire class of problems related to querying easy to program is more useful and more interesting.  
+
+\subsubsection{Some examples}
+Consider the queries in the problem definition:\\\\
+\emph{Hourly count for each day in each direction}
+\begin{verbatim}
+query = select(DriveThru.class)
+                .groupBy(direction())
+                .groupBy(days(driveThrus))
+                .groupBy(hours(1)).count();
+result = query.execute(driveThrus);
+\end{verbatim}
+\emph{Total count in each direction averaged across all days per 20 minutes}
+\begin{verbatim}
+select(DriveThru.class)
+                .groupBy(direction())
+                .groupBy(minutes(30))
+                .groupBy(days(driveThrus)).countAvg()
+                .execute(driveThrus);
+\end{verbatim}
+Or something that is not in the problem statement:\\\\
+\emph{Number of vehicles driving at legal speed limit (60KMPH) headed South on day 1}
+\begin{verbatim}
+select(DriveThru.class)
+                .where(and(directionFilter(South), dayFilter(1)))
+                .where(new Predicate(){ 
+                          public boolean apply(Drivethru d){return d.speed==60;}
+                 })
+                .count()
+                .execute(driveThrus);
+\end{verbatim}
+\clearpage
+\emph{Average distance between cars during peak volume hours}
+\begin{verbatim}
+peakHours = select(DriveThru.class)
+                .groupBy(direction())
+                .groupBy(hours(1))
+                .groupBy(days(driveThrus))
+                .countAvg().execute()
+                .filterAggregates(aggregateAllMax());
+//first peak hour
+peakTimeRange = ((QueryProcessor)peakTraffic.resultFor(North).scalarResult()).scope
+
+select(DriveThru.class)
+                .where(directionFilter(North))
+                .groupBy(timeRanges(peakTimeRange))
+                .groupBy(days(driveThrus))
+                .aggregate(avgDistanceBetweenCars())
+                .execute(driveThrus)
+                .aggregateAggregates(aggregateAvg())
+\end{verbatim}
+
+\section{Implementation Details}
+There are 4 main classes in the solution.
+
+\begin{description}
+    \item[DriveThruScanner] Responsible for parsing input file and building a DriveThruList of DriveThru.
+    \item[QueryImpl] Fluent interface for querying. Can be used on any java collection.
+    \item[DriveThruFilters] Contains query language specific to the domain (DriveThruList) and shorthand for various filters.
+    \item[QueryProcessor] Does all the heavy lifting of numbering crunching/aggregating. It holds the data and also works on it. A QueryProcessor can compose other QueryProcessors in a ``group by'' situation.
+\end{description}
+
+The solution uses functional programming paradigms and most of the code is written as ``pure functions''. i.e there is no mutation. If there are specific questions regarding implementation details and design choices please feel free to revert back to me.
+
+\subsection{Third party libraries}
+The only third party library used by source files is \emph{Google's guava}. Test sources use junit and hamcrest.
+
+\subsection{Test Sources}
+The solution is TDDed and has near 100\% coverage. \emph{QueryImplTest} has the Acceptance tests for all requirements.\\ 
+ReportGenerator has 0 coverage. It is more of a driver program and most of the code is related to generating different text output files.
+
+\subsection{Running the solution}
+\emph{ReportGenerator} has the main method that generates various reports specified in the problem definition. Run this class from IDE or assuming you have maven configured 
+\begin{verbatim}
+> mvn package && java -cp target/VehicleSurvey-1.0-SNAPSHOT.jar:\
+  $HOME/.m2/repository/com/google/guava/guava/15.0/guava-15.0.jar\
+  vehiclesurvey.ReportGenerator
+\end{verbatim}
+This generates all the text reports in \emph{reports} folder.\\
+To run tests use your IDE or \emph{mvn test}
+ 
+\end{document}  %End of document.

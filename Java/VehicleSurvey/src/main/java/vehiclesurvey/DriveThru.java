@@ -1,12 +1,13 @@
 package vehiclesurvey;
 
+import com.google.common.collect.Range;
 import vehiclesurvey.time.Time;
 
 import static vehiclesurvey.time.Time.time;
 
 public class DriveThru {
     static final Time DUPLICATE_THERSHOLD = time(10);
-
+    public static final Double AVG_SPEED_KMPH = 60d;
     final int day;
     final Time time;
     double speed;
@@ -51,8 +52,8 @@ public class DriveThru {
     }
 
     // start>time<=end
-    public boolean wasBetween(Time startInclusive, Time endExclusive) {
-        return time.compareTo(startInclusive) >= 0 && time.compareTo(endExclusive) < 0;
+    public boolean wasBetween(Range<Time> timeRange) {
+        return timeRange.contains(time);
     }
 
     public boolean onDay(int day) {
@@ -61,5 +62,13 @@ public class DriveThru {
 
     public Double speed() {
         return speed;
+    }
+
+    public Direction heading() {
+        return direction;
+    }
+
+    public Time timeDifference(DriveThru other) {
+        return time.difference(other.time);
     }
 }

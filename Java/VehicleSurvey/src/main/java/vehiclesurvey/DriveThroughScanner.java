@@ -4,9 +4,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Files;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.net.URISyntaxException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -47,9 +45,15 @@ class DriveThruBuilder {
 
 public class DriveThroughScanner {
     public DriveThruList scan(File file) {
-        BufferedReader bufferedReader;
         try {
-            bufferedReader = Files.newReader(file, Charset.defaultCharset());
+            return scan(Files.newReader(file, Charset.defaultCharset()));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private DriveThruList scan(BufferedReader bufferedReader) {
+        try {
             ImmutableMap<Character, DriveThruList> driveThruLists = ImmutableMap.of('A', new DriveThruList(), 'B', new DriveThruList());
             ImmutableMap<Character, DriveThruBuilder> driveThruBuilders = ImmutableMap.of('A', new DriveThruBuilder(), 'B', new DriveThruBuilder());
             String line;
@@ -66,7 +70,6 @@ public class DriveThroughScanner {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void mergeDuplicates(DriveThruList as, DriveThruList bs) {
@@ -81,12 +84,7 @@ public class DriveThroughScanner {
         }
     }
 
-    public static void main(String[] args) throws URISyntaxException {
-        System.out.println("Main method for manual testing");
-        DriveThruList driveThrus = new DriveThroughScanner().scan(new File(DriveThroughScanner.class.getResource("sample.txt").toURI()));
-        for (DriveThru driveThru : driveThrus) {
-            System.out.println("driveThru = " + driveThru);
-        }
-        System.out.println(driveThrus.size());
+    public DriveThruList scan(InputStream resourceAsStream) {
+        return scan(new BufferedReader(new InputStreamReader(resourceAsStream)));
     }
 }

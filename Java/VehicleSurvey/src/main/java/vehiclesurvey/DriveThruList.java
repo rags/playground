@@ -1,38 +1,37 @@
 package vehiclesurvey;
 
-import com.google.common.base.Function;
-import vehiclesurvey.query.func.Reducer;
+import vehiclesurvey.time.Time;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import static com.google.common.collect.Iterables.getLast;
-import static vehiclesurvey.query.func.Reducer.reduce;
 
 public class DriveThruList extends ArrayList<DriveThru> {
+    public DriveThruList(Collection<DriveThru> driveThrus) {
+        super(driveThrus);
+    }
+
+    public DriveThruList() {
+    }
+
     public int lastDay() {
         return getLast(this).day;
     }
 
-    public Double min(final Function<DriveThru, Double> f) {
-        return reduce(new Reducer<DriveThru, Double>() {
-            @Override
-            public Double apply(DriveThru item, Double accumulator) {
-
-                return Math.min(accumulator, f.apply(item));
-            }
-        }, this, Double.MAX_VALUE);
+    public double avgDistanceBetweenCars(){
+        if (size()<2){
+            return 0;
+        }
+        double distances = 0;
+        for (int i = 1; i < this.size(); i++) {
+            distances += get(i).timeDifference(get(i-1)).millis() * (avgSpeedFor(i) / Time.HOUR);
+        }
+        return distances/(size()-1);
     }
 
-    public Double max(final Function<DriveThru, Double> f) {
-        return reduce(new Reducer<DriveThru, Double>() {
-            @Override
-            public Double apply(DriveThru item, Double accumulator) {
-
-                return Math.max(accumulator, f.apply(item));
-            }
-        }, this, Double.MIN_VALUE);
+    private Double avgSpeedFor(int i) {
+        return DriveThru.AVG_SPEED_KMPH; //60KMPH
+        //return get(i).speed(); //actual recorded speed is more useful when intervals between cars are small
     }
-
-
-
 }
