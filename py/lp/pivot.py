@@ -56,6 +56,12 @@ def pivot_for(dictionary, basic_vars, objective_vars, entering, leaving):
     return SUCCESS, (basic_vars[leaving], objective_vars[entering - 1])
     
 def make_dictionary(file):
+    if isinstance(file, str):
+        with open(file) as f:
+            return _make_dictionary(f)
+    return _make_dictionary(file)
+    
+def _make_dictionary(file):
     m, n = map(int, file.readline().split())
     basic_vars = np.array(np.mat(file.readline(), dtype = int))[0]
     objective_vars = np.array(np.mat(file.readline(), dtype = int))[0]

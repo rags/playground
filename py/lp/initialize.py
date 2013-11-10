@@ -4,10 +4,9 @@ import numpy as np
 
 def initialize(dictionary, basic_vars, non_basic_vars):
     m, n = np.shape(dictionary)
-    has_neg = any(dictionary[:, 0] < -1)
+    has_neg = any(dictionary[:-1, 0] < 0)
     if not has_neg:
         return dictionary, basic_vars, non_basic_vars, False
-        
     init_dict = np.vstack((np.c_[dictionary[:-1], np.ones((m - 1, 1))], np.r_[np.zeros(n), -1]))
     init_non_basic_vars =  np.r_[non_basic_vars, 0]
     init_basic_vars = np.array(basic_vars)
@@ -42,8 +41,7 @@ def initialize_and_reconstruct(dictionary, basic_vars, non_basic_vars):
     
 
 def initialize_input(file_path):
-    with open(file_path) as f:
-        dictionary, basic_vars, non_basic_vars = pivot.make_dictionary(f)
+    dictionary, basic_vars, non_basic_vars = pivot.make_dictionary(file_path)
     return initialize(dictionary, basic_vars, non_basic_vars)
 
 def initialize_io(file_path):
@@ -57,6 +55,11 @@ if __name__ == '__main__':
 
 ############################## TESTS ##############################
 import glob
+
+def should_not_initialize_neg_zero():
+    _, _, _, initialized = initialize(np.mat('1 2 3;-0.0 1 2;-0.0 3 4'), None, None)
+    assert not initialized
+    
 
 def should_initialize():
     for i in range(1, 11):

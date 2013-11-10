@@ -4,9 +4,12 @@ from pivot import make_dictionary
 import numpy as np
 
 def simplex(dictionary, basic_vars, non_basic_vars):
-    print(dictionary, basic_vars, non_basic_vars)
     dict_, basic, non_basic = initialize_and_reconstruct(dictionary, basic_vars, np.array(non_basic_vars))
     optimize(dict_, basic, non_basic)
+    return dict_, basic, non_basic
+
+def simplex_optimal_values(dictionary, basic_vars, non_basic_vars):
+    dict_, basic, non_basic = simplex(dictionary, basic_vars, non_basic_vars)
     optimal_values = []
     for v in non_basic_vars:
         if v not in basic:
@@ -16,9 +19,12 @@ def simplex(dictionary, basic_vars, non_basic_vars):
     return dict_[-1, 0], set(zip(non_basic_vars, optimal_values))
 
 def simplex_input(file_path):
-    with open(file_path) as f:
-        return simplex(*make_dictionary(f))
-        
+    return simplex_optimal_values(*make_dictionary(file_path))
+
+if __name__ == '__main__':
+    import sys
+    print(simplex_input(sys.argv[1]))
+
 ############################## TESTS ##############################
 
 def construct_out(input_path):
@@ -30,7 +36,7 @@ def construct_out(input_path):
     return res, optimal_values
         
 def should_run_simplex_end_to_end():
-    for i in range(1, 3):
+    for i in range(1, 4):
         input_path = 'simplexTests/dict%d' % i
         assert construct_out(input_path) == simplex_input(input_path)
     

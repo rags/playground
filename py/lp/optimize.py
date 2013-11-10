@@ -11,8 +11,7 @@ def optimize(dictionary, basic_vars, non_basic_vars):
     return (pivot.UNBOUNDED, cnt) if res == pivot.UNBOUNDED else (dictionary[-1, 0], cnt)
         
 def optimize_input(file_path):
-    with open(file_path) as f:
-        return optimize(*pivot.make_dictionary(f))
+    return optimize(*pivot.make_dictionary(file_path))
 
 def optimize_io(file_path):
     res, cnt = optimize_input(file_path)
