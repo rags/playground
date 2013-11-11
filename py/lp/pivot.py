@@ -68,7 +68,7 @@ def _make_dictionary(file):
     b_coeffs = np.mat(file.readline())
     dictionary = np.vstack(np.mat(file.readline()) for i in range(m))
     dictionary = np.vstack((np.c_[b_coeffs.H, dictionary], np.mat(file.readline())))
-    return dictionary, basic_vars, objective_vars
+    return dictionary.astype(float), basic_vars, objective_vars
 
 def pivot_once(file_path):
     with open(file_path) as f:

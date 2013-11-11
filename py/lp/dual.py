@@ -16,11 +16,12 @@ def simplex(dictionary, basic_vars, non_basic_vars):
 def optimize(dictionary, basic_vars, non_basic_vars):
     dict_ = dual(dictionary)
     status, optimal_value = optimizefunc(dict_, non_basic_vars, basic_vars)
+    #print("final dual", dict_)
     return dual(dict_), basic_vars, non_basic_vars
 
 
 ############################## TESTS ##############################
-from pytest import fixture
+from pytest import fixture, mark
 
 @fixture
 def dictionary():
@@ -54,4 +55,14 @@ def should_optimize(dictionary):
     assert np.all(sim_non_basic == np.array([11, 7, 3]))
     assert np.all(sim_basic == np.array([4, 5, 6, 9, 1, 2, 8, 10, 12, 13]))
     assert abs(6.57142857143 - sim_dict[-1, 0]) <= 0.0001 and  abs(6.57142857143 - opt_dict[-1, 0]) < 0.0001
+
+@mark.parametrize(("dictionary","basic_vars", "non_basic_vars", "optimal_value"), [
+    (np.mat("1 -0.166667 0.166667; 1.5 -.250 -.250;-.5 .250 .250; 1.5 -.250 -.250"),
+    np.array([1, 2, 5]), np.array([3, 4]), 1)
+])
+def should_dual_optimize(dictionary, basic_vars, non_basic_vars, optimal_value):
+    dict_, _, _ = optimize(dictionary, basic_vars, non_basic_vars)
+    assert optimal_value == dict_[-1, 0]
+    #assert abs(optimal_value - dict_[-1, 0]) < 0.0000000000001
+    
 

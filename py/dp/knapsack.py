@@ -26,11 +26,12 @@ def optimal_sack(knapsack_size, items):
         for j in range(1, len(items) + 1):
             item_weight = weights[j - 1]
             if sack_size < item_weight:
-                dp_table[i][j] = 0
+                dp_table[sack_size][j] = 0
                 continue
-            dp_table[i][j] = max(dp_table[i][j - 1],
-                                 values[j - 1] + dp_table[i - item_weight][j])
+            dp_table[sack_size][j] = max(dp_table[sack_size][j - 1],
+                                 values[j - 1] + dp_table[sack_size - item_weight][j])
 
+    print(dp_table)
     return dp_table[knapsack_size][len(items)]
 
 
@@ -42,4 +43,4 @@ def should_calc_best_knapsack(algorithm):
     36 == algorithm(15, [(12, 4), (2, 2), (1, 1), (4, 10), (1, 2)])
     70 == algorithm(100, [(100, 40), (50, 35), (45, 18), (20, 4), (10, 10), (5, 2)])
     35 + 18 == algorithm(99, [(100, 40), (50, 35), (45, 18), (20, 4), (10, 10), (5, 2)])
-    
+    #assert 0

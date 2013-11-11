@@ -2,6 +2,11 @@ import pivot
 import optimize
 import numpy as np
 
+class Infeasible(Exception):
+    pass
+
+THRESHOLD = 0.000001
+
 def initialize(dictionary, basic_vars, non_basic_vars):
     m, n = np.shape(dictionary)
     has_neg = any(dictionary[:-1, 0] < 0)
@@ -22,10 +27,14 @@ def initialize_and_reconstruct(dictionary, basic_vars, non_basic_vars):
     new_dict, new_basic_vars, new_non_basic_vars, initialized = initialize(dictionary,
                                                                            basic_vars,
                                                                            non_basic_vars)
+
     if not initialized:
+        if not np.any(new_dict[-1, 1:] > 0):
+            raise Infeasible()
         return dictionary, basic_vars, non_basic_vars
-    if new_dict[-1, 0] != 0 or 0 not in new_non_basic_vars:
-        raise Exception("Infeasible")
+    if abs(new_dict[-1, 0]) > THRESHOLD or 0 not in new_non_basic_vars:
+        print (new_dict)
+        raise Infeasible()
 
     exclude_aux_var = new_non_basic_vars != 0
     new_dict = new_dict[:-1, np.r_[True, exclude_aux_var]]

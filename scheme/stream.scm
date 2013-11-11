@@ -1,3 +1,4 @@
+#lang racket
 (define (cons-stream x y)
 ;  (cons x y))
     (cons x (delay1 y)))
