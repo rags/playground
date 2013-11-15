@@ -9,19 +9,21 @@ def simplex(dictionary, basic_vars, non_basic_vars):
     if res == UNBOUNDED:
         raise Infeasible()
     return dict_, basic, non_basic
-
+    
 def simplex_optimal_values(dictionary, basic_vars, non_basic_vars):
-    dict_, basic, non_basic = simplex(dictionary, basic_vars, non_basic_vars)
-    optimal_values = []
-    for v in non_basic_vars:
-        if v not in basic:
-            optimal_values.append(0)
-        else:
-            optimal_values.append(dict_[basic == v][0, 0])
-    return dict_[-1, 0], set(zip(non_basic_vars, optimal_values))
-
+    return collect_result(*simplex(dictionary, basic_vars, non_basic_vars), original_non_basic = non_basic_vars)
+ 
 def simplex_input(file_path):
     return simplex_optimal_values(*make_dictionary(file_path))
+
+def collect_result(final_dict,final_basic, final_non_basic, original_non_basic):
+    optimal_values = []
+    for v in original_non_basic:
+        if v not in final_basic:
+            optimal_values.append(0)
+        else:
+            optimal_values.append(final_dict[final_basic == v][0, 0])
+    return final_dict[-1, 0], set(zip(original_non_basic, optimal_values))
 
 if __name__ == '__main__':
     import sys

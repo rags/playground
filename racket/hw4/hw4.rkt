@@ -55,12 +55,10 @@
       (let [(cached (vector-assoc v cache))]
         (if cached 
             (begin (print "from cache") cached) 
-            (let [(value (assoc v xs))]
-              (if value 
-                  (begin (vector-set! cache i value)
-                         (set! i (remainder (+ i 1) n))
-                         value) 
-                  #f)))))
+            (let [(value (assoc v xs))]               
+              (vector-set! cache i (if value value (cons v value)))
+              (set! i (remainder (+ i 1) n))
+              value))))
     lookup))
 
 (define-syntax while-less 

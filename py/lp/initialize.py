@@ -5,7 +5,7 @@ import numpy as np
 class Infeasible(Exception):
     pass
 
-THRESHOLD = 0.000001
+THRESHOLD = 0.0000000001
 
 def initialize(dictionary, basic_vars, non_basic_vars):
     m, n = np.shape(dictionary)
