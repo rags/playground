@@ -7,7 +7,7 @@ def min_span(graph):
         union_find.add(edge)
         if union_find.size == 1:
             break
-    assert union_find.size == 1,  "No spaning tree"
+    assert union_find.size == 1, "No spaning tree"
     return union_find.graphs[0]
     
 

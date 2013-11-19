@@ -92,7 +92,8 @@ def xor_(lhs, rhs, dp_table):
             false_cnt_lhs * false_cnt_rhs, false_exps))
 
 
-def add((cnt1, exps1), (cnt2, exps2)):
+def add(result1, result2):
+    (cnt1, exps1), (cnt2, exps2) = result1, result2
     return (cnt1 + cnt2, set(exps1) | set(exps2))
 
 OPS = {'&': and_, '|': or_, '^': xor_}
@@ -129,12 +130,12 @@ def total_ways_to_true(exp):
                 tc, fc= operators[j - l](lhs, rhs, dp_table)
                 dp_table[i][j] = add(dp_table[i][j], tc)
                 dp_table[j][i] = add(dp_table[j][i], fc)
-    #print map(lambda r: map(lambda c: c[0] if isinstance(c, tuple) else c, r), dp_table)
+    #print([ [c[0] if isinstance(c, tuple) else (c, r) for c in r] for r in dp_table])
+    #print(dp_table)
     return dp_table[0][n - 1]
 
 def total_ways_to_true_recur(exp):
     tokens = exp.replace(' ','')
-    texps, fexps = [], []
     texps, fexps = _total_ways_to_true_recur(tokens)
     return len(texps), texps
     
@@ -150,7 +151,7 @@ def  _total_ways_to_true_recur(tokens):
         tf = set('(%s%s%s)' % (l, op, r) for l in ltexps for r in rfexps)
         ft = set('(%s%s%s)' % (l, op, r) for l in lfexps for r in rtexps)
         ff = set('(%s%s%s)' % (l, op, r) for l in lfexps for r in rfexps)
-        print op, tt, tf, ft, ff
+        #print op, tt, tf, ft, ff
         if op == '|':
             texps |= tt | tf | ft
             fexps |= ff
@@ -179,4 +180,4 @@ def should_counts_brackets_for_true_eval(algorithm):
     assert cnt == len(exps)
     assert cnt == 66
     assert cnt == sum(map(lambda exp: eval(exp,{'F':0,'T':1}),exps))
-
+    #assert 0
