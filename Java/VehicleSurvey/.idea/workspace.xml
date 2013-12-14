@@ -2,24 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f0586f7-7c53-49f9-a15f-9521a844ac97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Game.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameRules.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/GameRulesTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameStrategy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Player.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../py/dp/boolean_parens.py" afterPath="$PROJECT_DIR$/../../py/dp/boolean_parens.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../py/graph/kruskal.py" afterPath="$PROJECT_DIR$/../../py/graph/kruskal.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/CodePuzzle.docx.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/BestOfStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/BestOfStrategyTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/ui/console/ConsoleGame.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/ui/console/ConsoleGameTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/ui/console/ConsolePlayer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/ui/console/ConsolePlayerBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/ui/console/ConsolePlayerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/ui/console/ConsoleTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Domination.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/GameTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GamingInterface.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/GamingInterfaceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/ui/console/IO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/PlayerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/PreconditionFailure.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/RandomizedBot.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/RandomizedBotTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Result.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/SmartBot.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/SmartBotTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/StrategicPlayer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/TieBreakerStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/commentary.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Game.java" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameRules.java" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameRules.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/GameRulesTest.java" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/GameRulesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameStrategy.java" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/GameStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Player.java" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/RockPaperScissors.iml" afterPath="$PROJECT_DIR$/../RockPaperScissors/RockPaperScissors.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../racket/hw5/hw5test.rkt" afterPath="$PROJECT_DIR$/../../racket/hw5/hw5test.rkt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../RockPaperScissors/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../RockPaperScissors/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VehicleSurvey.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/pom.xml" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383289682728" ignored="false" />
-    <file path="/Dummy.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384857526219" ignored="false" />
+    <file path="/Dummy.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387011918444" ignored="false" />
     <file path="/FooTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383225743805" ignored="false" />
     <file path="/DriveThru.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383729283096" ignored="false" />
     <file path="/Heading.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383219835267" ignored="false" />
-    <file path="/fragment.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384884266595" ignored="false" />
+    <file path="/fragment.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387014011488" ignored="false" />
     <file path="/DriveThroughScanner.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383770158231" ignored="false" />
     <file path="/DriveThruList.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383738943406" ignored="false" />
     <file path="/DriveThroughScannerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383383129181" ignored="false" />
@@ -36,7 +60,7 @@
     <file path="/Slots.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383389642700" ignored="false" />
     <file path="/DriveThrusFixture.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383385095664" ignored="false" />
     <file path="/DriveThruFixture.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383384563825" ignored="false" />
-    <file path="/a.dummy" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383646198627" ignored="false" />
+    <file path="/a.dummy" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387016563381" ignored="false" />
     <file path="/SlotsTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383391780857" ignored="false" />
     <file path="/DistributionTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383730531912" ignored="false" />
     <file path="/Distribution.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383602069110" ignored="false" />
@@ -57,10 +81,52 @@
     <file path="/DriveThruFilters.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383753445895" ignored="false" />
     <file path="/DriveThruListTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383738481708" ignored="false" />
     <file path="/ReportGenerator.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383769994661" ignored="false" />
-    <file path="/Player.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384859956428" ignored="false" />
-    <file path="/Game.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384863739364" ignored="false" />
+    <file path="/Player.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385034465725" ignored="false" />
+    <file path="/Game.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385058545108" ignored="false" />
     <file path="/GameStratergy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384883951177" ignored="false" />
-    <file path="/GameRules.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384884941593" ignored="false" />
+    <file path="/GameRules.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385056457094" ignored="false" />
+    <file path="/Domination.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385075511834" ignored="false" />
+    <file path="/Result.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384927777801" ignored="false" />
+    <file path="/GameRulesTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385030949934" ignored="false" />
+    <file path="/Games.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385062847244" ignored="false" />
+    <file path="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/choices.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385029927320" ignored="false" />
+    <file path="/ConsolePlayer.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385078281239" ignored="false" />
+    <file path="/StratergicPlayer.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385053490935" ignored="false" />
+    <file path="/ConsolePlayerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385076628564" ignored="false" />
+    <file path="/RandomizedComputerPlayer.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385044916177" ignored="false" />
+    <file path="/RandomizedComputerPlayerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385045821622" ignored="false" />
+    <file path="/GameStrategy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385054302185" ignored="false" />
+    <file path="/BestOfStrategy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385054575582" ignored="false" />
+    <file path="/TieBreakerStrategy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385054663654" ignored="false" />
+    <file path="/BestOfStrategyTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385053238491" ignored="false" />
+    <file path="/GameTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385076963401" ignored="false" />
+    <file path="/GameBuilder.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385060005739" ignored="false" />
+    <file path="/ConsoleGame.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385078378729" ignored="false" />
+    <file path="/GameBuilderTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385061310583" ignored="false" />
+    <file path="/GamingInterface.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385073034434" ignored="false" />
+    <file path="/GamingInterfaceTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385071016103" ignored="false" />
+    <file path="/ConsolePlayerBuilder.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385078090574" ignored="false" />
+    <file path="/Scanner.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385071901281" ignored="false" />
+    <file path="/Scanners.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385071642736" ignored="false" />
+    <file path="/ConsoleGameTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385072449243" ignored="false" />
+    <file path="/Main.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385073011868" ignored="false" />
+    <file path="/IO.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385074149936" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/pom.xml" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387012491338" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040416278" ignored="false" />
+    <file path="/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039881784" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/Browser.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039222335" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/resources/sample_browsers.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387013033190" ignored="false" />
+    <file path="/Browser.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387013172938" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/Worker.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039030403" ignored="false" />
+    <file path="/Worker.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039029589" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/WorkerStatus.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039715272" ignored="false" />
+    <file path="/WorkerStatus.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039711789" ignored="false" />
+    <file path="/README.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387016968554" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/README.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387016970022" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/Status.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039475775" ignored="false" />
+    <file path="/Status.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387036779419" ignored="false" />
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/driver/Driver.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040471699" ignored="false" />
+    <file path="/Driver.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040452218" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +154,7 @@
     <showSummaryInToolwindow>true</showSummaryInToolwindow>
     <autoRefresh>true</autoRefresh>
     <coveredHighlight>-3605816</coveredHighlight>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <alwaysCollapseTestClasses>false</alwaysCollapseTestClasses>
     <excludes null="true" />
     <filteredStripe>-12566464</filteredStripe>
@@ -105,10 +171,10 @@
     <contextFilterSpec />
     <viewCoverage>false</viewCoverage>
     <coveredStripe>-16711936</coveredStripe>
-    <autoScroll>true</autoScroll>
     <autoViewInCloudReport>true</autoViewInCloudReport>
-    <useGeneratedInitString>true</useGeneratedInitString>
+    <autoScroll>true</autoScroll>
     <showGutter>true</showGutter>
+    <useGeneratedInitString>true</useGeneratedInitString>
     <dumpInstrumentedSources>false</dumpInstrumentedSources>
     <failedCoveredStripe>-14336</failedCoveredStripe>
     <regexpContexts class="java.util.ArrayList" />
@@ -191,9 +257,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/ReportGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="13" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,7 +265,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="19" selection-start="417" selection-end="1589" vertical-scroll-proportion="0.936107">
+            <state line="27" column="25" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
               <folding />
             </state>
           </provider>
@@ -407,6 +471,98 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VehicleSurvey" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="test/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main/java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -565,98 +721,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VehicleSurvey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Tests">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="test/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="VehicleSurvey">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main/java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -676,9 +740,9 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -840,6 +904,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -865,19 +942,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1149,15 +1213,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/vehiclesurvey/ReportGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="13" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="19" selection-start="417" selection-end="1589" vertical-scroll-proportion="0.936107">
+        <state line="27" column="25" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
           <folding />
         </state>
       </provider>

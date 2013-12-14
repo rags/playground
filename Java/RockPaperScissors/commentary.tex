@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\usepackage{amssymb}
+
+\addtolength{\oddsidemargin}{-.9in}
+\addtolength{\evensidemargin}{-.9in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-1.6in}
+\addtolength{\paperheight}{2in}
+\addtolength{\textheight}{1.75in}
+
+\begin{document}
+ 
+\section{Approach}
+I have chosen to implement problem in java. The solution is designed so that the code is closed to modification and open to extension. Extension points are,
+\begin{description}
+    \item[players] Ability to add new kind of players
+    \item[gui] Develop better/new UI.
+    \item[games] Ability add new kind of games like Bear-Hunter-Ninja or Rock-Paper-Scissors-Lizard-Spock
+    \item[game strategy] Ability to add new rules around when the game finishes
+\end{description}
+The solution also provides a fluent interace (GamingInterface) for building and playing games by composing different parts. 
+So for example to play a best of 3 Bear-Hunter-Ninja game against a bot...  
+\begin{verbatim}
+aConsoleGame()
+ .withRules(bearHunterNinja())
+ .withPlayer(aConsolePlayer(),aRandomBot())
+ .bestOf(3).play()
+\end{verbatim}
+
+\section{Implementation Details}
+Description of main classes
+
+\begin{description}
+    \item[ConsoleGame] Console UI for the game
+    \item[StrategicPlayer] A abstraction for player that can make decisions. A concrete implementation can be a real player (ConsolePlayer) or a bot (RandomizedBot, SmartBot).
+    \item[GameRules] Holds all possible throws(choices) for a game and details of how 2 throws fair against each other. This class makes it trivial to add new kind of games like Bear-Hunter-Ninja or Rock-Scissors-Paper-Bomb-Bird-Water-Chopper.
+    \item[GameStratergy] Decides when the game should stop. Current implementation are best-of-N throws and tie breaker that goes on till first unequal throw (BestOfStrategy, TieBreakerStrategy).
+    \item[SmartBot] While I was having fun, I implemented a Bot that uses opponent previous throws to anticipate his next throw and comes up with best possible next throw. Again this was not part of the requirements and it is something I did because I thought it was interesting. This bot needs some history of throws to be effective, so its less effective for best-of-3, a little more interting for best-of-5 games and more interesting for n=10. SmartBot does not fair well against the RandomBot. 
+\end{description}
+
+\subsection{Third party libraries}
+The only third party library used by source files is \emph{Google's guava}. Test sources use junit and hamcrest. These are maven dependencies (pom included) and should automatically be resolved.
+
+\subsection{Test Sources}
+The solution is TDDed and has near 100\% coverage for the core logic (80\% overall). \emph{ConsoleGameTest} has the End-to-End tests. To run tests use your IDE or \textit{\emph{``mvn surefire:test''}} from console.
+
+\subsection{Running the solution}
+To resolve project dependencies run \emph{"mvn package"} (Assuming you have maven configured) from console or use maven from your IDE.\\
+\emph{ConsoleGame} implements a non-fancy console UI for the game. Run this class from IDE or from console run
+\begin{verbatim}
+
+> mvn package && java -cp target/RockPaperScissors-1.0-SNAPSHOT.jar:\
+  $HOME/.m2/repository/com/google/guava/guava/15.0/guava-15.0.jar\
+  rps.ui.console.ConsoleGame
+  
+\end{verbatim}
+ 
+\end{document}  
