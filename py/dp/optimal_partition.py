@@ -8,7 +8,7 @@ def partition(arr, k):
     max_part_val = int(math.ceil(ratio) if ratio - int(ratio) >= .5 else math.floor(ratio))
     parts = []
     dp_table = [[[] for i in range(len(arr) + 1)]  for j in range(max_part_val + 1)]
-    for i in range(k - 1):
+    for l in range(k - 1):
         for i in range(1, max_part_val + 1):
             for j in range(1, len(arr) + 1):
                 if arr[j - 1] > i:
