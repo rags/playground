@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9f0586f7-7c53-49f9-a15f-9521a844ac97" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/CodePuzzle.docx.pdf" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/main/java/rps/BestOfStrategy.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../RockPaperScissors/src/test/java/rps/BestOfStrategyTest.java" />
@@ -49,6 +50,11 @@
 >>>>>>> local changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VehicleSurvey.iml" afterPath="$PROJECT_DIR$/VehicleSurvey.iml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/APIImpl.java" afterPath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/APIImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/APIImpl.java" afterPath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/APIImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/driver/Driver.java" afterPath="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/driver/Driver.java" />
+>>>>>>> extrcated interface
     </list>
     <ignored path="VehicleSurvey.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,7 +64,7 @@
     <file path="/FooTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383225743805" ignored="false" />
     <file path="/DriveThru.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383729283096" ignored="false" />
     <file path="/Heading.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383219835267" ignored="false" />
-    <file path="/fragment.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387014011488" ignored="false" />
+    <file path="/fragment.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387042207755" ignored="false" />
     <file path="/DriveThroughScanner.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383770158231" ignored="false" />
     <file path="/DriveThruList.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383738943406" ignored="false" />
     <file path="/DriveThroughScannerTest.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383383129181" ignored="false" />
@@ -127,8 +133,7 @@
     <file path="/Main.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385073011868" ignored="false" />
     <file path="/IO.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1385074149936" ignored="false" />
     <file path="$PROJECT_DIR$/../BrowserStackAPI/pom.xml" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387012491338" ignored="false" />
-    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040416278" ignored="false" />
-    <file path="/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039881784" ignored="false" />
+    <file path="/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387042288690" ignored="false" />
     <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/Browser.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039222335" ignored="false" />
     <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/resources/sample_browsers.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387013033190" ignored="false" />
     <file path="/Browser.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387013172938" ignored="false" />
@@ -140,8 +145,8 @@
     <file path="$PROJECT_DIR$/../BrowserStackAPI/README.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387016970022" ignored="false" />
     <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/Status.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387039475775" ignored="false" />
     <file path="/Status.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387036779419" ignored="false" />
-    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/driver/Driver.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040471699" ignored="false" />
     <file path="/Driver.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387040452218" ignored="false" />
+<<<<<<< HEAD
 =======
     <file path="/GameRules.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384884941593" ignored="false" />
     <file path="/GameStratergy.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384883951177" ignored="false" />
@@ -191,6 +196,9 @@
     <file path="/Dummy.txt" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1384857526219" ignored="false" />
     <file path="/pom.xml" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1383289682728" ignored="false" />
 >>>>>>> local changes
+=======
+    <file path="$PROJECT_DIR$/../BrowserStackAPI/src/main/java/com/browserstack/api/API.java" changelist="9f0586f7-7c53-49f9-a15f-9521a844ac97" time="1387042359235" ignored="false" />
+>>>>>>> extrcated interface
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,10 +339,14 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state line="27" column="25" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
 =======
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> local changes
+=======
+            <state line="27" column="20" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
+>>>>>>> extrcated interface
               <folding />
             </state>
           </provider>
@@ -1448,7 +1460,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="25" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
+        <state line="27" column="20" selection-start="985" selection-end="985" vertical-scroll-proportion="0.44576523">
           <folding />
         </state>
       </provider>

@@ -4,10 +4,10 @@
     <list default="true" id="770d9a93-de25-4f82-817b-bcb6ef79568a" name="Default" comment="" />
     <ignored path="BrowserStackAPI.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/API.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387039881784" ignored="false" />
+    <file path="/API.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387042288690" ignored="false" />
     <file path="/Dummy.txt" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387011918656" ignored="false" />
     <file path="/Browser.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387013172938" ignored="false" />
-    <file path="/fragment.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387014011487" ignored="false" />
+    <file path="/fragment.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387042207755" ignored="false" />
     <file path="/Worker.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387039029589" ignored="false" />
     <file path="/WorkerStatus.java" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387039711789" ignored="false" />
     <file path="/a.dummy" changelist="770d9a93-de25-4f82-817b-bcb6ef79568a" time="1387016563381" ignored="false" />
@@ -122,7 +122,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java" line="67" class="com.browserstack.api.API" package="com.browserstack.api">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/APIImpl.java" line="69" class="com.browserstack.api.API" package="com.browserstack.api">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -147,19 +147,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="APIImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/APIImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1352" selection-end="1352" vertical-scroll-proportion="-23.4">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="API.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="22" selection-start="1366" selection-end="1366" vertical-scroll-proportion="-6.0">
+            <state line="103" column="5" selection-start="3837" selection-end="3837" vertical-scroll-proportion="-14.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,10 +158,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="API.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="4" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Driver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/driver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="8" selection-start="383" selection-end="383" vertical-scroll-proportion="0.41284403">
+            <state line="15" column="62" selection-start="642" selection-end="642" vertical-scroll-proportion="0.51605505">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,7 +190,7 @@
       <file leaf-file-name="README.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="7" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -258,8 +258,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/Browser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/Status.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/WorkerStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java" />
         <option value="$PROJECT_DIR$/src/main/java/driver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/browserstack/api/APIImpl.java" />
       </list>
     </option>
   </component>
@@ -431,9 +432,14 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.browserstack.api" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Driver">
-    <configuration default="false" name="API" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.browserstack.api.API" />
+    <configuration default="false" name="APIImpl" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.browserstack.api.APIImpl" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -559,13 +565,13 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.API" />
+      <item index="0" class="java.lang.String" itemvalue="Application.APIImpl" />
       <item index="1" class="java.lang.String" itemvalue="Application.Driver" />
     </list>
     <recent_temporary>
       <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.Driver" />
-        <item index="1" class="java.lang.String" itemvalue="Application.API" />
+        <item index="1" class="java.lang.String" itemvalue="Application.APIImpl" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -602,7 +608,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.38333333" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -698,7 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="7" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -733,7 +739,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/API.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="22" selection-start="1366" selection-end="1366" vertical-scroll-proportion="-6.0">
+        <state line="15" column="4" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/browserstack/api/APIImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="5" selection-start="3837" selection-end="3837" vertical-scroll-proportion="-14.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -742,7 +755,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/driver/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="8" selection-start="383" selection-end="383" vertical-scroll-proportion="0.41284403">
+        <state line="15" column="62" selection-start="642" selection-end="642" vertical-scroll-proportion="0.51605505">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
