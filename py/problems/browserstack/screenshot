@@ -1,0 +1,39 @@
+#!/usr/bin/python
+import os
+import sys
+from selenium import webdriver
+
+driver = {
+    'firefox': webdriver.Firefox,
+    'chrome': webdriver.Chrome,
+    'ie': webdriver.Ie,
+    'opera': webdriver.Opera,
+    'safari': webdriver.Safari
+}
+
+def save_screenshot(driver, url, filename):
+    if not filename:
+        filename = nextfilename()
+    browser = driver()
+    try:
+        
+        browser.get(url)
+        browser.get_screenshot_as_file(filename)
+    finally:
+        browser.close()
+
+
+def nextfilename():
+    i = 0
+    while(os.path.exists("screenshot%s.png" % i)):
+        i += 1
+    return "screenshot%s.png" % i
+    
+
+def main(args):
+    save_screenshot(driver[args[0].lower()], args[1], args[2] if len(args) > 2 else None)
+    
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: screenshot url browser [filename]")
+    main(sys.argv[1:])

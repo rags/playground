@@ -15,6 +15,9 @@ public class Driver {
         System.out.println("Credentials is valid = " + api.isCredentialsValid());
         System.out.println("API Usage statistics = " + api.status());
         Browser[] browsers = api.browsers();
+        for (Browser browser : browsers) {
+            System.out.println("browser = " + browser);
+        }
         Worker worker = api.createWorker(browsers[0], "www.google.com");
         System.out.println("Created " + worker + " on " + browsers[0]);
         System.out.println(api.status(worker));

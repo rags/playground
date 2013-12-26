@@ -1,0 +1,40 @@
+#!/usr/bin/python
+import os
+import sys
+from selenium import webdriver
+
+#driver = {
+#    'firefox': webdriver.Firefox,
+#    'chrome': webdriver.Chrome,
+#    'ie': webdriver.Ie,
+#    'opera': webdriver.Opera,
+#    'safari': webdriver.Safari
+#}
+
+def save_screenshot(url, os,  os_version, browser,  browser_version,  filename):
+    if not filename:
+        filename = nextfilename()
+    browser = webdriver.Remote(command_executor = 'http://raghunandanrao:Q1MT8e9SDgJ7tAJx7aDr@hub.browserstack.com:80/wd/hub',
+    desired_capabilities = {'os': os, 'os_version': os_version, 'browser': browser,  'browser_version': browser_version})
+    try:
+        
+        browser.get(url)
+        browser.get_screenshot_as_file(filename)
+    finally:
+        browser.close()
+
+
+def nextfilename():
+    i = 0
+    while(os.path.exists("screenshot%s.png" % i)):
+        i += 1
+    return "screenshot%s.png" % i
+    
+
+def main(args):
+    save_screenshot(args[0], args[1], args[2], args[3], args[4], args[6] if len(args) > 5 else None)
+    
+if __name__ == '__main__':
+    if len(sys.argv) < 5:
+        print("Usage: screenshot_remote url os os_version browser browser_version [filename]")
+    main(sys.argv[1:])
