@@ -192,8 +192,64 @@ class BTree(object):
         print self.root
         while True:
             if node.is_full:
-               if parent:
-                   pass
+               if parent and (node.next_level_full or not node.children):
+                   assert node_pos is not None
+                   print "pos for %s in %s is %s" % (val, node, node_pos)
+                   sibling_i = parent.get_or_create_nearest_non_full_sibling_for(node_pos)
+                   
+                   if sibling_i is not None: #move element to the sibling
+
+                       if not node.children: #leaf node
+                           node.insert_at(node.find_pos_for(val), val, False)
+                           if sibling_i < node_pos: #rotate left
+                               for j in range(sibling_i + 1, node_pos + 1):
+                                   parent.rotate_left(j)
+                           else: #rotate right
+                               for j in range(sibling_i - 1, node_pos - 1, -1):
+                                   parent.rotate_right(j)
+                           return #done inserting
+
+                       print "found sibling %s for node at %s" %  (sibling_i, node_pos)
+                       if sibling_i < node_pos: #rotate left
+                           next = ((parent.children[node_pos - 1], node_pos - 1)
+                                   if val <= node.values[0] else
+                                   (node, node_pos))
+                           for j in range(sibling_i + 1, node_pos + 1):
+                               parent.rotate_left(j)
+                       else: #rotate right
+                           next = ((parent.children[node_pos + 1], node_pos + 1)
+                                   if val > node.values[-1] else
+                                   (node, node_pos))
+                           for j in range(sibling_i - 1, node_pos - 1, -1):
+                               parent.rotate_right(j)
+                       print "After rotations parent = %s" %  parent
+                       node, node_pos = next
+                       print "After rotations node = " %  parent
+                       continue        
+                   else:
+                       print "No sibling found for %s" %  node
+                       assert not parent.is_full, node
+                       if node.k == 2:# 2 way node need special logic to split
+                           if not node.children: # leaf node
+                               low, mid, high = sorted([val] + node.values)
+                               print "LMH = ", low, mid, high
+                               node.values = [high]
+                               parent._insert(mid,Node(self.k, [low]), node)
+                               return # done inserting
+                           else:
+                               child1, child2 = node.children.pop(0), node.children[0]
+                               new_node = Node(self.k, [child1.values.pop()],
+                                               [child1,
+                                                Node(self.k, [node.values.pop(0)],
+                                                 [child1.children.pop(),
+                                                  child2.children.pop(0)]
+                                                     if child1.children else [])])
+                               val_to_promote = child2.values.pop(0)
+                               parent._insert(val_to_promote,new_node, node)
+                               node = new_node if val < val_to_promote else node
+                       else:
+                           node = self._split(node, parent, val)
+                       print "Tree After split %s" % self.root
                elif not parent: #root node
                    if node.k == 2:# 2 way node need special logic to split
                        if not node.children:
