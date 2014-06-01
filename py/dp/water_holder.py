@@ -58,7 +58,7 @@ In the above case its
 from collections import namedtuple
 
 ############################## Common ##############################
-Section = namedtuple('S', 'left right len')
+Section = namedtuple('Section', 'left right len')
 
 def merge_sections(left, right):
     llast, rfirst = left[-1], right[0]
@@ -106,7 +106,9 @@ def sections_dp(*walls):
             if i == j:
                 dp_table[i][j] = [Section(walls[i], walls[j + 1], 1)]
                 continue
-            dp_table[i][j] = min([merge_sections(dp_table[i][j - l], dp_table[i + k - l + 1][j])  for l in range(1, k + 1)], key = len)
+            dp_table[i][j] = min([merge_sections(dp_table[i][j - l], 
+                                                 dp_table[i + k - l + 1][j])  
+                                  for l in range(1, k + 1)], key = len)
     return dp_table[0][-1]
     
 if __name__ == '__main__':
