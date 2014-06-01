@@ -10,7 +10,8 @@ The problem is to find the amount of water that can be held in these structures
 5   3   4   1  2   1  1
 
 The numbers denote height which is directly proportional to amount of water that can be filled.
-Assume for ex: height 1 = 1L, so between walls of height 5,3, the total height is 3 and 3L of water can be held. What is the total capacity of this structure?
+Assume for ex: height 1 = 1L, so between walls of height 5,3, the total height is 3 and 3L of water can be held.
+What is the total capacity of this structure?
 
 In the above case its
   4*2   +  2*2  +  1*2  =  14
