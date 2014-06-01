@@ -52,7 +52,7 @@ def should_return_nth_highest_or_lowest():
         arr = rand.randint(2000, size=2000).tolist()
         copy = arr[:]
         copy.sort()
-        print arr
+#        print arr
 
         for i in range(3):
             n = rand.randint(low=1, high=2000)
