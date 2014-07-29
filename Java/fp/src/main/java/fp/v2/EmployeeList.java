@@ -13,11 +13,10 @@ public class EmployeeList extends ArrayList<Employee> {
    public EmployeeList filter(Predicate predicate){
        final EmployeeList employees = new EmployeeList();
        for (Employee employee : employees) {
-           if (employee.salary()>5000){
+           if (predicate.satisfies(employee)){
                employees.add(employee);
            }
        }
        return employees;
    }
-
 }

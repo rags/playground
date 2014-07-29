@@ -44,6 +44,7 @@ public class Department {
     }
 
     public static void main(String[] args) {
+        //map of department name and total salary
         final ArrayList<Department> departments = new ArrayList<>();
         final Map<String, Double> departmentTotalSalMap = transformValues(
                 uniqueIndex(departments, new Function<Department, String>() {
