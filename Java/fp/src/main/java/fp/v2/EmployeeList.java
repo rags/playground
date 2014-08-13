@@ -19,4 +19,13 @@ public class EmployeeList extends ArrayList<Employee> {
        }
        return employees;
    }
+
+    public static void main(String[] args) {
+        new EmployeeList().filter(new Predicate() {
+            @Override
+            public boolean satisfies(Employee employee) {
+                return employee.age()>25;
+            }
+        });
+    }
 }

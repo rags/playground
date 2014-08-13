@@ -2,13 +2,9 @@ package fp;
 
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import fp.v4.EmployeeList;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import static com.google.common.collect.Maps.transformValues;
@@ -16,14 +12,6 @@ import static com.google.common.collect.Maps.uniqueIndex;
 
 interface F<T, K> {
     K apply(K k, T t);
-}
-
-class Sum implements F<Double, Double> {
-
-    @Override
-    public Double apply(Double number, Double number2) {
-        return number + number2;
-    }
 }
 
 public class Department {
@@ -61,8 +49,24 @@ public class Department {
                             public Double apply(Employee employee) {
                                 return employee.salary();
                             }
-                        }), 0d, new Sum());
+                        }), 0d, new F<Double,Double>() {
+                            @Override
+                            public Double apply(Double aDouble, Double aDouble2) {
+                                return aDouble+aDouble2;
+                            }
+                        });
                     }
                 });
     }
+
+    public static void main1(String[] args) {
+        //map of department name and total salary
+        final ArrayList<Department> departments = new ArrayList<>();
+        final Map<String, Double> departmentTotalSalMap = transformValues(
+                uniqueIndex(departments, (Department department) -> department.name),
+                department -> reduce(FluentIterable.from(department.employees)
+                        .transform(employee -> employee.salary()), 0d,
+                        (aDouble, aDouble2) -> aDouble+aDouble2));
+    }
+   
 }

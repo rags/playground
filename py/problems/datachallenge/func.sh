@@ -1,25 +1,25 @@
 map2x() { 
-python `pwd`/path_doubling_mapper.py 
+python3 `pwd`/path_doubling_mapper.py 
 }
 
 map1step() { 
-python `pwd`/one_hop_mapper.py 
+python3 `pwd`/one_hop_mapper.py 
 }
 
 reduce() { 
-python `pwd`/reducer.py 
+python3 `pwd`/reducer.py 
 }
 
 map_combine() { 
-python `pwd`/combine_mapper.py
+python3 `pwd`/combine_mapper.py
 }
 
 reduce_combine() { 
-python `pwd`/combine_reducer.py
+python3 `pwd`/combine_reducer.py
 }
 
 map_print() { 
-python `pwd`/prettyprint_mapper.py 
+python3 `pwd`/prettyprint_mapper.py 
 }
 
 tabify(){

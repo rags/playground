@@ -20,8 +20,7 @@ namespace LINQDemo
                 "a",
                 "...",
                 " test"
-            }
-            ;
+            };
         }
 
         [TestMethod]
