@@ -3,7 +3,8 @@
 <body>
   <img src="http://adsoftheworld.com/files/images/PornBlocker_Music.jpg" />
 </body>
-<script>
+<!--script>
+//incorrect
  var namespace = namespace || {};
  namespace.Clazz = function() {
   var private1 = 12;
@@ -14,12 +15,40 @@
   function pub(){
     return ++private1;
   }
+
+  constructor.prototype.getr=function(){return privatearg;}
   constructor.prototype.publicfn = pub;
   return constructor;
  }();  
  $(document).ready(function(){
-   x = new namespace.Clazz();
-   console.log(x.publicfn());
+   x1 = new namespace.Clazz(1);
+   x2 = new namespace.Clazz(10);
+   console.log(x1.publicfn() + " " + x1.getr());
+   console.log(x2.publicfn() + " " + x2.getr());
+ });
+</script-->
+
+<script>
+ var namespace = namespace || {};
+ namespace.Clazz = function() {
+  var staticprivate = 12;
+
+  function constructor(arg){
+   var privatearg = arg;
+   return {
+     pub: function () {return ++staticprivate;},
+     getr: function(){return privatearg;}
+   }
+  }
+  return constructor;
+ }();  
+ $(document).ready(function(){
+   x1 = new namespace.Clazz(1);
+   x2 = new namespace.Clazz(10);
+   console.log(x1.pub() + " " + x1.getr());
+   console.log(x2.pub() + " " + x2.getr());
  });
 </script>
+
+
 </html>
