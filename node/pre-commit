@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Beautify your js files before commit
+# setup:
+# 1. sudo npm install -g node-beautify  
+# 2. copy this file to .git/hooks folder in your repo
+# 3. (optional) change the grep expression to catch your js files 
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# If you want to allow non-ascii filenames set this variable to true.
+allownonascii=$(git config hooks.allownonascii)
+
+# Redirect output to stderr.
+exec 1>&2
+
+git diff --cached --name-only $against | grep -e '\.js$' | xargs -I % node -e "
+var fs=require('fs');
+var beautifyJs = require('node-beautify').beautifyJs;
+var file = process.argv[1];
+console.log('Beautifying ' + file)
+fs.writeFileSync(file, beautifyJs(fs.readFileSync(file,'utf-8')));
+" %
