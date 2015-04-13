@@ -10,12 +10,12 @@ def lastBit(num):
 # A tree with 1 based index
 class Fenwick:
 
-    def __init__(self, max):
+    def __init__(self, max, default=0):
         self.max = max
-        self.tree = [None] * (max + 1)
+        self.tree = [default] * (max + 1)
 
-    def create(arr):
-        tree = Fenwick(len(arr))
+    def create(arr, default=0):
+        tree = Fenwick(len(arr), default)
         for i, val in enumerate(arr):
             tree.add(i + 1, val)
         return tree
@@ -33,7 +33,8 @@ class Fenwick:
     def __getitem__(self, index):
         assert self.isInRange(index), "index should between 1 and %d" % self.max
         prev_ = prev(index)
-        return self[prev_] + self.tree[index] if self.isInRange(prev_) else self.tree[index]
+        print(index, prev_, self.isInRange(prev_), self.tree[index])
+        return self.tree[index] if not self.isInRange(prev_) else (self[prev_] + self.tree[index])
             
 
 ############################## TESTS ##############################
@@ -50,3 +51,9 @@ def should_create_tree():
     assert tree[10] == 55
     assert tree[4] == 10
     assert tree[5] == 15
+
+def should_create_tree_from_scratch():
+    tree = Fenwick(3)
+    tree.add(1, 2)
+    assert tree[1] == tree[2] == 2
+    assert tree[3] == 2
