@@ -1,15 +1,20 @@
 package fp;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Main {
+public class Flawed {
     public static void main(String[] args) {
         final ArrayList<Employee> employees = new ArrayList<>();
-        final ArrayList employees1 = employees;
-        employees1.add("foo");
-        employees1.add(123);
+        generics(employees);
         for (Object o : employees) {
             System.out.println(o);
         }
+    }
+
+
+    private static void generics(List employees) {
+        employees.add("foo");
+        employees.add(123);
     }
 }

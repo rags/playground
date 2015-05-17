@@ -6,6 +6,7 @@ import fp.v4.EmployeeList;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static com.google.common.collect.Maps.transformValues;
 import static com.google.common.collect.Maps.uniqueIndex;
@@ -62,6 +63,8 @@ public class Department {
     public static void main1(String[] args) {
         //map of department name and total salary
         final ArrayList<Department> departments = new ArrayList<>();
+        final Stream<Department> filter = departments.stream().filter(department -> department.employees.size() > 10);
+
         final Map<String, Double> departmentTotalSalMap = transformValues(
                 uniqueIndex(departments, (Department department) -> department.name),
                 department -> reduce(FluentIterable.from(department.employees)

@@ -11,12 +11,7 @@ import static com.google.common.collect.Iterables.filter;
 public class EmployeeList extends ArrayList<Employee> {
 
     public static void main(String[] args) {
-        final Iterable<Employee> filtered = filter(new EmployeeList(), new Predicate<Employee>() {
-            @Override
-            public boolean apply(Employee employee) {
-                return employee.age() > 30;
-            }
-        });
+        final Iterable<Employee> filtered = filter(new EmployeeList(), employee -> employee.age() > 30);
     }
 
 }
