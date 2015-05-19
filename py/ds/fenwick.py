@@ -30,10 +30,19 @@ class Fenwick:
     def isInRange(self, index):
         return index > 0 and index <= self.max
         
+    def __str__(self):
+        return str(self.tree)
+
+    def __repr__(self):
+        return str(self)
+            
+    def __setitem__(self, index, value):
+        self.add(index, value - (self[index] - self[index - 1]))
+        
     def __getitem__(self, index):
-        assert self.isInRange(index), "index should between 1 and %d" % self.max
+        assert index == 0 or self.isInRange(index), "index should between 0 and %d" % self.max
         prev_ = prev(index)
-        print(index, prev_, self.isInRange(prev_), self.tree[index])
+        # print(index, prev_, self.isInRange(prev_), self.tree[index])
         return self.tree[index] if not self.isInRange(prev_) else (self[prev_] + self.tree[index])
             
 
@@ -45,6 +54,9 @@ def should_update_tree():
     assert tree[4] == 10
     assert tree[5] == 20
     assert tree[10] == 60
+    tree[5] = 5
+    assert tree[5] == 15
+    assert tree[10] == 55
     
 def should_create_tree():
     tree = Fenwick.create(list(range(1, 11)))
