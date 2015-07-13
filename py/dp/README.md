@@ -1,11 +1,10 @@
 DP diagonal loop:
 ```
 | 00 | 01 | 02 | 03 | 04 |
-|    | 11 | 12 | 13 | 14 |
-|    |    | 22 | 23 | 24 |
-|    |    |    | 33 | 34 |
-|    |    |    |    | 44 |
-|    |    |    |    |    |
+| -- | 11 | 12 | 12 | 14 |
+| -- | -- | 22 | 23 | 24 |
+| -- | -- | -- | 33 | 34 |
+| -- | -- | -- | -- | 44 |
 ```
 The loop is diagonal and each outer loop should cover one diagonal row, So
 
