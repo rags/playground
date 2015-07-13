@@ -13,6 +13,7 @@ The loop is diagonal and each outer loop should cover one diagonal row, So
 3. 02 13 24
 4. 03 14
 5. 04
+Note that in each iteration j is 0,1,2 ahead of i. i.e j=i+0, j=i+1, j=i+2 for each outer loop.
 
 Without principal diagonal:
 
