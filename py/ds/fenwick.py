@@ -50,7 +50,7 @@ class Fenwick1:
     def lastBit(num):
         return num & -num 
     
-# A tree with 1 based index
+# A tree with 0 based index
 class Fenwick:
 
     def __init__(self, max, default=0):

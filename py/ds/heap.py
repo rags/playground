@@ -88,7 +88,26 @@ class Heap(object):
         
 def non_leaf_nodes(n):
     return range(n / 2 - 1, -1, -1)
-    
+
+'''
+loose complexity is O(nlogn)
+complexity (with careful analysis): O(n)
+Analysis:
+In a complete bin tree there are n/2 leaves and n/2 non leaves.
+                    1                 1*log(n)
+    /\              2                 2*(log(n)-1)
+   /\/\             .                 .
+  /\/\/\            .                 .
+ /\/\/\/\           n/4               n/4 * 1
+/\/\/\/\/\          n/2 (leaves)      n/2 * 0
+
+Heapify starts siftdown from one level above the leaf level, since leaves are already heaps
+
+
+watch from 35:00 for analysis
+http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-4-heaps-and-heap-sort/
+
+'''
 def heapify(vals, cmp_):
     n = len(vals)
     for i in non_leaf_nodes(n):

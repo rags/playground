@@ -1,4 +1,12 @@
-    
+'''
+In addition to the requirements imposed on a binary search tree the following must be satisfied by a red–black tree:[6]
+
+# A node is either red or black.
+# The root is black. (This rule is sometimes omitted. Since the root can always be changed from red to black, but not necessarily vice versa, this rule has little effect on analysis).
+# All leaves (NIL) are black. All leaves are of the same color as the root.
+# Every red node must have two black child nodes, and therefore it must have a black parent.
+# Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.
+'''    
 from .nodes import DoubleLinkNode as Node
 from .bst import  is_valid_binary_tree, next_descendant_in_order
 

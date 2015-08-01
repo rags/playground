@@ -80,28 +80,59 @@ def partition(a, i=0):
     raise Exception("Should never get here")
 
 
+# Order log(N)
+def partition_better(a, i=0):
+    if not a:
+        return -1
+    if a[i] == 0:
+        return i
+    try:
+        if a[i + 1] == 0:
+            return i + 1
+    except IndexError:
+        return -1 #all ones
+    pow2 = 1
+    while True: #log(N)
+        j = i + 2 ** pow2
+        try:
+            if a[j] == 0:
+                return binary_search(a, i, j)
+        except IndexError:
+            return partition(a, i + 2 ** (pow2 - 1))
+        pow2 += 1
+    raise Exception("Should never get here")
+
+#Log(N)
+def binary_search(a, low, high):
+    if low + 1 >= high :
+        return low if a[low] == 0 else high if a[high] == 0 else -1
+    mid = (low + high) // 2
+    if a[mid] == 0:
+        return binary_search(a, low, mid)
+    return binary_search(a, mid + 1, high)
     
 ############################## unit tests ##############################
-
-def should_parition():
-    assert -1 == partition([1, 1, 1])
-    assert -1 == partition([1])
-    assert -1 == partition([])
-    assert 0 == partition([0])
-    assert 1 == partition([1, 0])
-    assert 7 == partition([1, 1, 1, 1, 1, 1, 1, 0])
-    assert 7 == partition([1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
-    assert 9 == partition([1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+import pytest
+@pytest.mark.parametrize(("algorithm"), [partition, partition_better])
+def should_parition(algorithm):
+    assert -1 == algorithm([1, 1, 1])
+    assert -1 == algorithm([1])
+    assert -1 == algorithm([])
+    assert 0 == algorithm([0])
+    assert 1 == algorithm([1, 0])
+    assert 7 == algorithm([1, 1, 1, 1, 1, 1, 1, 0])
+    assert 7 == algorithm([1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
+    assert 9 == algorithm([1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     
 
 import random
-        
-def should_partition_large():
+@pytest.mark.parametrize(("algorithm"), [partition, partition_better])
+def should_partition_large(algorithm):
     large = 100000
     for i in range(100):
         index = random.randint(1, large) #random partition
         a = [1] * index + [0] * (large - index) #index no of 1's followed by zeros
-        assert index == partition(a)
+        assert index == algorithm(a)
         assert 0 == a[index] 
         assert 1 == a[index - 1] 
     
