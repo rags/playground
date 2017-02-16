@@ -7,7 +7,7 @@ def validate(node):
     return node is not None and type(node) is Node and ((node.val in operators and node.left is not None and node.right is not None and validate(node.left) and validate(node.right)) or (node.val not in operators and node.left is None and node.right is None))
 
 #################### TESTS ####################
-def xshould_validate_legit_node():
+def should_validate_legit_node():
     assert validate(Node(1))
     assert validate(Node('+', Node(1), Node(2)))
     assert validate(Node('*',
