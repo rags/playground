@@ -1,3 +1,7 @@
+'''
+TODO: This solution counts all combinations like.  Ex: 10 = [1 1 1 1 5] [1 1 1 5 1] [1 1 5 1 1] which are essentially same {5:1, 1:5}.  Use counters instead. 
+'''
+
 def combinations_recur(denoms, amount):
     return _combinations_recur(sorted(denoms), amount, [[]]) or []
 '''

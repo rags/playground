@@ -1,3 +1,4 @@
+# There are duplicates here in the subproblems.  The optimal solution will use DP
 def match(_str, pattern):
     tokens = tokenize(pattern)
     return _match(_str, tokens)
