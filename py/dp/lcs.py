@@ -1,6 +1,6 @@
 #Find longest common subsequence between 2 sequences. Suffix
 
-#O(2^n) - all combinations of a sequence 
+#O(2^n) - all combinations of a sequence
 def all_combs(seq):
     if len(seq) == 1:
         return [seq[0:0], seq[0:1]]
@@ -35,7 +35,7 @@ exponential
 def lcs_recur(s1, s2):
     if not (s1 and s2):
         return s1[0:0]
-        
+
     if s1[-1] == s2[-1]:
         return lcs_recur(s1[:-1], s2[:-1]) + s1[-1:]
     return max(lcs_recur(s1, s2[:-1]), lcs_recur(s1[:-1], s2), key = len)
@@ -72,7 +72,7 @@ def lcs_space_optimal(seq1, seq2):
                               else max(memo[l], cur[i], key = len))
 #    print cur
     return cur[m - 1]
-            
+
 
 ############################## TESTS ##############################
 import pytest
@@ -86,7 +86,7 @@ def is_subseq(str_, sub):
             if i >= len(str_):
                 return False
     return True
-    
+
 @pytest.mark.parametrize(('s1', 's2', 'subseqs'),
                          [('AAACCGTGAGTTATTCGTTCTAGAA', 'CACCCCTAAGGTACCTTTGGTTC',
                            ['ACCTAGTATTGTTC', 'ACCTGGTTTTGTTC']),
@@ -94,9 +94,9 @@ def is_subseq(str_, sub):
                       ])
 def should_be_sub_seq(s1, s2, subseqs):
     for subseq in subseqs:
-        assert is_subseq(s1, subseq) 
-        assert is_subseq(s2, subseq) 
-    
+        assert is_subseq(s1, subseq)
+        assert is_subseq(s2, subseq)
+
 
 def should_return_all_combinations():
     assert all_combs([1, 2, 3, 4]) == [[],  [4],  [3],  [3,  4],  [2],  [2,  4],  [2,  3],
@@ -116,7 +116,7 @@ def should_return_all_combinations():
                           ('ABCDEFG', 'BCDGK', ['BCDG']),
                           ('XMJYAUZ', 'MZJAWXU', ['MJAU']),
                           ('nanto', 'nematode knowledge', ['nano', 'nato']),
-                          
+
                           (['A', 'G', 'G', 'T', 'A', 'B'],
                            ['G', 'X', 'T', 'X', 'A', 'Y', 'B'], [['G', 'T', 'A', 'B']]),
                           ((1, 2, 2, 3, 1, 4), (2, 5, 3, 5, 1, 6, 4), [(2, 3, 1, 4)]),
@@ -130,7 +130,7 @@ def should_find_lcs(s1, s2, lcses, algorithm):
 @pytest.mark.parametrize(('s1', 's2', 'lcses'),
                          [('AAACCGTGAGTTATTCGTTCTAGAA', 'CACCCCTAAGGTACCTTTGGTTC',
                            ['ACCTAGTATTGTTC', 'ACCTGGTTTTGTTC']),
-                          ('HIEROGLYPHOLOGY', 'MICHAELANGELO', ['IELLO', 'HEGLO', 'HELLO']), 
+                          ('HIEROGLYPHOLOGY', 'MICHAELANGELO', ['IELLO', 'HEGLO', 'HELLO']),
                           ('empty!bottle', 'nematode knowledge', ['emtole']),
                       ])
 def should_find_lcs_long_inputs(s1, s2, lcses, algorithm):

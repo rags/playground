@@ -1,3 +1,25 @@
+'''
+A tree has n / 2 leaf nodes and n / 2 non leaf node.
+to heapify start with the last parent node (n / 2) and work your way upto root (first element)
+At each node find the max(parent,  left,  right) and swap it with parent.
+If you swap with a non leaf child.   you will need to repeat the process with that child as parent
+
+             0
+            / \
+           /   \
+          1    2
+         / \  / \
+        3  4 5   6
+       / \  \
+      7  8  9
+n = 10
+leaf nodes =  5,  non leaf =  5
+iteration begins at index 4 (n / 2 - 1) -> -1 beacause 0th based index
+and ends at 0
+left = i * 2 + 1
+right = left + 1
+
+'''
 from __future__ import print_function
 import math
 from ds import arrays

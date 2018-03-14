@@ -10,8 +10,7 @@ def optimal_sack_recur(knapsack_size, items):
     if not (items and knapsack_size):
         return 0
     weight, value = items[0]
-    return max(value + optimal_sack_recur(knapsack_size - weight, items)
-               if weight <= knapsack_size else 0,
+    return max((value + optimal_sack_recur(knapsack_size - weight, items)) if weight <= knapsack_size else 0,
                optimal_sack_recur(knapsack_size, items[1:]))
 '''
 O(Nm) - pseudo polynomial

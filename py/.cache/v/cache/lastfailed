@@ -1,0 +1,12 @@
+{
+  "dp/longest_inc_seq.py": true,
+  "dp/longest_inc_sub_seq_brute.py": true,
+  "dp/longest_palindrome_subseq.py": true,
+  "dp/matrix_chain_multiply.py": true,
+  "dp/pascal_triangle.py": true,
+  "dp/seam_carving/gui.py": true,
+  "dp/seam_carving/imagematrix.py": true,
+  "dp/seam_carving/resizeable_image.py": true,
+  "dp/seam_carving/test_resizeable_image.py": true,
+  "dp/shortest_paths.py": true
+}
