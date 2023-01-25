@@ -1,7 +1,0 @@
-com/datadog/monitoring/processor/SimpleMetricCreatorTest.class
-com/datadog/monitoring/processor/StubConsumers.class
-com/datadog/monitoring/processor/CsvFixture.class
-com/datadog/monitoring/processor/SectionLoadLoggerTest.class
-com/datadog/monitoring/processor/AlarmProcessorTest.class
-com/datadog/monitoring/processor/CalculatedMetricCreatorTest.class
-com/datadog/monitoring/processor/SimpleMetricCreatorTest$1.class
